@@ -42,5 +42,15 @@ namespace QLVT.Properties {
                 return ((string)(this["QLVT_NHAPXUATConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN-PC\\MSSQLSERVER01;Initial Catalog=QLVT_NHAPXUAT;User ID=TH")]
+        public string QLVT_NHAPXUATConnectionString2 {
+            get {
+                return ((string)(this["QLVT_NHAPXUATConnectionString2"]));
+            }
+        }
     }
 }

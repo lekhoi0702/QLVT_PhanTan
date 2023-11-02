@@ -75,6 +75,7 @@ namespace QLVT
 
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
+            dataSet.EnforceConstraints = false;
 
             this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.NHANVIENTableAdapter.Fill(this.dataSet.NHANVIEN);
@@ -546,7 +547,7 @@ namespace QLVT
               select @returnedResult*/
             String cauTruyVan =
                     "DECLARE	@result int " +
-                    "EXEC @result = [dbo].[sp_KiemTraMaNhanVien] '" +
+                    "EXEC @result = [dbo].[sp_TraCuu_KiemTraMaNhanVien] '" +
                     maNhanVien + "' " +
                     "SELECT 'Value' = @result"; ;
             SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
@@ -767,6 +768,19 @@ namespace QLVT
 
             /*Step 4*/
             this.btnHoanTac.Enabled = true;
+        }
+
+        private void nHANVIENBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bdsNhanVien.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dataSet);
+
+        }
+
+        private void nHANVIENDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
