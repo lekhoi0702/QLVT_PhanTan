@@ -212,7 +212,28 @@ namespace QLVT
             }
         }
 
+
+        private void btnPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuNhap form = new FormPhieuNhap();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
         }

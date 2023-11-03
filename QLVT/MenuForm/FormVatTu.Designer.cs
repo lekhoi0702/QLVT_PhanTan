@@ -53,7 +53,6 @@
             this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHoanTac = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -106,7 +105,7 @@
             // txtSLT
             // 
             txtSLT.AutoSize = true;
-            txtSLT.Location = new System.Drawing.Point(255, 43);
+            txtSLT.Location = new System.Drawing.Point(255, 40);
             txtSLT.Name = "txtSLT";
             txtSLT.Size = new System.Drawing.Size(102, 20);
             txtSLT.TabIndex = 8;
@@ -115,7 +114,7 @@
             // txtMaLVT
             // 
             txtMaLVT.AutoSize = true;
-            txtMaLVT.Location = new System.Drawing.Point(255, 86);
+            txtMaLVT.Location = new System.Drawing.Point(255, 83);
             txtMaLVT.Name = "txtMaLVT";
             txtMaLVT.Size = new System.Drawing.Size(110, 20);
             txtMaLVT.TabIndex = 6;
@@ -124,7 +123,7 @@
             // dVTLabel
             // 
             dVTLabel.AutoSize = true;
-            dVTLabel.Location = new System.Drawing.Point(12, 135);
+            dVTLabel.Location = new System.Drawing.Point(12, 132);
             dVTLabel.Name = "dVTLabel";
             dVTLabel.Size = new System.Drawing.Size(92, 20);
             dVTLabel.TabIndex = 4;
@@ -133,7 +132,7 @@
             // tENVTLabel
             // 
             tENVTLabel.AutoSize = true;
-            tENVTLabel.Location = new System.Drawing.Point(12, 86);
+            tENVTLabel.Location = new System.Drawing.Point(12, 83);
             tENVTLabel.Name = "tENVTLabel";
             tENVTLabel.Size = new System.Drawing.Size(85, 20);
             tENVTLabel.TabIndex = 2;
@@ -142,7 +141,7 @@
             // mAVTLabel
             // 
             mAVTLabel.AutoSize = true;
-            mAVTLabel.Location = new System.Drawing.Point(12, 43);
+            mAVTLabel.Location = new System.Drawing.Point(12, 40);
             mAVTLabel.Name = "mAVTLabel";
             mAVTLabel.Size = new System.Drawing.Size(80, 20);
             mAVTLabel.TabIndex = 0;
@@ -172,6 +171,7 @@
             this.tableAdapterManager.HOADONTableAdapter = null;
             this.tableAdapterManager.KHOTableAdapter = null;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
+            this.tableAdapterManager.NHACCTableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHIEUNHAPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -208,7 +208,6 @@
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
-            this.bar2,
             this.bar3});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
@@ -224,7 +223,6 @@
             this.btnChuyenChiNhanh,
             this.btnThoat,
             this.barButtonItem1});
-            this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 8;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -232,7 +230,7 @@
             // 
             this.bar1.BarName = "Tools";
             this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
+            this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.FloatLocation = new System.Drawing.Point(285, 154);
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -299,16 +297,6 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
-            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -327,31 +315,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1113, 56);
+            this.barDockControlTop.Size = new System.Drawing.Size(1113, 34);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 565);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 567);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1113, 24);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1113, 22);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 56);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 509);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 533);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1113, 56);
+            this.barDockControlRight.Location = new System.Drawing.Point(1113, 34);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 509);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 533);
             // 
             // btnChuyenChiNhanh
             // 
@@ -373,7 +361,7 @@
             // 
             this.gcVatTu.DataSource = this.bdsVatTu;
             this.gcVatTu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcVatTu.Location = new System.Drawing.Point(0, 56);
+            this.gcVatTu.Location = new System.Drawing.Point(0, 34);
             this.gcVatTu.MainView = this.gridView1;
             this.gcVatTu.Name = "gcVatTu";
             this.gcVatTu.Size = new System.Drawing.Size(1113, 220);
@@ -461,9 +449,9 @@
             this.panelNhapLieu.Controls.Add(mAVTLabel);
             this.panelNhapLieu.Controls.Add(this.txtMaVT);
             this.panelNhapLieu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNhapLieu.Location = new System.Drawing.Point(0, 276);
+            this.panelNhapLieu.Location = new System.Drawing.Point(0, 254);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(1113, 289);
+            this.panelNhapLieu.Size = new System.Drawing.Size(1113, 313);
             this.panelNhapLieu.TabIndex = 21;
             this.panelNhapLieu.Text = "Thông tin nhập liệu";
             // 
@@ -539,7 +527,7 @@
             this.fillByToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(0, 276);
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 254);
             this.fillByToolStrip.Name = "fillByToolStrip";
             this.fillByToolStrip.Size = new System.Drawing.Size(1113, 27);
             this.fillByToolStrip.TabIndex = 26;
@@ -617,7 +605,6 @@
         private DevExpress.XtraBars.BarButtonItem btnHoanTac;
         private DevExpress.XtraBars.BarButtonItem btnChuyenChiNhanh;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;

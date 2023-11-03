@@ -65,28 +65,40 @@
     <Compile Include="FormChinh.Designer.cs">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDDH.cs">
+    <Compile Include="FormChonCTDDH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDDH.Designer.cs">
+    <Compile Include="FormChonCTDDH.Designer.cs">
+      <DependentUpon>FormChonCTDDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\FormChonDDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormChonDDH.Designer.cs">
+      <DependentUpon>FormChonDDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FormDDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FormDDH.Designer.cs">
       <DependentUpon>FormDDH.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKho.cs">
+    <Compile Include="MenuForm\FormKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKho.Designer.cs">
+    <Compile Include="MenuForm\FormKho.Designer.cs">
       <DependentUpon>FormKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNhanVien.cs">
+    <Compile Include="MenuForm\FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNhanVien.Designer.cs">
+    <Compile Include="MenuForm\FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPhieuNhap.cs">
+    <Compile Include="MenuForm\FormPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPhieuNhap.Designer.cs">
+    <Compile Include="MenuForm\FormPhieuNhap.Designer.cs">
       <DependentUpon>FormPhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="QLVT_NHAPXUATDataSet.Designer.cs">
@@ -94,16 +106,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVT_NHAPXUATDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormLoaiVatTu.cs">
+    <Compile Include="MenuForm\FormLoaiVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormLoaiVatTu.Designer.cs">
+    <Compile Include="MenuForm\FormLoaiVatTu.Designer.cs">
       <DependentUpon>FormLoaiVatTu.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormVatTu.cs">
+    <Compile Include="MenuForm\FormVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormVatTu.Designer.cs">
+    <Compile Include="MenuForm\FormVatTu.Designer.cs">
       <DependentUpon>FormVatTu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -114,31 +126,37 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormChuyenChiNhanh.cs">
+    <Compile Include="SubForm\FormChuyenChiNhanh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChuyenChiNhanh.Designer.cs">
+    <Compile Include="SubForm\FormChuyenChiNhanh.Designer.cs">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormChinh.resx">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDDH.resx">
+    <EmbeddedResource Include="FormChonCTDDH.resx">
+      <DependentUpon>FormChonCTDDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormChonDDH.resx">
+      <DependentUpon>FormChonDDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FormDDH.resx">
       <DependentUpon>FormDDH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKho.resx">
+    <EmbeddedResource Include="MenuForm\FormKho.resx">
       <DependentUpon>FormKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNhanVien.resx">
+    <EmbeddedResource Include="MenuForm\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPhieuNhap.resx">
+    <EmbeddedResource Include="MenuForm\FormPhieuNhap.resx">
       <DependentUpon>FormPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormLoaiVatTu.resx">
+    <EmbeddedResource Include="MenuForm\FormLoaiVatTu.resx">
       <DependentUpon>FormLoaiVatTu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormVatTu.resx">
+    <EmbeddedResource Include="MenuForm\FormVatTu.resx">
       <DependentUpon>FormVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -155,7 +173,7 @@
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormChuyenChiNhanh.resx">
+    <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
