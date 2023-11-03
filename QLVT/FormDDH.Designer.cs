@@ -112,6 +112,9 @@
             this.barDockControl9 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl10 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl11 = new DevExpress.XtraBars.BarDockControl();
+            this.bdsNCC = new System.Windows.Forms.BindingSource(this.components);
+            this.NHACCTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.NHACCTableAdapter();
+            this.cmbNCC = new System.Windows.Forms.ComboBox();
             mAKHOLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             mANCCLabel = new System.Windows.Forms.Label();
@@ -151,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNCC)).BeginInit();
             this.SuspendLayout();
             // 
             // mAKHOLabel
@@ -474,6 +478,7 @@
             this.tableAdapterManager.HOADONTableAdapter = null;
             this.tableAdapterManager.KHOTableAdapter = this.KHOTableAdapter;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
+            this.tableAdapterManager.NHACCTableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHIEUNHAPTableAdapter = this.PHIEUNHAPTableAdapter;
             this.tableAdapterManager.UpdateOrder = QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -764,6 +769,7 @@
             // 
             // panelDDH
             // 
+            this.panelDDH.Controls.Add(this.cmbNCC);
             this.panelDDH.Controls.Add(this.cmbKho);
             this.panelDDH.Controls.Add(mAKHOLabel);
             this.panelDDH.Controls.Add(this.txtMaKho);
@@ -929,6 +935,26 @@
             this.barDockControl11.Manager = null;
             this.barDockControl11.Size = new System.Drawing.Size(0, 0);
             // 
+            // bdsNCC
+            // 
+            this.bdsNCC.DataMember = "NHACC";
+            this.bdsNCC.DataSource = this.dataSet;
+            // 
+            // NHACCTableAdapter
+            // 
+            this.NHACCTableAdapter.ClearBeforeFill = true;
+            // 
+            // cmbNCC
+            // 
+            this.cmbNCC.DataSource = this.bdsNCC;
+            this.cmbNCC.DisplayMember = "TENNCC";
+            this.cmbNCC.FormattingEnabled = true;
+            this.cmbNCC.Location = new System.Drawing.Point(290, 131);
+            this.cmbNCC.Name = "cmbNCC";
+            this.cmbNCC.Size = new System.Drawing.Size(144, 28);
+            this.cmbNCC.TabIndex = 11;
+            this.cmbNCC.ValueMember = "MANCC";
+            // 
             // FormDDH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -979,6 +1005,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNCC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1060,5 +1087,8 @@
         private System.Windows.Forms.ComboBox cmbVatTu;
         private DevExpress.XtraEditors.SpinEdit txtSoLuong;
         private System.Windows.Forms.TextBox txtMaVT;
+        private System.Windows.Forms.BindingSource bdsNCC;
+        private QLVT_NHAPXUATDataSetTableAdapters.NHACCTableAdapter NHACCTableAdapter;
+        private System.Windows.Forms.ComboBox cmbNCC;
     }
 }
