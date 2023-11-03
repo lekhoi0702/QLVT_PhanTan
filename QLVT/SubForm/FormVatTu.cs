@@ -61,7 +61,10 @@ namespace QLVT
             this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
             this.CTPNTableAdapter.Fill(this.dataSet.CTPN);
 
-           
+            this.LOAIVATTUTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.LOAIVATTUTableAdapter.Fill(this.dataSet.LOAIVATTU);
+
+
 
 
             // phan quyen
@@ -98,6 +101,8 @@ namespace QLVT
 
 
                 this.panelNhapLieu.Enabled = true;
+                this.txtMaVT.Enabled = false;
+                this.cmbLoaiVT.Enabled = false;
 
             }
 
@@ -122,6 +127,7 @@ namespace QLVT
 
 
             /*Step 3*/
+            this.cmbLoaiVT.Enabled = true;
             this.txtMaVT.Enabled = true;
             this.btnThem.Enabled = false;
             this.btnXoa.Enabled = false;
@@ -130,6 +136,7 @@ namespace QLVT
             this.btnHoanTac.Enabled = true;
             this.btnLamMoi.Enabled = false;
             this.btnThoat.Enabled = false;
+            this.txtMaLoaiVatTu.Enabled = false;
 
 
             this.gcVatTu.Enabled = false;
@@ -249,28 +256,6 @@ namespace QLVT
                 return false;
             }
 
-            if (txtMaLoaiVatTu.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống mã loại vật tư", "Thông báo", MessageBoxButtons.OK);
-                txtMaVT.Focus();
-                return false;
-            }
-
-            if (Regex.IsMatch(txtMaLoaiVatTu.Text, @"^[a-zA-Z0-9]+$") == false)
-            {
-                MessageBox.Show("Mã loại vật tư chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
-                txtMaVT.Focus();
-                return false;
-            }
-
-            if (txtMaLoaiVatTu.Text.Length > 5)
-            {
-                MessageBox.Show("Mã loại vật tư không quá 5 kí tự", "Thông báo", MessageBoxButtons.OK);
-                txtMaVT.Focus();
-                return false;
-            }
-
-
             return true;
         }
 
@@ -290,8 +275,11 @@ namespace QLVT
             DataRowView drv = ((DataRowView)bdsVatTu[bdsVatTu.Position]);
             String tenVatTu = drv["TENVT"].ToString();
             String donViTinh = drv["DVT"].ToString();
-            String maLoaiVT = txtMaLoaiVatTu.Text.Trim();
+            drv["MALVT"] = cmbLoaiVT.SelectedValue.ToString();
+            String maLoaiVT = drv["MALVT"].ToString();
             String slt = spSTL.Value.ToString();
+            Console.WriteLine(maLoaiVT);
+         
 
             /*declare @returnedResult int
               exec @returnedResult = sp_KiemTraMaVatTu '20'
@@ -322,43 +310,9 @@ namespace QLVT
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
             //Console.WriteLine(result);
             Program.myReader.Close();
-            Console.WriteLine(result);
+       
 
-            String cauTruyVan2 =
-                    "DECLARE	@result nchar(5) " +
-                    "EXEC @result = sp_KiemTraMaLoaiVatTu '" +
-                    maLoaiVT + "' " +
-                    "SELECT 'Value' = @result";
-            SqlCommand sqlCommand2 = new SqlCommand(cauTruyVan2, Program.conn);
-            try
-            {
-                Program.myReader = Program.ExecSqlDataReader(cauTruyVan2);
-                /*khong co ket qua tra ve thi ket thuc luon*/
-                if (Program.myReader == null)
-                {
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine(ex.Message);
-                return;
-            }
-            Program.myReader.Read();
-            int result2 = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine(result);
-            Program.myReader.Close();
-            Console.WriteLine(result);
-
-
-
-
-
-
-
-
+           
 
             /*Step 2*/
             int viTriConTro = bdsVatTu.Position;
@@ -370,12 +324,7 @@ namespace QLVT
                 return;
             }
             else
-            if (result2 == 0)
-            {
-                MessageBox.Show("Mã loại vật tư không đúng !", "Thông báo", MessageBoxButtons.OK);
-                return;
-            }
-            else
+            
             {
                 DialogResult dr = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -411,12 +360,12 @@ namespace QLVT
                                 "SET " +
                                 "TENVT = '" + tenVatTu + "'," +
                                 "DVT = '" + donViTinh + "'," +
-                                "MALVT = '" + maLoaiVT + "'," +
+                                "MALVT = '" + txtMaLoaiVatTu.Text.Trim() + "'," +
                                 "SLT = '" + slt + "'," +
                                 "WHERE MAVT = '" + maVatTu + "'";
                         }
                         //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-                        //Console.WriteLine(cauTruyVanHoanTac);
+                        Console.WriteLine(cauTruyVanHoanTac);
 
                         /*Đưa câu truy vấn hoàn tác vào undoList 
                          * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
@@ -499,14 +448,14 @@ namespace QLVT
 
 
             string cauTruyVanHoanTac =
-            "INSERT INTO DBO.VATTU( MAVT,TENVT,DVT,SOLUONGTON) " +
+            "INSERT INTO DBO.VATTU( MAVT,TENVT,DVT,MALVT,SLT) " +
             " VALUES( '" + txtMaVT.Text + "','" +
                         txtTenVT.Text + "','" +
                         txtDVT.Text + "', " +
                         txtMaLoaiVatTu.Text + "', " +
                         spSTL.Value + " ) ";
 
-            Console.WriteLine(cauTruyVanHoanTac);
+          
             undoList.Push(cauTruyVanHoanTac);
 
             /*Step 2*/
@@ -552,7 +501,7 @@ namespace QLVT
         private int kiemTraVatTuChiNhanhKhac(String maVatTu)
         {
             String cauTruyVan =
-                    "DECLARE	@result int " +
+                    "DECLARE	@result NCHAR(5) " +
                     "EXEC @result = sp_KiemTraMaVatTuChiNhanhKhac '" +
                     maVatTu + "' " +
                     "SELECT 'Value' = @result";
@@ -601,6 +550,19 @@ namespace QLVT
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.LOAIVATTUTableAdapter.FillBy(this.dataSet.LOAIVATTU);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
     }
 

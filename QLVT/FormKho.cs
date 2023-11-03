@@ -94,6 +94,7 @@ namespace QLVT
                 this.btnChuyenChiNhanh.Enabled = true;
                 this.btnThoat.Enabled = true;
                 cmbChiNhanh.Enabled = false;
+                this.txtMaKho.Enabled = false;
 
 
                 this.panelNhapLieu.Enabled = true;

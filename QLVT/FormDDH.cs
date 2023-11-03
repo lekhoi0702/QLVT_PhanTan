@@ -58,6 +58,14 @@ namespace QLVT
 
             this.PHIEUNHAPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.PHIEUNHAPTableAdapter.Fill(this.dataSet.PHIEUNHAP);
+
+
+            this.VATTUTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
+
+
+            this.KHOTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.KHOTableAdapter.Fill(this.dataSet.KHO);
             /*van con ton tai loi chua sua duoc*/
             //maChiNhanh = ((DataRowView)bdsVatTu[0])["MACN"].ToString();
 
@@ -69,9 +77,27 @@ namespace QLVT
             bds = bdsDDH;
             gc = gcDDH;
 
+            this.panelDDH.Enabled = false;
+            this.panelCTDDH.Enabled = false;
+            this.btnTHEM.Enabled = false;
+            this.btnXOA.Enabled = false;
+            this.btnGHI.Enabled = false;
+            this.btnHOANTAC.Enabled = false;        
+            if (Program.role == "CHINHANH" || Program.role == "USER")
+            {
+                this.cmbChiNhanh.Enabled = false;
+            }
+            if (Program.role == "CONGTY")
+            {
+                this.btnMenu.Enabled = false;
+            }
+
+
+
         }
         private void btnCheDoDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.panelNhapLieu.Enabled = true;
             /*Step 0*/
             btnMenu.Links[0].Caption = "Đơn Đặt Hàng";
 
@@ -213,6 +239,7 @@ namespace QLVT
                 this.btnEXIT.Enabled = true;
 
                 this.txtMaDDH.Enabled = false;
+                this.cmbChiNhanh.Enabled = false;
 
             }
         }
@@ -408,6 +435,9 @@ namespace QLVT
                 MessageBox.Show("Bạn không thể sửa phiếu do người khác lập", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
+           
+
+            
 
 
 
@@ -522,6 +552,7 @@ namespace QLVT
                         this.btnLAMMOI.Enabled = true;
                         this.btnMenu.Enabled = true;
                         this.btnEXIT.Enabled = true;
+                       
 
                         //this.groupBoxDonDatHang.Enabled = false;
 
