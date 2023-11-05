@@ -40,8 +40,8 @@
             this.colMANCC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDangNhap = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dDHGridControl)).BeginInit();
@@ -158,36 +158,56 @@
             this.colMAKHO.VisibleIndex = 4;
             this.colMAKHO.Width = 93;
             // 
-            // simpleButton1
+            // btnDangNhap
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(117, 226);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(163, 62);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "CHỌN";
-            this.simpleButton1.Click += new System.EventHandler(this.btnCHON_Click);
+            this.btnDangNhap.BorderRadius = 20;
+            this.btnDangNhap.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.btnDangNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangNhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangNhap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.Location = new System.Drawing.Point(358, 226);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(210, 56);
+            this.btnDangNhap.TabIndex = 9;
+            this.btnDangNhap.Text = "THOÁT";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnTHOAT_Click);
             // 
-            // simpleButton2
+            // guna2Button1
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(395, 226);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(163, 62);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "THOÁT";
-            this.simpleButton2.Click += new System.EventHandler(this.btnTHOAT_Click);
+            this.guna2Button1.BorderRadius = 20;
+            this.guna2Button1.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(95, 226);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(210, 56);
+            this.guna2Button1.TabIndex = 10;
+            this.guna2Button1.Text = "CHỌN";
+            this.guna2Button1.Click += new System.EventHandler(this.btnCHON_Click);
             // 
             // FormChonDDH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 331);
-            this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.dDHGridControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormChonDDH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐƠN ĐẶT HÀNG";
             this.Load += new System.EventHandler(this.FormChonDDH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
@@ -211,7 +231,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMANCC;
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private Guna.UI2.WinForms.Guna2Button btnDangNhap;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

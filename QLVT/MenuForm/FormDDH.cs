@@ -427,11 +427,7 @@ namespace QLVT
             {
                 MessageBox.Show("Đơn đặt hàng trống", "Thông báo", MessageBoxButtons.OK);
             }
-            else
-            if (bdsCTDDH.Count == 0)
-            {
-                MessageBox.Show("Chi tiết đơn đặt hàng trống", "Thông báo", MessageBoxButtons.OK);
-            }
+            
             else
             {
                 viTri = bdsDDH.Position;

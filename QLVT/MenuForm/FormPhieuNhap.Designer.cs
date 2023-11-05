@@ -75,7 +75,7 @@
             this.colMADDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelNhapLieu = new DevExpress.XtraEditors.GroupControl();
             this.panelCTPN = new DevExpress.XtraEditors.GroupControl();
-            this.btnCTDDH = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCTDDH = new Guna.UI2.WinForms.Guna2Button();
             this.cmbMaVT = new System.Windows.Forms.ComboBox();
             this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
             this.txtDonGia = new DevExpress.XtraEditors.SpinEdit();
@@ -554,7 +554,7 @@
             this.panelNhapLieu.Location = new System.Drawing.Point(0, 357);
             this.panelNhapLieu.Margin = new System.Windows.Forms.Padding(4);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(679, 368);
+            this.panelNhapLieu.Size = new System.Drawing.Size(733, 368);
             this.panelNhapLieu.TabIndex = 8;
             this.panelNhapLieu.Text = "Thông tin nhập liệu";
             // 
@@ -569,28 +569,30 @@
             this.panelCTPN.Controls.Add(mAVTLabel);
             this.panelCTPN.Controls.Add(this.txtMaVT);
             this.panelCTPN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCTPN.Location = new System.Drawing.Point(429, 26);
+            this.panelCTPN.Location = new System.Drawing.Point(456, 26);
             this.panelCTPN.Margin = new System.Windows.Forms.Padding(4);
             this.panelCTPN.Name = "panelCTPN";
-            this.panelCTPN.Size = new System.Drawing.Size(248, 340);
+            this.panelCTPN.Size = new System.Drawing.Size(275, 340);
             this.panelCTPN.TabIndex = 1;
             this.panelCTPN.Text = "Chi tiết phiếu nhập";
             // 
             // btnCTDDH
             // 
-            this.btnCTDDH.Appearance.BackColor = System.Drawing.Color.White;
-            this.btnCTDDH.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.btnCTDDH.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.btnCTDDH.Appearance.Options.UseBackColor = true;
-            this.btnCTDDH.Appearance.Options.UseBorderColor = true;
-            this.btnCTDDH.Appearance.Options.UseForeColor = true;
-            this.btnCTDDH.Location = new System.Drawing.Point(12, 199);
+            this.btnCTDDH.BorderRadius = 20;
+            this.btnCTDDH.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.btnCTDDH.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCTDDH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCTDDH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCTDDH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCTDDH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCTDDH.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.btnCTDDH.ForeColor = System.Drawing.Color.White;
+            this.btnCTDDH.Location = new System.Drawing.Point(12, 172);
             this.btnCTDDH.Margin = new System.Windows.Forms.Padding(4);
             this.btnCTDDH.Name = "btnCTDDH";
-            this.btnCTDDH.Size = new System.Drawing.Size(224, 38);
-            this.btnCTDDH.TabIndex = 12;
+            this.btnCTDDH.Size = new System.Drawing.Size(223, 56);
+            this.btnCTDDH.TabIndex = 11;
             this.btnCTDDH.Text = "Chi tiết đơn đặt hàng";
-            this.btnCTDDH.ToolTipIconType = DevExpress.Utils.ToolTipIconType.WindLogo;
             this.btnCTDDH.Click += new System.EventHandler(this.btnCTDDH_Click);
             // 
             // cmbMaVT
@@ -675,7 +677,7 @@
             this.panelPhieuNhap.Location = new System.Drawing.Point(2, 26);
             this.panelPhieuNhap.Margin = new System.Windows.Forms.Padding(4);
             this.panelPhieuNhap.Name = "panelPhieuNhap";
-            this.panelPhieuNhap.Size = new System.Drawing.Size(427, 340);
+            this.panelPhieuNhap.Size = new System.Drawing.Size(454, 340);
             this.panelPhieuNhap.TabIndex = 0;
             this.panelPhieuNhap.Text = "Phiếu nhập";
             // 
@@ -699,6 +701,7 @@
             // txtDDH
             // 
             this.txtDDH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuNhap, "MADDH", true));
+            this.txtDDH.Enabled = false;
             this.txtDDH.Location = new System.Drawing.Point(168, 54);
             this.txtDDH.Margin = new System.Windows.Forms.Padding(4);
             this.txtDDH.Name = "txtDDH";
@@ -753,12 +756,12 @@
             this.gcCTPN.DataSource = this.bdsCTPN;
             this.gcCTPN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCTPN.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gcCTPN.Location = new System.Drawing.Point(679, 357);
+            this.gcCTPN.Location = new System.Drawing.Point(733, 357);
             this.gcCTPN.MainView = this.gridView2;
             this.gcCTPN.Margin = new System.Windows.Forms.Padding(4);
             this.gcCTPN.MenuManager = this.barManager1;
             this.gcCTPN.Name = "gcCTPN";
-            this.gcCTPN.Size = new System.Drawing.Size(589, 368);
+            this.gcCTPN.Size = new System.Drawing.Size(535, 368);
             this.gcCTPN.TabIndex = 8;
             this.gcCTPN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -828,6 +831,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPhieuNhap";
             this.Text = "PHIẾU NHẬP";
@@ -922,6 +926,6 @@
         private QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter VATTUTableAdapter;
         private System.Windows.Forms.BindingSource bdsVatTu;
         private System.Windows.Forms.ComboBox cmbMaVT;
-        private DevExpress.XtraEditors.SimpleButton btnCTDDH;
+        private Guna.UI2.WinForms.Guna2Button btnCTDDH;
     }
 }

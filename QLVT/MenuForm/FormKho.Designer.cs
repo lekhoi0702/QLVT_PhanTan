@@ -462,6 +462,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormKho";
             this.Text = "KHO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

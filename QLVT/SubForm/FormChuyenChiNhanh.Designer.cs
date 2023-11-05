@@ -29,47 +29,66 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnXacNhan = new System.Windows.Forms.Button();
+            this.cmbChiNhanh = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnChonChiNanh = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(154, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(363, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "CHUYỂN CHI NHÁNH";
             // 
-            // cmbChiNhanh
-            // 
-            this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(226, 79);
-            this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(244, 28);
-            this.cmbChiNhanh.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 82);
+            this.label2.Location = new System.Drawing.Point(157, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 20);
+            this.label2.Size = new System.Drawing.Size(166, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Chọn chi nhánh";
+            this.label2.Text = "CHỌN CHI NHÁNH";
             // 
-            // btnXacNhan
+            // cmbChiNhanh
             // 
-            this.btnXacNhan.Location = new System.Drawing.Point(280, 125);
-            this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(119, 41);
-            this.btnXacNhan.TabIndex = 3;
-            this.btnXacNhan.Text = "XÁC NHẬN";
-            this.btnXacNhan.UseVisualStyleBackColor = true;
-            this.btnXacNhan.Click += new System.EventHandler(this.btnXACNHAN_Click);
+            this.cmbChiNhanh.BackColor = System.Drawing.Color.Transparent;
+            this.cmbChiNhanh.BorderRadius = 10;
+            this.cmbChiNhanh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChiNhanh.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbChiNhanh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbChiNhanh.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbChiNhanh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbChiNhanh.ItemHeight = 30;
+            this.cmbChiNhanh.Location = new System.Drawing.Point(330, 75);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbChiNhanh.Name = "cmbChiNhanh";
+            this.cmbChiNhanh.Size = new System.Drawing.Size(187, 36);
+            this.cmbChiNhanh.TabIndex = 7;
+            // 
+            // btnChonChiNanh
+            // 
+            this.btnChonChiNanh.BorderRadius = 20;
+            this.btnChonChiNanh.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.btnChonChiNanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChonChiNanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChonChiNanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChonChiNanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChonChiNanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnChonChiNanh.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.btnChonChiNanh.ForeColor = System.Drawing.Color.White;
+            this.btnChonChiNanh.Location = new System.Drawing.Point(230, 119);
+            this.btnChonChiNanh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChonChiNanh.Name = "btnChonChiNanh";
+            this.btnChonChiNanh.Size = new System.Drawing.Size(187, 56);
+            this.btnChonChiNanh.TabIndex = 9;
+            this.btnChonChiNanh.Text = "XÁC NHẬN";
+            this.btnChonChiNanh.Click += new System.EventHandler(this.btnXACNHAN_Click);
             // 
             // FormChuyenChiNhanh
             // 
@@ -78,11 +97,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 206);
-            this.Controls.Add(this.btnXacNhan);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnChonChiNanh);
             this.Controls.Add(this.cmbChiNhanh);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.IconOptions.Image = global::QLVT.Properties.Resources.logo;
             this.Name = "FormChuyenChiNhanh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CHUYỂN CHI NHÁNH";
             this.Load += new System.EventHandler(this.FormChuyenChiNhanh_Load);
             this.ResumeLayout(false);
@@ -93,8 +114,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnXacNhan;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbChiNhanh;
+        private Guna.UI2.WinForms.Guna2Button btnChonChiNanh;
     }
 }

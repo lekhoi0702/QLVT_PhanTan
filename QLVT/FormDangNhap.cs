@@ -72,7 +72,7 @@ namespace QLVT
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
             // đặt sẵn mật khẩu để đỡ nhập lại nhiều lần
-            txtTaiKhoan.Text = "PB";// Tran Bao - chi nhanh
+            txtTaiKhoan.Text = "NC";// Tran Bao - chi nhanh
             txtMatKhau.Text = "123456";
             if (KetNoiDatabaseGoc() == 0)
                 return;
@@ -158,6 +158,11 @@ namespace QLVT
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
         {
 
         }
