@@ -1,14 +1,8 @@
 ﻿using DevExpress.XtraGrid;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLVT
@@ -47,7 +41,7 @@ namespace QLVT
 
         private void FormDDH_Load(object sender, EventArgs e)
         {
-            
+
             /*Step 1*/
             dataSet.EnforceConstraints = false;
 
@@ -88,7 +82,7 @@ namespace QLVT
             this.btnTHEM.Enabled = false;
             this.btnXOA.Enabled = false;
             this.btnGHI.Enabled = false;
-            this.btnHOANTAC.Enabled = false;        
+            this.btnHOANTAC.Enabled = false;
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
                 this.cmbChiNhanh.Enabled = false;
@@ -103,7 +97,7 @@ namespace QLVT
         }
         private void btnCheDoDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.panelNhapLieu.Enabled = true;
+
             /*Step 0*/
             btnMenu.Links[0].Caption = "Đơn đặt hàng";
 
@@ -122,12 +116,15 @@ namespace QLVT
 
             txtMaKho.Enabled = false;
             cmbKho.Enabled = true;
+            this.panelDDH.Enabled = false;
+
 
             /*Tat chuc nang cua chi tiet don hang*/
             txtMaVT.Enabled = false;
             cmbVatTu.Enabled = false;
             txtSoLuong.Enabled = false;
             txtDonGia.Enabled = false;
+
 
             /*Bat cac grid control len*/
             gcDDH.Enabled = true;
@@ -163,7 +160,7 @@ namespace QLVT
                 this.btnTHEM.Enabled = true;
                 bool turnOn = (bdsDDH.Count > 0) ? true : false;
                 this.btnXOA.Enabled = turnOn;
-                this.btnGHI.Enabled = true;
+
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
@@ -171,6 +168,10 @@ namespace QLVT
                 this.btnEXIT.Enabled = true;
                 this.panelDDH.Enabled = true;
                 this.txtMaDDH.Enabled = false;
+                this.txtMaNCC.Enabled = false;
+                this.cmbKho.Enabled = true;
+                this.cmbNCC.Enabled = false;
+                this.btnGHI.Enabled = true;
 
             }
         }
@@ -185,7 +186,7 @@ namespace QLVT
             /*Step 1*/
             bds = bdsCTDDH;
             gc = gcCTDDH;
-           
+
             //MessageBox.Show("Chế Độ Làm Việc Chi tiết đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
 
             /*Step 2*/
@@ -199,7 +200,7 @@ namespace QLVT
             txtMaKho.Enabled = false;
             cmbKho.Enabled = false;
             cmbNCC.Enabled = false;
-           
+
 
             /*Bat chuc nang cua chi tiet don hang*/
             txtMaVT.Enabled = false;
@@ -227,7 +228,7 @@ namespace QLVT
                 this.btnMenu.Enabled = false;
                 this.btnEXIT.Enabled = true;
 
-                this.panelCTDDH.Enabled = false;
+
 
 
             }
@@ -239,9 +240,9 @@ namespace QLVT
                 cmbChiNhanh.Enabled = false;
 
                 this.btnTHEM.Enabled = true;
-              
+
                 this.btnXOA.Enabled = true;
-                this.btnGHI.Enabled = true ;
+                this.btnGHI.Enabled = false;
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
@@ -251,6 +252,7 @@ namespace QLVT
                 this.txtMaDDH.Enabled = false;
                 this.cmbChiNhanh.Enabled = false;
                 this.panelCTDDH.Enabled = true;
+                this.panelDDH.Enabled = false;
 
             }
         }
@@ -274,6 +276,7 @@ namespace QLVT
             bds.AddNew();
             if (btnMenu.Links[0].Caption == "Đơn đặt hàng")
             {
+
                 this.txtMaDDH.Enabled = true;
                 //this.txtMaKho.Text = "";
                 this.deNgayLap.EditValue = DateTime.Now;
@@ -282,6 +285,7 @@ namespace QLVT
                 this.txtMaNV.Text = Program.userName;
                 this.cmbKho.Enabled = true;
                 this.cmbNCC.Enabled = true;
+
 
                 /*Gan tu dong may truong du lieu nay*/
                 ((DataRowView)(bdsDDH.Current))["MANV"] = Program.userName;
@@ -292,7 +296,7 @@ namespace QLVT
             {
                 DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
                 String MaNV = drv["MANV"].ToString();
-             
+
                 if (Program.userName != MaNV)
                 {
                     MessageBox.Show("Bạn không thêm chi tiết đơn hàng trên phiếu không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
@@ -343,12 +347,12 @@ namespace QLVT
                     MessageBox.Show("Không thể bỏ trống mã nhân viên", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                
-                
+
+
             }
             if (cheDo == "Chi tiết đơn đặt hàng")
             {
-               
+
                 if (txtSoLuong.Value < 0 || txtDonGia.Value < 0)
                 {
                     MessageBox.Show("Không thể nhỏ hơn 1", "Thông báo", MessageBoxButtons.OK);
@@ -387,7 +391,7 @@ namespace QLVT
                     "WHERE MADDH = '" + drv["MADDH"].ToString().Trim() + "'";
             }
             /*Dang xoa don dat hang*/
-            if (cheDo == "Đơn đặt hàng" && dangThemMoi == true)
+            if (cheDo == "Đơn đặt hàng" && dangThemMoi == false)
             {
                 drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
                 DateTime ngay = ((DateTime)drv["NGAYLAP"]);
@@ -401,7 +405,7 @@ namespace QLVT
             }
 
             /*Dang chinh sua chi tiet don dat hang*/
-            if (cheDo == "Chi tiết đơn đặt hàng" )
+            if (cheDo == "Chi tiết đơn đặt hàng")
             {
                 drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
                 drv["SOLUONG"] = txtSoLuong.Value.ToString();
@@ -416,7 +420,7 @@ namespace QLVT
                     " AND MAVT = '" + drv["MAVT"].ToString().Trim() + "'";
 
             }
-           
+
             return cauTruyVan;
         }
 
@@ -427,7 +431,7 @@ namespace QLVT
             {
                 MessageBox.Show("Đơn đặt hàng trống", "Thông báo", MessageBoxButtons.OK);
             }
-            
+
             else
             {
                 viTri = bdsDDH.Position;
@@ -537,11 +541,22 @@ namespace QLVT
 
                                 drv["MAKHO"] = cmbKho.SelectedValue.ToString();
                                 drv["MANCC"] = cmbNCC.SelectedValue.ToString();
-                                drv["MADDH"] = txtMaDDH.Text.ToString();
+                                drv["MADDH"] = txtMaDDH.Text.Trim().ToString();
 
                                 cauTruyVanHoanTac =
                                     "DELETE FROM DBO.DDH " +
                                     "WHERE MADDH = '" + maDonDatHang + "'";
+                            }
+
+
+                            if (cheDo == "Đơn đặt hàng" && dangThemMoi == false)
+                            {
+                                taoCauTruyVanHoanTac(cheDo);
+                                drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+                                drv["MAKHO"] = cmbKho.SelectedValue.ToString();
+
+
+
                             }
 
                             /*TH2: them moi chi tiet don hang*/
@@ -585,7 +600,7 @@ namespace QLVT
 
                             this.btnTHEM.Enabled = true;
                             this.btnXOA.Enabled = true;
-                            this.btnGHI.Enabled = true;
+                            this.btnGHI.Enabled = false;
 
 
                             this.btnHOANTAC.Enabled = true;
@@ -616,7 +631,7 @@ namespace QLVT
                 }
 
             }
-            
+
 
         }
 
@@ -643,12 +658,12 @@ namespace QLVT
                 if (btnMenu.Links[0].Caption == "Chi tiết đơn đặt hàng")
                 {
                     this.txtMaVT.Enabled = false;
-                    this.cmbVatTu.Enabled = true;
+                    this.cmbVatTu.Enabled = false;
 
-                    this.txtSoLuong.Enabled = true;
+                    this.txtSoLuong.Enabled = false;
                     this.txtSoLuong.EditValue = 1;
 
-                    this.txtDonGia.Enabled = true;
+                    this.txtDonGia.Enabled = false;
                     this.txtDonGia.EditValue = 1;
                 }
 
@@ -662,11 +677,11 @@ namespace QLVT
                 this.btnEXIT.Enabled = true;
 
 
-                bds.CancelEdit();
+                bdsCTDDH.CancelEdit();
                 /*xoa dong hien tai*/
-                bds.RemoveCurrent();
+                bdsCTDDH.RemoveCurrent();
                 /* trở về lúc đầu con trỏ đang đứng*/
-                bds.Position = viTri;
+                bdsCTDDH.Position = viTri;
                 return;
             }
 
@@ -679,7 +694,7 @@ namespace QLVT
             }
 
             /*Step 2*/
-            bds.CancelEdit();
+            bdsCTDDH.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
 
             Console.WriteLine(cauTruyVanHoanTac);
@@ -739,7 +754,7 @@ namespace QLVT
 
 
             }
-            
+
             if (cheDo == "Chi tiết đơn đặt hàng")
             {
                 if (bdsCTDDH.Count == 0)
@@ -758,7 +773,7 @@ namespace QLVT
                         return;
                     }
                 }
-                
+
             }
 
             cauTruyVan = taoCauTruyVanHoanTac(cheDo);
@@ -815,6 +830,7 @@ namespace QLVT
                 // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
+
         }
         private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
         {

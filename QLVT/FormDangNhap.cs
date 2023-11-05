@@ -1,19 +1,19 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
+
 namespace QLVT
 {
-    public partial class FormDangNhap : DevExpress.XtraEditors.XtraForm
+    public partial class FormDangNhap : Form
     {
+
         private SqlConnection connPublisher = new SqlConnection();
 
         private void layDanhSachPhanManh(String cmd)
@@ -122,14 +122,14 @@ namespace QLVT
 
             Program.staff = Program.myReader.GetString(1);
             Program.role = Program.myReader.GetString(2);
-  
 
-   
+
+
 
             Program.myReader.Close();
             Program.conn.Close();
 
-            
+
             FormChinh formChinh = new FormChinh();
             formChinh.MaNhanVien.Text = "MÃ NHÂN VIÊN: " + Program.userName;
             formChinh.HoTen.Text = "HỌ TÊN: " + Program.staff;
@@ -137,7 +137,7 @@ namespace QLVT
             formChinh.Show();
             this.Hide();
 
-           
+
 
             /*     Step 6*/
             /*  this.Visible = false;
@@ -157,14 +157,11 @@ namespace QLVT
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+        
         }
 
-        private void groupControl1_Paint(object sender, PaintEventArgs e)
-        {
+      
+     
+ }
 
-        }
-    }
-}
+

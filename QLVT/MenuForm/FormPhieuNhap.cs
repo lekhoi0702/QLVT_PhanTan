@@ -18,7 +18,8 @@ namespace QLVT
         BindingSource bds = null;
         GridControl gc = null;
         string type = "";
-
+        String MAPNDuocChon = "";
+        String MADDHDuocChon = "";
         public FormPhieuNhap()
         {
             InitializeComponent();
@@ -646,6 +647,8 @@ namespace QLVT
                             {
                                 drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
                                 drv["MAKHO"] = cmbKho.SelectedValue.ToString();
+                                MAPNDuocChon = drv["MAPN"].ToString();
+                                MADDHDuocChon = drv["MADDH"].ToString();
 
                                 queryHoanTac =
                                     "DELETE FROM DBO.PHIEUNHAP " +
@@ -673,6 +676,45 @@ namespace QLVT
                             this.bdsPhieuNhap.EndEdit();
                             //     this.bdsChiTietPhieuNhap.EndEdit();
                             this.PHIEUNHAPTableAdapter.Update(this.dataSet.PHIEUNHAP);
+                            String query = "DECLARE	@result int; " +
+                        "EXEC @result = sp_TaoPhieuNhap @MADDH = '" +
+                        MADDHDuocChon +"',"+ " @MAPN = '" +
+                         MAPNDuocChon +"';"+
+                        "SELECT  = @result";
+
+                            Program.myReader = Program.ExecSqlDataReader(query);
+                            try
+                            {
+                                Program.myReader = Program.ExecSqlDataReader(query);
+                                /*khong co ket qua tra ve thi ket thuc luon*/
+                                if (Program.myReader == null)
+                                {
+                                    return;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Console.WriteLine(ex.Message);
+                                return;
+                            }
+                            Program.myReader.Read();
+                            int result2 = int.Parse(Program.myReader.GetValue(0).ToString());
+                            Program.myReader.Close();
+                            if (result2 == 1)
+                            {
+                                MessageBox.Show("Ghi thành công ", "Thông báo", MessageBoxButtons.OK);
+                            }
+                            else {
+                                MessageBox.Show("Da xay ra loi !" , "Lỗi",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                bdsPhieuNhap.RemoveCurrent();
+                                bdsPhieuNhap.Position = viTri;
+                     
+                            }
+
+
                             //   this.chiTietPhieuNhapTableAdapter.Update(this.dataSet.CTPN);
 
                             this.btnTHEM.Enabled = true;
@@ -691,7 +733,8 @@ namespace QLVT
                             this.txtDonGia.Enabled = false;
                             /*cập nhật lại trạng thái thêm mới cho chắc*/
                             dangThemMoi = false;
-                            MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
+
+                            
                         }
                         catch (Exception ex)
                         {
