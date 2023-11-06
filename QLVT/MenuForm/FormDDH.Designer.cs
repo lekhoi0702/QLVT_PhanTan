@@ -656,6 +656,8 @@
             // 
             // colDONGIA
             // 
+            this.colDONGIA.DisplayFormat.FormatString = "n0";
+            this.colDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDONGIA.FieldName = "DONGIA";
             this.colDONGIA.MinWidth = 25;
             this.colDONGIA.Name = "colDONGIA";
@@ -693,7 +695,7 @@
             // 
             this.txtDonGia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTDDH, "DONGIA", true));
             this.txtDonGia.EditValue = new decimal(new int[] {
-            0,
+            1000,
             0,
             0,
             0});
@@ -702,6 +704,10 @@
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDonGia.Properties.DisplayFormat.FormatString = "n0";
+            this.txtDonGia.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDonGia.Properties.EditFormat.FormatString = "n0";
+            this.txtDonGia.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDonGia.Size = new System.Drawing.Size(132, 26);
             this.txtDonGia.TabIndex = 7;
             // 
@@ -709,6 +715,7 @@
             // 
             this.cmbVatTu.DataSource = this.bdsVatTu;
             this.cmbVatTu.DisplayMember = "TENVT";
+            this.cmbVatTu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVatTu.FormattingEnabled = true;
             this.cmbVatTu.Location = new System.Drawing.Point(93, 73);
             this.cmbVatTu.Name = "cmbVatTu";
@@ -725,7 +732,7 @@
             // 
             this.txtSoLuong.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTDDH, "SOLUONG", true));
             this.txtSoLuong.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -779,6 +786,7 @@
             // 
             this.cmbNCC.DataSource = this.bdsNCC;
             this.cmbNCC.DisplayMember = "TENNCC";
+            this.cmbNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNCC.FormattingEnabled = true;
             this.cmbNCC.Location = new System.Drawing.Point(290, 131);
             this.cmbNCC.Name = "cmbNCC";
@@ -795,6 +803,7 @@
             // 
             this.cmbKho.DataSource = this.bdsKho;
             this.cmbKho.DisplayMember = "TENKHO";
+            this.cmbKho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKho.FormattingEnabled = true;
             this.cmbKho.Location = new System.Drawing.Point(290, 98);
             this.cmbKho.Name = "cmbKho";
