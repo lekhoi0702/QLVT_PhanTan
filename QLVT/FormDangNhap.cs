@@ -156,11 +156,28 @@ namespace QLVT
 
             }
         }
+        private void hide_Click(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '*')
+            {
+                show.BringToFront();
+                txtMatKhau.PasswordChar = '\0';
+            }
+        }
 
+        private void show_Click(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '\0')
+            {
+                hide.BringToFront();
+                txtMatKhau.PasswordChar = '*'; 
+            }
+        }
+        //
 
     }
 
-
+    
 
 }
 

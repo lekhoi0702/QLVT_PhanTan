@@ -370,7 +370,6 @@
             this.show.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.show.AutoSizeHeight = true;
             this.show.BorderRadius = 0;
-            this.show.Image = ((System.Drawing.Image)(resources.GetObject("show.Image")));
             this.show.IsCircle = true;
             this.show.Location = new System.Drawing.Point(890, 251);
             this.show.Name = "show";
@@ -387,7 +386,6 @@
             this.hide.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.hide.AutoSizeHeight = true;
             this.hide.BorderRadius = 0;
-            this.hide.Image = ((System.Drawing.Image)(resources.GetObject("hide.Image")));
             this.hide.IsCircle = true;
             this.hide.Location = new System.Drawing.Point(890, 251);
             this.hide.Name = "hide";
