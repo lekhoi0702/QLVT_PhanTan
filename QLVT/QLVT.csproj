@@ -522,6 +522,18 @@
   <ItemGroup>
     <None Include="Resources\padlock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business-and-trade %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business-and-trade1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

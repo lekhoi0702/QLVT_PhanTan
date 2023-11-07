@@ -213,14 +213,14 @@ namespace QLVT
         private bool kiemTraDuLieuDauVao()
         {
             /*kiem tra txtMAKHO*/
-            if (txtMaKho.Text == "")
+            if (txtMaKho.Text.Trim() == "")
             {
                 MessageBox.Show("Không bỏ trống mã kho hàng", "Thông báo", MessageBoxButtons.OK);
                 txtMaKho.Focus();
                 return false;
             }
 
-            if (Regex.IsMatch(txtMaKho.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            if (Regex.IsMatch(txtMaKho.Text.Trim(), @"^[a-zA-Z0-9]+$") == false)
             {
                 MessageBox.Show("Mã kho chỉ chấp nhận chữ và số", "Thông báo", MessageBoxButtons.OK);
                 txtMaKho.Focus();
@@ -241,7 +241,7 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtTenKho.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            if (Regex.IsMatch(txtTenKho.Text, @"^[A-Za-zÀ-ỹ0-9\s]+$") == false)
             {
                 MessageBox.Show("Mã kho chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTenKho.Focus();

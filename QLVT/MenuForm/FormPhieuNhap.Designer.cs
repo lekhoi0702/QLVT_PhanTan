@@ -475,6 +475,7 @@
             this.tableAdapterManager.CTPNTableAdapter = this.CTPNTableAdapter;
             this.tableAdapterManager.DDHTableAdapter = null;
             this.tableAdapterManager.HOADONTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
             this.tableAdapterManager.KHOTableAdapter = this.KHOTableAdapter;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
             this.tableAdapterManager.NHACCTableAdapter = null;

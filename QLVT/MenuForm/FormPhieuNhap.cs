@@ -306,18 +306,8 @@ namespace QLVT
         private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-
-
-
-
-            /*Step 1*/
-            /*lấy vị trí hiện tại của con trỏ*/
             viTri = bds.Position;
             dangThemMoi = true;
-
-
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bds.AddNew();
             if (btnMenu.Links[0].Caption == "Phiếu nhập")
             {
@@ -343,47 +333,6 @@ namespace QLVT
                 ((DataRowView)(bdsPhieuNhap.Current))["MAKHO"] = Program.maKhoDuocChon;
 
             }
-
-            if (btnMenu.Links[0].Caption == "Chi tiết phiếu nhập")
-
-
-            {
-
-                Program.maDonDatHangDuocChon = ((DataRowView)(bdsPhieuNhap.Current))["MADDH"].ToString().Trim();
-
-                Console.WriteLine(Program.maDonDatHangDuocChon);
-                FormChonCTDDH form = new FormChonCTDDH();
-                form.ShowDialog();
-
-
-
-                this.txtMaVT.Text = Program.maVatTuDuocChon;
-                this.txtSoLuong.Value = Program.soLuongVatTu;
-                this.txtDonGia.Value = Program.donGia;
-                Console.WriteLine(Program.soLuongVatTu);
-                Console.WriteLine(Program.donGia);
-                Console.WriteLine(Program.maVatTuDuocChon);
-
-
-
-                DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
-                String maNhanVien = drv["MANV"].ToString();
-                if (Program.userName.Trim() != maNhanVien.Trim())
-                {
-                    MessageBox.Show("Bạn không thêm chi tiết phiếu nhập trên phiếu không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
-                    bdsCTPN.RemoveCurrent();
-                    return;
-                }
-                ((DataRowView)(bdsCTPN.Current))["MAVT"] = Program.maVatTuDuocChon;
-                ((DataRowView)(bdsCTPN.Current))["SOLUONG"] = Program.soLuongVatTu;
-                ((DataRowView)(bdsCTPN.Current))["DONGIA"] = Program.donGia;
-                this.txtMaVT.Enabled = false;
-                this.btnCTDDH.Enabled = true;
-                this.txtSoLuong.Enabled = true;
-                this.txtDonGia.Enabled = true;
-            }
-
-
             this.btnTHEM.Enabled = false;
             this.btnXOA.Enabled = false;
             this.btnGHI.Enabled = true;
@@ -392,16 +341,6 @@ namespace QLVT
             this.btnLAMMOI.Enabled = false;
             this.btnMenu.Enabled = false;
             this.btnEXIT.Enabled = false;
-
-
-
-
-
-
-
-
-
-
         }
 
 
@@ -506,7 +445,7 @@ namespace QLVT
                     return false;
                 }
 
-                if (Regex.IsMatch(txtMaPN.Text, @"^[a-zA-Z0-9, ]+$") == false)
+                if (Regex.IsMatch(txtMaPN.Text, @"^[a-zA-Z0-9,]+$") == false)
                 {
                     MessageBox.Show("Mã Phiếu nhập chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
                     txtMaVT.Focus();
@@ -536,13 +475,7 @@ namespace QLVT
             if (cheDo == "Chi tiết phiếu nhập")
             {
 
-
-
-
-
-
-
-                if ((int)txtSoLuong.Value < 0 ||
+             if ((int)txtSoLuong.Value < 0 ||
                     txtSoLuong.Value > Program.soLuongVatTu)
                 {
                     MessageBox.Show("Số lượng vật tư không thể lớn hơn số lượng vật tư trong chi tiết đơn hàng !", "Thông báo", MessageBoxButtons.OK);
@@ -564,7 +497,7 @@ namespace QLVT
 
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+          
             if (bdsPhieuNhap.Count == 0 && btnMenu.Links[0].Caption == "Phiếu nhập")
             {
                 MessageBox.Show("Phiếu nhập trống", "Thông báo", MessageBoxButtons.OK);
@@ -577,8 +510,7 @@ namespace QLVT
             else
             {
 
-                DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
-                drv["MAKHO"] = cmbKho.SelectedValue.ToString();
+                
                 /*Step 1*/
                 String cheDo = (btnMenu.Links[0].Caption == "Phiếu nhập") ? "Phiếu nhập" : "Chi tiết phiếu nhập";
 
@@ -586,6 +518,9 @@ namespace QLVT
                 /*Step 2*/
                 bool ketQua = kiemTraDuLieuDauVao(cheDo);
                 if (ketQua == false) return;
+
+                DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
+                drv["MAKHO"] = cmbKho.SelectedValue.ToString();
 
 
 
@@ -681,6 +616,7 @@ namespace QLVT
                         MADDHDuocChon +"',"+ " @MAPN = '" +
                          MAPNDuocChon +"';"+
                         "SELECT  = @result";
+                            Console.WriteLine(query);
 
                             Program.myReader = Program.ExecSqlDataReader(query);
                             try
@@ -901,7 +837,11 @@ namespace QLVT
 
         private void capNhatSLT(string maVatTu, int soLuong)
         {
-            string cauTruyVan = "EXEC sp_CapNhatSLT 'NHAP','" + maVatTu + "', " + soLuong;
+            string cauTruyVan = "DECLARE @RETURN INT" +
+                "EXEC @RETURN = sp_CapNhatSLT @CHEDO = 'NHAP'" +
+                ",@MAVT = '" + maVatTu + "'," +
+                "@SOLUONG='" + soLuong + "'" +
+                "SELECT'RETURN VALUE = @RETURN'";
 
 
             int n = Program.ExecSqlNonQuery(cauTruyVan);
