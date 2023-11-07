@@ -503,10 +503,7 @@ namespace QLVT
                 MessageBox.Show("Phiếu nhập trống", "Thông báo", MessageBoxButtons.OK);
             }
             else
-            if (bdsCTPN.Count == 0 && btnMenu.Links[0].Caption == "Chi tiết phiếu nhập")
-            {
-                MessageBox.Show("Chi tiết phiếu nhập trống", "Thông báo", MessageBoxButtons.OK);
-            }
+            
             else
             {
 

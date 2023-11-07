@@ -70,7 +70,6 @@ namespace QLVT
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
             //Console.WriteLine(result);
             Program.myReader.Close();
-
             return result;
         }
 
