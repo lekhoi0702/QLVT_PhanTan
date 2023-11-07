@@ -463,6 +463,7 @@
             this.tableAdapterManager.CTPNTableAdapter = null;
             this.tableAdapterManager.DDHTableAdapter = this.DDHTableAdapter;
             this.tableAdapterManager.HOADONTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
             this.tableAdapterManager.KHOTableAdapter = this.KHOTableAdapter;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
             this.tableAdapterManager.NHACCTableAdapter = null;

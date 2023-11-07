@@ -580,6 +580,7 @@
             this.txtSDT.Location = new System.Drawing.Point(119, 94);
             this.txtSDT.MenuManager = this.barManager1;
             this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Properties.UseReadOnlyAppearance = false;
             this.txtSDT.Size = new System.Drawing.Size(176, 26);
             this.txtSDT.TabIndex = 11;
             // 
@@ -627,6 +628,7 @@
             // txtMaNV
             // 
             this.txtMaNV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "MANV", true));
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Location = new System.Drawing.Point(119, 43);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(100, 28);

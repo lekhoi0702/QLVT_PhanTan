@@ -1,16 +1,21 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid;
+﻿using DevExpress.XtraGrid;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Web.Configuration;
+using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace QLVT
 {
-    public partial class FormDDH : Form
+    public partial class FormHoaDon : Form
     {
         int viTri = 0;
         bool dangThemMoi = false;
@@ -20,7 +25,7 @@ namespace QLVT
         BindingSource bds = null;
         GridControl gc = null;
         string type = "";
-        String maDonDatHang = "";
+        String maHoaDon = "";
         bool danhDauXoa = false;
 
 
@@ -31,34 +36,30 @@ namespace QLVT
                     return f;
             return null;
         }
-        public FormDDH()
+     
+
+        public FormHoaDon()
         {
             InitializeComponent();
         }
 
-        private void dDHBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void hOADONBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsDDH.EndEdit();
+            this.bdsHoaDon.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dataSet);
 
         }
 
-        private void FormDDH_Load(object sender, EventArgs e)
+        private void FormHoaDon_Load(object sender, EventArgs e)
         {
-
-            /*Step 1*/
             dataSet.EnforceConstraints = false;
 
-            this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.CTDDHTableAdapter.Fill(this.dataSet.CTDDH);
+            this.CTHDTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.CTHDTableAdapter.Fill(this.dataSet.CTHD);
 
-            this.DDHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.DDHTableAdapter.Fill(this.dataSet.DDH);
-
-            this.PHIEUNHAPTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.PHIEUNHAPTableAdapter.Fill(this.dataSet.PHIEUNHAP);
-
+            this.HOADONTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.HOADONTableAdapter.Fill(this.dataSet.HOADON);
 
             this.VATTUTableAdapter.Connection.ConnectionString = Program.connstr;
             this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
@@ -68,19 +69,20 @@ namespace QLVT
             this.KHOTableAdapter.Fill(this.dataSet.KHO);
 
 
-            this.NHACCTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.NHACCTableAdapter.Fill(this.dataSet.NHACC);
+            this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.KHACHHANGTableAdapter.Fill(this.dataSet.KHACHHANG);
 
-           
+
+
             cmbChiNhanh.DataSource = Program.bindingSource;
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.brand;
-            bds = bdsDDH;
-            gc = gcDDH;
+            bds = bdsHoaDon;
+            gc = gcHoaDon;
 
-            this.panelDDH.Enabled = false;
-            this.panelCTDDH.Enabled = false;
+            this.panelHD.Enabled = false;
+            this.panelCTHD.Enabled = false;
             this.btnTHEM.Enabled = false;
             this.btnXOA.Enabled = false;
             this.btnGHI.Enabled = false;
@@ -97,28 +99,30 @@ namespace QLVT
 
 
         }
+
+
         private void btnCheDoDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
             /*Step 0*/
-            btnMenu.Links[0].Caption = "Đơn đặt hàng";
+            btnMenu.Links[0].Caption = "Hoá đơn";
 
             /*Step 1*/
-            bds = bdsDDH;
-            gc = gcDDH;
-            //MessageBox.Show("Chế Độ Làm Việc Đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
+            bds = bdsHoaDon;
+            gc = gcHoaDon;
+            //MessageBox.Show("Chế Độ Làm Việc Hoá đơn", "Thông báo", MessageBoxButtons.OK);
 
             /*Step 2*/
             /*Bat chuc nang cua don dat hang*/
-            txtMaDDH.Enabled = false;
+            txtMaHD.Enabled = false;
             deNgayLap.Enabled = false;
 
-            txtMaNCC.Enabled = true;
+            txtMaKH.Enabled = true;
             txtMaNV.Enabled = false;
 
             txtMaKho.Enabled = false;
             cmbKho.Enabled = true;
-            this.panelDDH.Enabled = false;
+            this.panelHD.Enabled = false;
 
 
             /*Tat chuc nang cua chi tiet don hang*/
@@ -129,8 +133,8 @@ namespace QLVT
 
 
             /*Bat cac grid control len*/
-            gcDDH.Enabled = true;
-            gcCTDDH.Enabled = true;
+            gcHoaDon.Enabled = true;
+            gcCTHD.Enabled = true;
 
 
             /*Step 3*/
@@ -148,7 +152,7 @@ namespace QLVT
                 this.btnMenu.Enabled = false;
                 this.btnEXIT.Enabled = true;
 
-                this.panelDDH.Enabled = false;
+                this.panelHD.Enabled = false;
 
 
             }
@@ -160,7 +164,7 @@ namespace QLVT
                 cmbChiNhanh.Enabled = false;
 
                 this.btnTHEM.Enabled = true;
-                bool turnOn = (bdsDDH.Count > 0) ? true : false;
+                bool turnOn = (bdsHoaDon.Count > 0) ? true : false;
                 this.btnXOA.Enabled = turnOn;
 
 
@@ -168,45 +172,47 @@ namespace QLVT
                 this.btnLAMMOI.Enabled = true;
                 this.btnMenu.Enabled = true;
                 this.btnEXIT.Enabled = true;
-                this.panelDDH.Enabled = true;
-                this.txtMaDDH.Enabled = false;
-                this.txtMaNCC.Enabled = false;
+                this.panelHD.Enabled = true;
+                this.txtMaHD.Enabled = false;
+                this.txtMaKH.Enabled = false;
                 this.cmbKho.Enabled = true;
-                this.cmbNCC.Enabled = false;
+                this.cmbKhachHang.Enabled = false;
                 this.btnGHI.Enabled = true;
-               
+
             }
         }
 
 
-        private void btnCheDoCTDDH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnCheDoCTHD_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
             /*Step 0*/
-            btnMenu.Links[0].Caption = "Chi tiết đơn đặt hàng";
+            btnMenu.Links[0].Caption = "Chi tiết hoá đơn";
 
             /*Step 1*/
-            bds = bdsCTDDH;
-            gc = gcCTDDH;
+            bds = bdsCTHD;
+            gc = gcCTHD;
 
-            //MessageBox.Show("Chế Độ Làm Việc Chi tiết đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
+            //MessageBox.Show("Chế Độ Làm Việc Chi tiết hoá đơn", "Thông báo", MessageBoxButtons.OK);
 
             /*Step 2*/
             /*Tat chuc nang don dat hang*/
-            this.panelDDH.Enabled = false;
-
+            this.panelHD.Enabled = false;
+      
 
             /*Bat chuc nang cua chi tiet don hang*/
             txtMaVT.Enabled = false;
             this.cmbVatTu.Enabled = false;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = true;
-        
-
+            this.btnGHI.Enabled = true;
+            cmbVatTu.Enabled = false;
 
             /*Bat cac grid control len*/
-            gcDDH.Enabled = true;
-            gcCTDDH.Enabled = true;
+            gcHoaDon.Enabled = true;
+            gcCTHD.Enabled = true;
+         
+          
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
@@ -237,17 +243,19 @@ namespace QLVT
                 this.btnTHEM.Enabled = true;
 
                 this.btnXOA.Enabled = true;
-                this.btnGHI.Enabled = true;
+             
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
                 this.btnMenu.Enabled = true;
                 this.btnEXIT.Enabled = true;
-                this.panelCTDDH.Enabled = true;
-                this.panelDDH.Enabled = false;
+                this.panelCTHD.Enabled = true;
+                this.panelHD.Enabled = false;
 
             }
         }
+
+
 
         private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -266,45 +274,38 @@ namespace QLVT
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bds.AddNew();
-            if (btnMenu.Links[0].Caption == "Đơn đặt hàng")
+            if (btnMenu.Links[0].Caption == "Hoá đơn")
             {
 
-                this.txtMaDDH.Enabled = true;
+                this.txtMaHD.Enabled = true;
                 //this.txtMaKho.Text = "";
                 this.deNgayLap.EditValue = DateTime.Now;
                 this.deNgayLap.Enabled = false;
-                this.txtMaNCC.Enabled = false;
+                this.txtMaKH.Enabled = false;
                 this.txtMaNV.Text = Program.userName;
                 this.cmbKho.Enabled = true;
-                this.cmbNCC.Enabled = true;
-
-
+                this.cmbKhachHang.Enabled = true;
                 /*Gan tu dong may truong du lieu nay*/
-                ((DataRowView)(bdsDDH.Current))["MANV"] = Program.userName;
-                ((DataRowView)(bdsDDH.Current))["NGAYLAP"] = DateTime.Now;
+                ((DataRowView)(bdsHoaDon.Current))["MANV"] = Program.userName;
+                ((DataRowView)(bdsHoaDon.Current))["NGAYLAP"] = DateTime.Now;
             }
 
-            if (btnMenu.Links[0].Caption == "Chi tiết đơn đặt hàng")
+            if (btnMenu.Links[0].Caption == "Chi tiết hoá đơn")
             {
 
-                DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+                DataRowView drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 String MaNV = drv["MANV"].ToString();
 
-                if (bdsPhieuNhap.Count > 0)
-                {
-                    MessageBox.Show("Không thể thêm vì đã lập phiếu nhập", "Thông báo", MessageBoxButtons.OK);
-                    bdsCTDDH.RemoveCurrent();
-                    return;
-                }
+                
 
                 if (Program.userName != MaNV)
                 {
-                    MessageBox.Show("Bạn không thêm chi tiết đơn hàng trên phiếu không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
-                    bdsCTDDH.RemoveCurrent();
+                    MessageBox.Show("Bạn không thể thêm chi tiết hoá đơn trên phiếu này!!!", "Thông báo", MessageBoxButtons.OK);
+                    bdsCTHD.RemoveCurrent();
                     return;
                 }
-                drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-                drv["MADDH"] = this.txtMaDDH.Text.ToString().Trim();
+                drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+                drv["MAHD"] = this.txtMaHD.Text.ToString().Trim();
                 this.txtMaVT.Enabled = false;
                 this.cmbVatTu.Enabled = true;
                 this.cmbVatTu.Enabled = true;
@@ -326,30 +327,30 @@ namespace QLVT
 
         private bool kiemTraDuLieuDauVao(String cheDo)
         {
-            if (cheDo == "Đơn đặt hàng")
+            if (cheDo == "Hoá đơn")
             {
-                if (Regex.IsMatch(txtMaDDH.Text.ToString().Trim(), @"^[a-zA-Z0-9]+$") == false)
+                if (Regex.IsMatch(txtMaHD.Text.ToString().Trim(), @"^[a-zA-Z0-9]+$") == false)
                 {
                     MessageBox.Show("Mã Đơn hàng chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
-                    txtMaDDH.Focus();
+                    txtMaHD.Focus();
                     return false;
                 }
 
-                if (txtMaDDH.Text == "")
+                if (txtMaHD.Text == "")
                 {
-                    MessageBox.Show("Không thể bỏ trống mã đơn hàng", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không thể bỏ trống mã hoá đơn", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                if (txtMaDDH.Text.Length > 10)
+                if (txtMaHD.Text.Length > 10)
                 {
-                    MessageBox.Show("Mã đơn đặt hàng không quá 10 kí tự", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Mã Hoá đơn không quá 10 kí tự", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
             }
-            if (cheDo == "Chi tiết đơn đặt hàng")
+            if (cheDo == "Chi tiết hoá đơn")
             {
 
-                if (txtSoLuong.Value <= 0 || txtDonGia.Value  <=0)
+                if (txtSoLuong.Value <= 0 || txtDonGia.Value <= 0)
                 {
                     MessageBox.Show("Số lượng và đơn giá không thể bé hơn 0", "Thông báo", MessageBoxButtons.OK);
                     return false;
@@ -360,6 +361,7 @@ namespace QLVT
         }
 
 
+
         private String taoCauTruyVanHoanTac(String cheDo)
         {
             String cauTruyVan = "";
@@ -367,52 +369,52 @@ namespace QLVT
 
 
             /*Dang chinh sua don dat hang*/
-            if (cheDo == "Đơn đặt hàng" && dangThemMoi == false)
+            if (cheDo == "Hoá đơn" && dangThemMoi == false)
             {
-                drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+                drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 /*Ngay can duoc xu ly dac biet hon*/
                 DateTime ngay = ((DateTime)drv["NGAYLAP"]);
 
-                cauTruyVan = "UPDATE DBO.DDH " +
+                cauTruyVan = "UPDATE DBO.HOADON " +
                     "SET " +
                     "NGAYLAP = CAST('" + ngay.ToString("yyyy-MM-dd") + "' AS DATE), " +
-                    "MANCC = '" + drv["MANCC"].ToString().Trim() + "', " +
+                    "MAKH = '" + drv["MAKH"].ToString().Trim() + "', " +
                     "MANV = '" + drv["MANV"].ToString().Trim() + "', " +
                     "MAKHO = '" + drv["MAKHO"].ToString().Trim() + "' " +
-                    "WHERE MADDH = '" + drv["MADDH"].ToString().Trim() + "'";
+                    "WHERE MAHD = '" + drv["MAHD"].ToString().Trim() + "'";
             }
             /*Dang xoa don dat hang*/
-            if (cheDo == "Đơn đặt hàng" && dangThemMoi == false && danhDauXoa == true)
+            if (cheDo == "Hoá đơn" && dangThemMoi == false && danhDauXoa == true)
             {
-                drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+                drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 DateTime ngay = ((DateTime)drv["NGAYLAP"]);
-                cauTruyVan = "INSERT INTO DBO.DDH(MADDH, NGAYLAP, MANCC, MANV, MAKHO) " +
-                    "VALUES('" + drv["MADDH"].ToString().Trim() + "', '" +
+                cauTruyVan = "INSERT INTO DBO.HOADON(MAHD, NGAYLAP, MAKH, MANV, MAKHO) " +
+                    "VALUES('" + drv["MAHD"].ToString().Trim() + "', '" +
                     ngay.ToString("yyyy-MM-dd").Trim() + "', '" +
-                    drv["MANCC"].ToString().Trim() + "', '" +
+                    drv["MAKH"].ToString().Trim() + "', '" +
                     drv["MaNV"].ToString().Trim() + "', '" +
                     drv["MAKHO"].ToString().Trim() + "' )";
 
             }
 
             /*Dang chinh sua chi tiet don dat hang*/
-            if (cheDo == "Chi tiết đơn đặt hàng" && dangThemMoi == false && danhDauXoa == false)
+            if (cheDo == "Chi tiết hoá đơn" && dangThemMoi == false && danhDauXoa == false)
             {
-                drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]); 
-                cauTruyVan = "UPDATE DBO.CTDDH " +
+                drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+                cauTruyVan = "UPDATE DBO.CTHD " +
                     "SET " +
                     "SOLUONG = " + drv["SOLUONG"].ToString() + " , " +
                     "DONGIA = " + drv["DONGIA"].ToString() + " " +
-                    "WHERE MADDH = '" + drv["MADDH"].ToString().Trim() + "'" +
+                    "WHERE MAHD = '" + drv["MAHD"].ToString().Trim() + "'" +
                     " AND MAVT = '" + drv["MAVT"].ToString().Trim() + "'";
 
             }
-            if (cheDo == "Chi tiết đơn đặt hàng" && dangThemMoi == false && danhDauXoa == true)
+            if (cheDo == "Chi tiết hoá đơn" && dangThemMoi == false && danhDauXoa == true)
             {
-                drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-               
-                cauTruyVan = "INSERT INTO DBO.CTDDH(MADDH,MAVT,SOLUONG,DONGIA) " +
-                    "VALUES('" + drv["MADDH"].ToString().Trim() + "', '" +
+                drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+
+                cauTruyVan = "INSERT INTO DBO.CTHD(MAHD,MAVT,SOLUONG,DONGIA) " +
+                    "VALUES('" + drv["MAHD"].ToString().Trim() + "', '" +
                     drv["MAVT"].ToString().Trim() + "', '" +
                     drv["SOLUONG"].ToString().Trim() + "', '" +
                     drv["DONGIA"].ToString().Trim() + "' )";
@@ -426,46 +428,49 @@ namespace QLVT
 
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
 
-            if (bdsPhieuNhap.Count > 0)
+            if (bdsCTHD.Count == 0 && dangThemMoi == false)
             {
-                MessageBox.Show("Không thể sửa vì đã lập phiếu nhập", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Chi tiết hoá đơn trống", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-            if (bdsDDH.Count == 0 && dangThemMoi == false)
+
+
+
+            if (bdsHoaDon.Count == 0 && dangThemMoi == false)
             {
-                MessageBox.Show("Đơn đặt hàng trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Hoá đơn trống", "Thông báo", MessageBoxButtons.OK);
+                return;
             }
-       
+
             else
             {
-                
-                viTri = bdsDDH.Position;
-                /*Step 1*/
-                DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+
+                viTri = bdsHoaDon.Position;
+                DataRowView drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 String maNhanVien = drv["MANV"].ToString();
-                String maDDH = drv["MADDH"].ToString().Trim();
+                String maHoaDon = drv["MAHD"].ToString().Trim();
                 
-               
+
+
                 if (Program.userName != maNhanVien && dangThemMoi == false)
                 {
                     MessageBox.Show("Bạn không thể sửa phiếu do người khác lập", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
                 /*Step 2*/
-                String cheDo = (btnMenu.Links[0].Caption == "Đơn đặt hàng") ? "Đơn đặt hàng" : "Chi tiết đơn đặt hàng";
+                String cheDo = (btnMenu.Links[0].Caption == "Hoá đơn") ? "Hoá đơn" : "Chi tiết hoá đơn";
                 bool ketQua = kiemTraDuLieuDauVao(cheDo);
                 if (ketQua == false) return;
 
                 String cauTruyVanHoanTac = "";
 
                 /*Step 3*/
-                String maDonDatHangMoi = txtMaDDH.Text.Trim();
+                String maHoaDonMoi = txtMaHD.Text.Trim();
                 String cauTruyVan =
-                        "DECLARE	@result NCHAR(10) " +
-                        "EXEC @result = sp_KiemTraMaDDH '" +
-                        maDonDatHangMoi.Trim() + "' " +
+                        "DECLARE	@result int " +
+                        "EXEC @result = sp_KiemTraMaHoaDon '" +
+                        maHoaDonMoi.Trim() + "' " +
                         "SELECT 'Value' = @result";
                 SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
                 try
@@ -493,7 +498,7 @@ namespace QLVT
                 /*Step 4*/
                 //Console.WriteLine(txtMaNhanVien.Text);
                 int viTriHienTai = bds.Position;
-                int viTriMaDonDatHang = bdsDDH.Find("MaDDH", txtMaDDH.Text.Trim());
+                int viTrimaHoaDon = bdsHoaDon.Find("MaHD", txtMaHD.Text.Trim());
 
 
 
@@ -502,13 +507,13 @@ namespace QLVT
                  * truong hop them moi don dat hang moi quan tam xem no ton tai hay
                  * chua ?
                  ******************************************************************/
-                if (result == 1 && cheDo == "Đơn đặt hàng" && viTriHienTai != viTriMaDonDatHang)
+                if (result == 1 && cheDo == "Hoá đơn" && viTriHienTai != viTrimaHoaDon)
                 {
-                    MessageBox.Show("Mã đơn hàng này đã được sử dụng !\n\n", "Thông báo",
+                    MessageBox.Show("Mã hoá đơn này đã được sử dụng !\n\n", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-              
+
                 else
 
                 {
@@ -519,36 +524,39 @@ namespace QLVT
                     {
                         try
                         {
-                            //Console.WriteLine(txtMaNhanVien.Text);
+                        
                             /*TH1: them moi don dat hang*/
-                            if (cheDo == "Đơn đặt hàng" && dangThemMoi == true)
+                            if (cheDo == "Hoá đơn" && dangThemMoi == true)
 
                             {
-                                drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
-                                drv["MADDH"] = txtMaDDH.Text.Trim().ToString();
+                                drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
+                                drv["MAHD"] = txtMaHD.Text.Trim().ToString();
                                 drv["MAKHO"] = cmbKho.SelectedValue.ToString();
-                                drv["MANCC"] = cmbNCC.SelectedValue.ToString();
-                                maDonDatHang = drv["MADDH"].ToString().Trim();
+                                drv["MAKH"] = cmbKhachHang.SelectedValue.ToString();
+                              
+                                maHoaDon = drv["MAHD"].ToString().Trim();
                                 cauTruyVanHoanTac =
-                                    "DELETE FROM DBO.DDH " +
-                                    "WHERE MADDH = '" + maDonDatHang.Trim() + "'";
+                                    "DELETE FROM DBO.HoaDon " +
+                                    "WHERE MAHD = '" + maHoaDon.Trim() + "'";
                                 undoList.Push(cauTruyVanHoanTac);
+                                Console.WriteLine(cauTruyVanHoanTac);
+                               
                             }
 
 
-                            if (cheDo == "Đơn đặt hàng" && dangThemMoi == false)
+                            if (cheDo == "Hoá đơn" && dangThemMoi == false)
                             {
-                                
-                                 
-                                    danhDauXoa = false;
-                                    String query = taoCauTruyVanHoanTac(cheDo);
-                                    undoList.Push(query);
-                                    String test = undoList.Peek() as string;
-                                    Console.WriteLine(test);
-                                    drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
-                                    drv["MAKHO"] = cmbKho.SelectedValue.ToString();
-                                
-                              
+
+
+                                danhDauXoa = false;
+                                String query = taoCauTruyVanHoanTac(cheDo);
+                                undoList.Push(query);
+                                String test = undoList.Peek() as string;
+                                Console.WriteLine(test);
+                                drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
+                                drv["MAKHO"] = cmbKho.SelectedValue.ToString();
+
+
 
 
 
@@ -556,37 +564,77 @@ namespace QLVT
                             }
 
                             /*TH2: them moi chi tiet don hang*/
-                            if (cheDo == "Chi tiết đơn đặt hàng" && dangThemMoi == true)
-                            {
-                                if (bdsCTDDH.Count > 1)
-                                {
-                                    String cauTruyVan2 =
-                                            "DECLARE	@result int " +
-                                            "EXEC @result = sp_KiemTraMaVTTrongCTDDH " +
-                                            "@MADDH ='" + maDDH + "'," +
-                                            "@MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() +
+                            if (cheDo == "Chi tiết hoá đơn" )
 
-                                            "'SELECT 'return value' = @result";
-                                    SqlCommand sqlCommand2 = new SqlCommand(cauTruyVan2, Program.conn);
-                                    try
+                            {
+                                DataRowView drv3 = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+
+                                String maVatTu = cmbVatTu.SelectedValue.ToString().Trim();
+                              /*  Console.WriteLine(maVatTu);
+                                Console.WriteLine(dangThemMoi);*/
+
+                                String cauTruyVan3 =
+                                                "DECLARE	@result int " +
+                                                "EXEC @result = sp_KiemTraSoLuong " +
+                                                "@MAVT ='" + maVatTu + "'," +
+                                                "@SOLUONG = '" + txtSoLuong.Value +
+
+                                                "'SELECT 'return value' = @result";
+                                SqlCommand sqlCommand3= new SqlCommand(cauTruyVan3, Program.conn);
+                                try
+                                {
+                                    Program.myReader = Program.ExecSqlDataReader(cauTruyVan3);
+                                    /*khong co ket qua tra ve thi ket thuc luon*/
+                                    if (Program.myReader == null)
                                     {
-                                        Program.myReader = Program.ExecSqlDataReader(cauTruyVan2);
-                                        /*khong co ket qua tra ve thi ket thuc luon*/
-                                        if (Program.myReader == null)
-                                        {
-                                            return;
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
-                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        Console.WriteLine(ex.Message);
                                         return;
                                     }
-                                    Program.myReader.Read();
-                                    int result2 = int.Parse(Program.myReader.GetValue(0).ToString());
-                                    Program.myReader.Close();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    Console.WriteLine(ex.Message);
+                                    return;
+                                }
+                                Program.myReader.Read();
+                                int result3 = int.Parse(Program.myReader.GetValue(0).ToString());
+                                Program.myReader.Close();
+                                if (result3 != 1)
+                                {
+                                    MessageBox.Show("Số lượng vật tư hiện có là "+result3, "Thông báo", MessageBoxButtons.OK);
+                                    return;
+                                }
+
+                                if (dangThemMoi == true)
+                                { 
+                                        String cauTruyVan2 =
+                                                "DECLARE	@result int " +
+                                                "EXEC @result = sp_KiemTraMaVTTrongCTHD " +
+                                                "@MAHD ='" + maHoaDon + "'," +
+                                                "@MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() +
+
+                                                "'SELECT 'return value' = @result";
+                                        SqlCommand sqlCommand2 = new SqlCommand(cauTruyVan2, Program.conn);
+                                        try
+                                        {
+                                            Program.myReader = Program.ExecSqlDataReader(cauTruyVan2);
+                                            /*khong co ket qua tra ve thi ket thuc luon*/
+                                            if (Program.myReader == null)
+                                            {
+                                                return;
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            Console.WriteLine(ex.Message);
+                                            return;
+                                        }
+                                        Program.myReader.Read();
+                                        int result2 = int.Parse(Program.myReader.GetValue(0).ToString());
+                                        Program.myReader.Close();
                                     if (result2 == 1)
                                     {
                                         MessageBox.Show("Vật tư này đã có rồi!!!", "Thông báo", MessageBoxButtons.OK);
@@ -594,61 +642,59 @@ namespace QLVT
                                     }
 
 
+                                    
+                                    
+                                        cauTruyVanHoanTac =
+                                     "DELETE FROM DBO.CTHD " +
+                                     "WHERE MAHD = '" + txtMaHD.Text.Trim() + "' " +
+                                     "AND MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() + "'";
+                                        undoList.Push(cauTruyVanHoanTac);
+                                        String test = undoList.Peek() as string;
+                                        Console.WriteLine("Cau hoan tac: " + test);
+                                        DataRowView drv2 = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+                                        drv2["MAVT"] = maVatTu;
+                                        drv2["SOLUONG"] = (int)txtSoLuong.Value;
+                                        drv2["DONGIA"] = (int)txtDonGia.Value;
+                                   
+                                    
                                 }
-                                cauTruyVanHoanTac =
-                                 "DELETE FROM DBO.CTDDH " +
-                                 "WHERE MADDH = '" + txtMaDDH.Text.Trim() + "' " +
-                                 "AND MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() + "'";
-                                undoList.Push(cauTruyVanHoanTac);
-                                String test = undoList.Peek() as string;
-                                Console.WriteLine("Cau hoan tac: " + test);
-                                DataRowView drv2 = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-                                drv2["MAVT"] = cmbVatTu.SelectedValue.ToString().Trim();
-                                drv2["SOLUONG"] = txtSoLuong.Value.ToString().Trim();
-                                drv2["DONGIA"] = (int)txtDonGia.Value;
 
-                            }
-                            if (cheDo == "Chi tiết đơn đặt hàng" && dangThemMoi == false)
-                            {
-
-                                if (bdsCTDDH.Count == 0)
+                                if (dangThemMoi == false)
                                 {
-                                    MessageBox.Show("Chi tiết đơn hàng trống k thể sửa", "Thông báo", MessageBoxButtons.OK);
-                                    return;
+
+                                   
+                                    
+                                    
+                                        danhDauXoa = false;
+                                        String query = taoCauTruyVanHoanTac(cheDo);
+                                        undoList.Push(query);
+                                        String test = undoList.Peek() as string;
+                                        Console.WriteLine("Cau hoan tac: " + test);
+                                        drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+                                   
+                                        drv["SOLUONG"] = txtSoLuong.Value.ToString();
+                                        drv["DONGIA"] = txtDonGia.Value.ToString();
+                                    
                                 }
-                                else {
-                                    danhDauXoa = false;
-                                    String query = taoCauTruyVanHoanTac(cheDo);
-                                    undoList.Push(query);
-                                    String test = undoList.Peek() as string;
-                                    Console.WriteLine("Cau hoan tac: " + test);
-                                    drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-                               
-                                    drv["SOLUONG"] = txtSoLuong.Value.ToString();
-                                    drv["DONGIA"] = txtDonGia.Value.ToString();
-                                }
-                               
-
-
-
+                                
 
                             }
-                            this.bdsDDH.EndEdit();
-                            this.bdsCTDDH.EndEdit();
-                            this.CTDDHTableAdapter.Update(this.dataSet.CTDDH);
-                            this.DDHTableAdapter.Update(this.dataSet.DDH);
+                            this.bdsHoaDon.EndEdit();
+                            this.bdsCTHD.EndEdit();
+                            this.CTHDTableAdapter.Update(this.dataSet.CTHD);
+                            this.HOADONTableAdapter.Update(this.dataSet.HOADON);
 
 
                             this.btnTHEM.Enabled = true;
                             this.btnXOA.Enabled = true;
                             this.btnGHI.Enabled = true;
-                            this.cmbNCC.Enabled = false;
+                            this.cmbKhachHang.Enabled = false;
 
                             this.btnHOANTAC.Enabled = true;
                             this.btnLAMMOI.Enabled = true;
                             this.btnMenu.Enabled = true;
                             this.btnEXIT.Enabled = true;
-                            this.txtMaDDH.Enabled = false;
+                            this.txtMaHD.Enabled = false;
 
 
                             //this.groupBoxDonDatHang.Enabled = false;
@@ -676,40 +722,41 @@ namespace QLVT
 
         private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            viTri = bdsDDH.Position;
+            viTri = bdsHoaDon.Position;
             /* Step 0 */
             if (dangThemMoi == true && this.btnTHEM.Enabled == false)
             {
-                /*Console.WriteLine(bdsCTDDH.Count);
-                Console.WriteLine(bdsCTDDH.Position);*/
+                /*Console.WriteLine(bdsCTHD.Count);
+                Console.WriteLine(bdsCTHD.Position);*/
                 dangThemMoi = false;
 
                 /*dang o che do Don Dat Hang*/
-                if (btnMenu.Links[0].Caption == "Đơn đặt hàng")
+                if (btnMenu.Links[0].Caption == "Hoá đơn")
                 {
-                    bdsDDH.CancelEdit();
+                    bdsHoaDon.CancelEdit();
                     /*xoa dong hien tai*/
-                    bdsDDH.RemoveCurrent();
+                    bdsHoaDon.RemoveCurrent();
                     /* trở về lúc đầu con trỏ đang đứng*/
 
-                    bdsDDH.Position = viTri;
-                    this.txtMaDDH.Enabled = false;
+                    bdsHoaDon.Position = viTri;
+                    this.txtMaHD.Enabled = false;
 
                     //this.dteNGAY.EditValue = DateTime.Now;
                     this.deNgayLap.Enabled = false;
-                    this.txtMaNCC.Enabled = false;
+                    this.txtMaKH.Enabled = false;
                     //this.txtMaNhanVien.Text = Program.userName;
                     this.cmbKho.Enabled = true;
                     this.btnHOANTAC.Enabled = false;
                 }
                 /*dang o che do Chi Tiet Don Dat Hang*/
-                if (btnMenu.Links[0].Caption == "Chi tiết đơn đặt hàng")
+                if (btnMenu.Links[0].Caption == "Chi tiết hoá đơn")
                 {
-                    if (bdsCTDDH.Count > 1) {
-                        bdsCTDDH.CancelEdit();
-                        bdsCTDDH.RemoveCurrent();
+                    if (bdsCTHD.Count > 1)
+                    {
+                        bdsCTHD.CancelEdit();
+                        bdsCTHD.RemoveCurrent();
                     }
-                    bdsCTDDH.Position = viTri;
+                    bdsCTHD.Position = viTri;
                     this.txtMaVT.Enabled = false;
                     this.cmbVatTu.Enabled = false;
                 }
@@ -727,12 +774,12 @@ namespace QLVT
 
                 return;
             }
-            
+
 
             if (dangThemMoi == false && btnTHEM.Enabled == true && danhDauXoa == false)
 
             {
-                
+
                 if (undoList.Count == 0)
                 {
                     MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
@@ -746,7 +793,7 @@ namespace QLVT
             if (dangThemMoi == false && danhDauXoa == true)
 
             {
-                
+
                 String query = undoList.Pop() as string;
                 Program.ExecSqlDataTable(query);
                 btnHOANTAC.Enabled = false;
@@ -761,17 +808,17 @@ namespace QLVT
                    }*/
 
             /*Step 2*/
-            /* bdsCTDDH.CancelEdit();
+            /* bdsCTHD.CancelEdit();
             *//* String cauTruyVanHoanTac = undoList.Pop().ToString();*//*
 
              Console.WriteLine(cauTruyVanHoanTac);
              int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);*/
 
-            this.DDHTableAdapter.Fill(this.dataSet.DDH);
-            this.CTDDHTableAdapter.Fill(this.dataSet.CTDDH);
-            bdsDDH.Position = viTri;
+            this.HOADONTableAdapter.Fill(this.dataSet.HOADON);
+            this.CTHDTableAdapter.Fill(this.dataSet.CTHD);
+            bdsHoaDon.Position = viTri;
 
-           
+
         }
 
 
@@ -780,13 +827,13 @@ namespace QLVT
             try
             {
                 // do du lieu moi tu dataSet vao gridControl NHANVIEN
-                this.DDHTableAdapter.Fill(this.dataSet.DDH);
-                this.CTDDHTableAdapter.Fill(this.dataSet.CTDDH);
+                this.HOADONTableAdapter.Fill(this.dataSet.HOADON);
+                this.CTHDTableAdapter.Fill(this.dataSet.CTHD);
 
-                this.gcDDH.Enabled = true;
-                this.gcCTDDH.Enabled = true;
+                this.gcHoaDon.Enabled = true;
+                this.gcCTHD.Enabled = true;
 
-                bdsDDH.Position = viTri;
+                bdsHoaDon.Position = viTri;
             }
             catch (Exception ex)
             {
@@ -797,8 +844,8 @@ namespace QLVT
 
 
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {   
-            DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+        {
+            DataRowView drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
             String maNhanVien = drv["MANV"].ToString();
             if (Program.userName != maNhanVien)
             {
@@ -808,44 +855,34 @@ namespace QLVT
             }
 
             string cauTruyVan = "";
-            string cheDo = (btnMenu.Links[0].Caption == "Đơn đặt hàng") ? "Đơn đặt hàng" : "Chi tiết đơn đặt hàng";
+            string cheDo = (btnMenu.Links[0].Caption == "Hoá đơn") ? "Hoá đơn" : "Chi tiết hoá đơn";
 
             // dangThemMoi = true;// bat cai nay len de ung voi dieu kien tao cau truy van
 
-            if (cheDo == "Đơn đặt hàng")
+            if (cheDo == "Hoá đơn")
             {
-                /*Cái bdsChiTietDonHangHang là đại diện cho binding source riêng biệt của CTDDH
-                 *Còn cTDDHBindingSource là lấy ngay từ trong data source DATHANG
+                /*Cái bdsChiTietDonHangHang là đại diện cho binding source riêng biệt của CTHD
+                 *Còn CTHDBindingSource là lấy ngay từ trong data source DATHANG
                  */
-                if (bdsCTDDH.Count > 0)
+                if (bdsCTHD.Count > 0)
                 {
-                    MessageBox.Show("Không thể xóa Đơn đặt hàng này vì có Chi tiết đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không thể xóa Hoá đơn này vì có Chi tiết hoá đơn", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
 
-                if (bdsPhieuNhap.Count > 0)
-                {
-                    MessageBox.Show("Không thể xóa Đơn đặt hàng này vì có phiếu nhập", "Thông báo", MessageBoxButtons.OK);
-                    return;
-                }
 
 
             }
 
-            if (cheDo == "Chi tiết đơn đặt hàng")
+            if (cheDo == "Chi tiết hoá đơn")
             {
 
-                if (bdsCTDDH.Count == 0)
+                if (bdsCTHD.Count == 0)
                 {
                     MessageBox.Show("Chi tiết đơn hàng trống", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
-                if (bdsPhieuNhap.Count > 0)
-                {
-                    MessageBox.Show("Không thể xoá vì đã lập phiếu nhập", "Thông báo", MessageBoxButtons.OK);
-                    return;
-                }
-             
+               
             }
 
             /*Step 2*/
@@ -856,7 +893,7 @@ namespace QLVT
                 {
                     /*Step 3*/
                     viTri = bds.Position;
-                    if (cheDo == "Đơn đặt hàng")
+                    if (cheDo == "Hoá đơn")
                     {
                         danhDauXoa = true;
                         dangThemMoi = false;
@@ -864,28 +901,28 @@ namespace QLVT
                         undoList.Push(queryHoanTac);
                         String cauHoanTac = undoList.Peek() as string;
                         Console.WriteLine(cauHoanTac);
-                        bdsDDH.RemoveCurrent();
+                        bdsHoaDon.RemoveCurrent();
 
 
                     }
-                    if (cheDo == "Chi tiết đơn đặt hàng")
+                    if (cheDo == "Chi tiết hoá đơn")
                     {
-                        viTri = bdsCTDDH.Position;
+                        viTri = bdsCTHD.Position;
                         danhDauXoa = true;
                         dangThemMoi = false;
                         String queryHoanTac = taoCauTruyVanHoanTac(cheDo);
                         undoList.Push(queryHoanTac);
                         String cauHoanTac = undoList.Peek() as string;
                         Console.WriteLine(cauHoanTac);
-                        bdsCTDDH.RemoveCurrent(); ;
+                        bdsCTHD.RemoveCurrent(); ;
                     }
 
 
-                    this.DDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.DDHTableAdapter.Update(this.dataSet.DDH);
+                    this.HOADONTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.HOADONTableAdapter.Update(this.dataSet.HOADON);
 
-                    this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.CTDDHTableAdapter.Update(this.dataSet.CTDDH);
+                    this.CTHDTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.CTHDTableAdapter.Update(this.dataSet.CTHD);
 
                     /*Cap nhat lai do ben tren can tao cau truy van nen da dat dangThemMoi = true*/
                     dangThemMoi = false;
@@ -896,14 +933,14 @@ namespace QLVT
                 catch (Exception ex)
                 {
                     /*Step 4*/
-                    MessageBox.Show("Lỗi xóa CTDDH Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
-                    this.DDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.DDHTableAdapter.Update(this.dataSet.DDH);
+                    MessageBox.Show("Lỗi xóa CTHD Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    this.HOADONTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.HOADONTableAdapter.Update(this.dataSet.HOADON);
 
-                    this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.CTDDHTableAdapter.Update(this.dataSet.CTDDH);
+                    this.CTHDTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.CTHDTableAdapter.Update(this.dataSet.CTHD);
                     // tro ve vi tri cua nhan vien dang bi loi
-             
+
                     //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
                     return;
                 }
@@ -943,14 +980,12 @@ namespace QLVT
             }
             else
             {
-                this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.CTDDHTableAdapter.Fill(this.dataSet.CTDDH);
+                this.CTHDTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.CTHDTableAdapter.Fill(this.dataSet.CTHD);
 
-                this.DDHTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.DDHTableAdapter.Fill(this.dataSet.DDH);
+                this.HOADONTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.HOADONTableAdapter.Fill(this.dataSet.HOADON);
 
-                this.PHIEUNHAPTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.PHIEUNHAPTableAdapter.Fill(this.dataSet.PHIEUNHAP);
             }
         }
 
@@ -958,6 +993,7 @@ namespace QLVT
 
 
 
-    }
 
+    }
 }
+

@@ -213,6 +213,22 @@ namespace QLVT
         }
 
 
+        private void btnHD_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormHoaDon));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormHoaDon form = new FormHoaDon();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+
         private void btnPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form f = this.CheckExists(typeof(FormPhieuNhap));

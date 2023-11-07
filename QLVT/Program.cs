@@ -132,7 +132,9 @@ namespace QLVT
                     MessageBox.Show("Bạn format Cell lại cột \"Ngày Thi\" qua kiểu Number hoặc mở File Excel.");
                 else MessageBox.Show(ex.Message);
                 conn.Close();
+                Console.WriteLine(ex.Message);
                 return ex.State;
+             
 
             }
         }

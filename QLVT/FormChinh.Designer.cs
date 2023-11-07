@@ -169,6 +169,7 @@
             this.btnHoaDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHoaDon.ImageOptions.Image")));
             this.btnHoaDon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHoaDon.ImageOptions.LargeImage")));
             this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHD_ItemClick);
             // 
             // barButtonItem1
             // 
