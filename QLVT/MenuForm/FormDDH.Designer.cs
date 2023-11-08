@@ -627,6 +627,7 @@
             // 
             // colMADDH1
             // 
+            this.colMADDH1.Caption = "Mã đơn đặt hàng";
             this.colMADDH1.FieldName = "MADDH";
             this.colMADDH1.MinWidth = 25;
             this.colMADDH1.Name = "colMADDH1";
@@ -637,6 +638,7 @@
             // 
             // colMAVT
             // 
+            this.colMAVT.Caption = "Mã vật tư";
             this.colMAVT.FieldName = "MAVT";
             this.colMAVT.MinWidth = 25;
             this.colMAVT.Name = "colMAVT";
@@ -647,6 +649,7 @@
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.Caption = "Số lượng";
             this.colSOLUONG.FieldName = "SOLUONG";
             this.colSOLUONG.MinWidth = 25;
             this.colSOLUONG.Name = "colSOLUONG";
@@ -657,6 +660,7 @@
             // 
             // colDONGIA
             // 
+            this.colDONGIA.Caption = "Đơn giá";
             this.colDONGIA.DisplayFormat.FormatString = "n0";
             this.colDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDONGIA.FieldName = "DONGIA";

@@ -526,6 +526,7 @@
             // 
             // colMAPN
             // 
+            this.colMAPN.Caption = "Mã phiếu nhập";
             this.colMAPN.FieldName = "MAPN";
             this.colMAPN.MinWidth = 34;
             this.colMAPN.Name = "colMAPN";
@@ -536,6 +537,7 @@
             // 
             // colNGAYLAP
             // 
+            this.colNGAYLAP.Caption = "Ngày lập";
             this.colNGAYLAP.FieldName = "NGAYLAP";
             this.colNGAYLAP.MinWidth = 34;
             this.colNGAYLAP.Name = "colNGAYLAP";
@@ -546,6 +548,7 @@
             // 
             // colMANV
             // 
+            this.colMANV.Caption = "Mã nhân viên";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 34;
             this.colMANV.Name = "colMANV";
@@ -556,6 +559,7 @@
             // 
             // colMAKHO
             // 
+            this.colMAKHO.Caption = "Mã kho";
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.MinWidth = 34;
             this.colMAKHO.Name = "colMAKHO";
@@ -566,6 +570,7 @@
             // 
             // colMADDH
             // 
+            this.colMADDH.Caption = "Mã đơn đặt hàng";
             this.colMADDH.FieldName = "MADDH";
             this.colMADDH.MinWidth = 34;
             this.colMADDH.Name = "colMADDH";
@@ -1012,6 +1017,7 @@
             // 
             // colMAPN1
             // 
+            this.colMAPN1.Caption = "Mã phiếu nhập";
             this.colMAPN1.FieldName = "MAPN";
             this.colMAPN1.MinWidth = 42;
             this.colMAPN1.Name = "colMAPN1";
@@ -1022,6 +1028,7 @@
             // 
             // colMAVT
             // 
+            this.colMAVT.Caption = "Mã vật tư";
             this.colMAVT.FieldName = "MAVT";
             this.colMAVT.MinWidth = 42;
             this.colMAVT.Name = "colMAVT";
@@ -1032,6 +1039,7 @@
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.Caption = "Số lượng";
             this.colSOLUONG.FieldName = "SOLUONG";
             this.colSOLUONG.MinWidth = 42;
             this.colSOLUONG.Name = "colSOLUONG";
@@ -1042,6 +1050,7 @@
             // 
             // colDONGIA
             // 
+            this.colDONGIA.Caption = "Đơn giá";
             this.colDONGIA.DisplayFormat.FormatString = "n0";
             this.colDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDONGIA.FieldName = "DONGIA";
