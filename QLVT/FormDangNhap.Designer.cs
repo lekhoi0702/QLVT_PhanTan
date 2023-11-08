@@ -39,20 +39,20 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.cmbChiNhanh = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.hide = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.show = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.btnDangNhap = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtMatKhau = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtTaiKhoan = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.show = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.hide = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.show)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.show)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -67,22 +67,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(432, 495);
             this.panelControl1.TabIndex = 0;
-            // 
-            // bunifuPictureBox1
-            // 
-            this.bunifuPictureBox1.AllowFocused = false;
-            this.bunifuPictureBox1.AutoSizeHeight = true;
-            this.bunifuPictureBox1.BorderRadius = 216;
-            this.bunifuPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuPictureBox1.Image = global::QLVT.Properties.Resources.kho;
-            this.bunifuPictureBox1.IsCircle = true;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
-            this.bunifuPictureBox1.Size = new System.Drawing.Size(432, 432);
-            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuPictureBox1.TabIndex = 0;
-            this.bunifuPictureBox1.TabStop = false;
-            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // cmbChiNhanh
             // 
@@ -125,6 +109,40 @@
             this.label2.Size = new System.Drawing.Size(349, 32);
             this.label2.TabIndex = 11;
             this.label2.Text = "ĐĂNG NHẬP TÀI KHOẢN";
+            // 
+            // hide
+            // 
+            this.hide.AllowFocused = false;
+            this.hide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.hide.AutoSizeHeight = true;
+            this.hide.BorderRadius = 0;
+            this.hide.Image = global::QLVT.Properties.Resources.hide;
+            this.hide.IsCircle = true;
+            this.hide.Location = new System.Drawing.Point(890, 251);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(30, 30);
+            this.hide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hide.TabIndex = 13;
+            this.hide.TabStop = false;
+            this.hide.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
+            // 
+            // show
+            // 
+            this.show.AllowFocused = false;
+            this.show.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.show.AutoSizeHeight = true;
+            this.show.BorderRadius = 0;
+            this.show.Image = global::QLVT.Properties.Resources.visible;
+            this.show.IsCircle = true;
+            this.show.Location = new System.Drawing.Point(890, 251);
+            this.show.Name = "show";
+            this.show.Size = new System.Drawing.Size(30, 30);
+            this.show.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.show.TabIndex = 12;
+            this.show.TabStop = false;
+            this.show.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            this.show.Click += new System.EventHandler(this.show_Click);
             // 
             // btnDangNhap
             // 
@@ -364,39 +382,21 @@
             this.txtTaiKhoan.UseSystemPasswordChar = false;
             this.txtTaiKhoan.WordWrap = true;
             // 
-            // show
+            // bunifuPictureBox1
             // 
-            this.show.AllowFocused = false;
-            this.show.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.show.AutoSizeHeight = true;
-            this.show.BorderRadius = 0;
-            this.show.Image = ((System.Drawing.Image)(resources.GetObject("show.Image")));
-            this.show.IsCircle = true;
-            this.show.Location = new System.Drawing.Point(890, 251);
-            this.show.Name = "show";
-            this.show.Size = new System.Drawing.Size(30, 30);
-            this.show.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.show.TabIndex = 12;
-            this.show.TabStop = false;
-            this.show.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
-            this.show.Click += new System.EventHandler(this.show_Click);
-            // 
-            // hide
-            // 
-            this.hide.AllowFocused = false;
-            this.hide.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.hide.AutoSizeHeight = true;
-            this.hide.BorderRadius = 0;
-            this.hide.Image = ((System.Drawing.Image)(resources.GetObject("hide.Image")));
-            this.hide.IsCircle = true;
-            this.hide.Location = new System.Drawing.Point(890, 251);
-            this.hide.Name = "hide";
-            this.hide.Size = new System.Drawing.Size(30, 30);
-            this.hide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.hide.TabIndex = 13;
-            this.hide.TabStop = false;
-            this.hide.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
-            this.hide.Click += new System.EventHandler(this.hide_Click);
+            this.bunifuPictureBox1.AllowFocused = false;
+            this.bunifuPictureBox1.AutoSizeHeight = true;
+            this.bunifuPictureBox1.BorderRadius = 216;
+            this.bunifuPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuPictureBox1.Image = global::QLVT.Properties.Resources.kho;
+            this.bunifuPictureBox1.IsCircle = true;
+            this.bunifuPictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
+            this.bunifuPictureBox1.Size = new System.Drawing.Size(432, 432);
+            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox1.TabIndex = 0;
+            this.bunifuPictureBox1.TabStop = false;
+            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // FormDangNhap
             // 
@@ -418,9 +418,9 @@
             this.Load += new System.EventHandler(this.FormDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.show)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.show)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

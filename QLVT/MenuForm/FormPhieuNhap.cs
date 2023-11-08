@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
+using System.ServiceModel.Channels;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -178,10 +179,7 @@ namespace QLVT
             bds = bdsCTPN;
             gc = gcCTPN;
 
-            //MessageBox.Show("Chế Độ Làm Việc Chi tiết đơn đặt hàng", "Thông báo", MessageBoxButtons.OK);
-
-            /*Step 2*/
-            /*Tat chuc nang don dat hang*/
+         
             txtMaPN.Enabled = false;
             deNgayLap.Enabled = false;
 
@@ -502,32 +500,31 @@ namespace QLVT
             {
                 MessageBox.Show("Phiếu nhập trống", "Thông báo", MessageBoxButtons.OK);
             }
-            else
+          
             
             else
             {
 
-                
-                /*Step 1*/
+
+                DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
+                String maNhanVien = drv["MANV"].ToString();
+                String maDDH = drv["MADDH"].ToString().Trim();
+
+
+                if (Program.userName != maNhanVien && dangThemMoi == false)
+                {
+                    MessageBox.Show("Bạn không thể sửa phiếu do người khác lập", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 String cheDo = (btnMenu.Links[0].Caption == "Phiếu nhập") ? "Phiếu nhập" : "Chi tiết phiếu nhập";
 
-
-                /*Step 2*/
                 bool ketQua = kiemTraDuLieuDauVao(cheDo);
                 if (ketQua == false) return;
 
-                DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
-                drv["MAKHO"] = cmbKho.SelectedValue.ToString();
+                String cauTruyVanHoanTac = "";
 
-
-
-                /*Step 3*/
-                string queryHoanTac = taoqueryHoanTac(cheDo);
-
-
-                /*Step 4*/
                 String maPhieuNhap = txtMaPN.Text.Trim();
-                //Console.WriteLine(maPhieuNhap);
                 String cauTruyVan =
                         "DECLARE	@result int " +
                         "EXEC @result = sp_KiemTraMaPN '" +
@@ -582,15 +579,17 @@ namespace QLVT
                                 MAPNDuocChon = drv["MAPN"].ToString();
                                 MADDHDuocChon = drv["MADDH"].ToString();
 
-                                queryHoanTac =
+                                cauTruyVanHoanTac =
                                     "DELETE FROM DBO.PHIEUNHAP " +
                                     "WHERE MAPN = '" + maPhieuNhap + "'";
+                                undoList.Push(cauTruyVanHoanTac);
+                                btnMenu.Links[0].Caption = "Chi tiết Phiếu Nhập";
                             }
 
 
                             if (cheDo == "Chi tiết phiếu nhập" && dangThemMoi == true)
                             {
-                                queryHoanTac =
+                                cauTruyVanHoanTac =
                                     "DELETE FROM DBO.CTPN " +
                                     "WHERE MAPN = '" + maPhieuNhap + "' " +
                                     "AND MAVT = '" + Program.maVatTuDuocChon + "'";
@@ -602,7 +601,7 @@ namespace QLVT
                             }
 
 
-                            undoList.Push(queryHoanTac);
+                       
 
 
                             this.bdsPhieuNhap.EndEdit();
@@ -683,6 +682,10 @@ namespace QLVT
             
 
         }
+
+   
+
+
 
 
         private String taoqueryHoanTac(String cheDo)
@@ -844,6 +847,8 @@ namespace QLVT
             int n = Program.ExecSqlNonQuery(cauTruyVan);
             Console.WriteLine(cauTruyVan);
         }
+
+       
 
     }
 }

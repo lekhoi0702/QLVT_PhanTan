@@ -71,7 +71,7 @@ namespace QLVT
             this.NHACCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.NHACCTableAdapter.Fill(this.dataSet.NHACC);
 
-           
+
             cmbChiNhanh.DataSource = Program.bindingSource;
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
@@ -174,7 +174,7 @@ namespace QLVT
                 this.cmbKho.Enabled = true;
                 this.cmbNCC.Enabled = false;
                 this.btnGHI.Enabled = true;
-               
+
             }
         }
 
@@ -201,7 +201,7 @@ namespace QLVT
             this.cmbVatTu.Enabled = false;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = true;
-        
+
 
 
             /*Bat cac grid control len*/
@@ -265,10 +265,10 @@ namespace QLVT
 
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-            bds.AddNew();
+            
             if (btnMenu.Links[0].Caption == "Đơn đặt hàng")
             {
-
+                bdsDDH.AddNew();
                 this.txtMaDDH.Enabled = true;
                 //this.txtMaKho.Text = "";
                 this.deNgayLap.EditValue = DateTime.Now;
@@ -287,8 +287,10 @@ namespace QLVT
             if (btnMenu.Links[0].Caption == "Chi tiết đơn đặt hàng")
             {
 
+                bdsCTDDH.AddNew();
                 DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
                 String MaNV = drv["MANV"].ToString();
+
 
                 if (bdsPhieuNhap.Count > 0)
                 {
@@ -305,9 +307,8 @@ namespace QLVT
                 }
                 drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
                 drv["MADDH"] = this.txtMaDDH.Text.ToString().Trim();
+                this.panelCTDDH.Enabled = true;
                 this.txtMaVT.Enabled = false;
-                this.cmbVatTu.Enabled = true;
-                this.cmbVatTu.Enabled = true;
                 this.cmbVatTu.Enabled = true;
                 this.txtSoLuong.Enabled = true;
                 this.txtDonGia.Enabled = true;
@@ -349,7 +350,7 @@ namespace QLVT
             if (cheDo == "Chi tiết đơn đặt hàng")
             {
 
-                if (txtSoLuong.Value <= 0 || txtDonGia.Value  <=0)
+                if (txtSoLuong.Value <= 0 || txtDonGia.Value <= 0)
                 {
                     MessageBox.Show("Số lượng và đơn giá không thể bé hơn 0", "Thông báo", MessageBoxButtons.OK);
                     return false;
@@ -398,7 +399,7 @@ namespace QLVT
             /*Dang chinh sua chi tiet don dat hang*/
             if (cheDo == "Chi tiết đơn đặt hàng" && dangThemMoi == false && danhDauXoa == false)
             {
-                drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]); 
+                drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
                 cauTruyVan = "UPDATE DBO.CTDDH " +
                     "SET " +
                     "SOLUONG = " + drv["SOLUONG"].ToString() + " , " +
@@ -410,7 +411,7 @@ namespace QLVT
             if (cheDo == "Chi tiết đơn đặt hàng" && dangThemMoi == false && danhDauXoa == true)
             {
                 drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-               
+
                 cauTruyVan = "INSERT INTO DBO.CTDDH(MADDH,MAVT,SOLUONG,DONGIA) " +
                     "VALUES('" + drv["MADDH"].ToString().Trim() + "', '" +
                     drv["MAVT"].ToString().Trim() + "', '" +
@@ -426,7 +427,7 @@ namespace QLVT
 
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
 
             if (bdsPhieuNhap.Count > 0)
             {
@@ -437,17 +438,17 @@ namespace QLVT
             {
                 MessageBox.Show("Đơn đặt hàng trống", "Thông báo", MessageBoxButtons.OK);
             }
-       
+
             else
             {
-                
+
                 viTri = bdsDDH.Position;
                 /*Step 1*/
                 DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 String maDDH = drv["MADDH"].ToString().Trim();
-                
-               
+
+
                 if (Program.userName != maNhanVien && dangThemMoi == false)
                 {
                     MessageBox.Show("Bạn không thể sửa phiếu do người khác lập", "Thông báo", MessageBoxButtons.OK);
@@ -508,7 +509,7 @@ namespace QLVT
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-              
+
                 else
 
                 {
@@ -533,22 +534,23 @@ namespace QLVT
                                     "DELETE FROM DBO.DDH " +
                                     "WHERE MADDH = '" + maDonDatHang.Trim() + "'";
                                 undoList.Push(cauTruyVanHoanTac);
+                                btnMenu.Links[0].Caption = "Chi tiết đơn đặt hàng";
                             }
 
 
                             if (cheDo == "Đơn đặt hàng" && dangThemMoi == false)
                             {
-                                
-                                 
-                                    danhDauXoa = false;
-                                    String query = taoCauTruyVanHoanTac(cheDo);
-                                    undoList.Push(query);
-                                    String test = undoList.Peek() as string;
-                                    Console.WriteLine(test);
-                                    drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
-                                    drv["MAKHO"] = cmbKho.SelectedValue.ToString();
-                                
-                              
+
+
+                                danhDauXoa = false;
+                                String query = taoCauTruyVanHoanTac(cheDo);
+                                undoList.Push(query);
+                                String test = undoList.Peek() as string;
+                                Console.WriteLine(test);
+                                drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+                                drv["MAKHO"] = cmbKho.SelectedValue.ToString();
+
+
 
 
 
@@ -616,18 +618,18 @@ namespace QLVT
                                     MessageBox.Show("Chi tiết đơn hàng trống k thể sửa", "Thông báo", MessageBoxButtons.OK);
                                     return;
                                 }
-                                else {
+                                else
+                                {
                                     danhDauXoa = false;
                                     String query = taoCauTruyVanHoanTac(cheDo);
                                     undoList.Push(query);
                                     String test = undoList.Peek() as string;
                                     Console.WriteLine("Cau hoan tac: " + test);
                                     drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-                               
                                     drv["SOLUONG"] = txtSoLuong.Value.ToString();
                                     drv["DONGIA"] = txtDonGia.Value.ToString();
                                 }
-                               
+
 
 
 
@@ -649,6 +651,7 @@ namespace QLVT
                             this.btnMenu.Enabled = true;
                             this.btnEXIT.Enabled = true;
                             this.txtMaDDH.Enabled = false;
+                            this.cmbVatTu.Enabled = false;
 
 
                             //this.groupBoxDonDatHang.Enabled = false;
@@ -705,7 +708,8 @@ namespace QLVT
                 /*dang o che do Chi Tiet Don Dat Hang*/
                 if (btnMenu.Links[0].Caption == "Chi tiết đơn đặt hàng")
                 {
-                    if (bdsCTDDH.Count > 1) {
+                    if (bdsCTDDH.Count > 1)
+                    {
                         bdsCTDDH.CancelEdit();
                         bdsCTDDH.RemoveCurrent();
                     }
@@ -727,12 +731,12 @@ namespace QLVT
 
                 return;
             }
-            
+
 
             if (dangThemMoi == false && btnTHEM.Enabled == true && danhDauXoa == false)
 
             {
-                
+
                 if (undoList.Count == 0)
                 {
                     MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
@@ -746,7 +750,7 @@ namespace QLVT
             if (dangThemMoi == false && danhDauXoa == true)
 
             {
-                
+
                 String query = undoList.Pop() as string;
                 Program.ExecSqlDataTable(query);
                 btnHOANTAC.Enabled = false;
@@ -771,7 +775,7 @@ namespace QLVT
             this.CTDDHTableAdapter.Fill(this.dataSet.CTDDH);
             bdsDDH.Position = viTri;
 
-           
+
         }
 
 
@@ -797,7 +801,7 @@ namespace QLVT
 
 
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {   
+        {
             DataRowView drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
             String maNhanVien = drv["MANV"].ToString();
             if (Program.userName != maNhanVien)
@@ -845,7 +849,7 @@ namespace QLVT
                     MessageBox.Show("Không thể xoá vì đã lập phiếu nhập", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
-             
+
             }
 
             /*Step 2*/
@@ -903,7 +907,7 @@ namespace QLVT
                     this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.CTDDHTableAdapter.Update(this.dataSet.CTDDH);
                     // tro ve vi tri cua nhan vien dang bi loi
-             
+
                     //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
                     return;
                 }

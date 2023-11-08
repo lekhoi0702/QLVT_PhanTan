@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using QLVT.ReportForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -252,6 +253,21 @@ namespace QLVT
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDSNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(ReportForm.FormDanhSachNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachNhanVien form = new FormDanhSachNhanVien();
+                form.MdiParent = this;
+                form.Show();
+            }
         }
     }
 }

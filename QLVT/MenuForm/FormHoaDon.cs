@@ -273,10 +273,10 @@ namespace QLVT
 
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-            bds.AddNew();
+       
             if (btnMenu.Links[0].Caption == "Hoá đơn")
             {
-
+                bdsHoaDon.AddNew();
                 this.txtMaHD.Enabled = true;
                 //this.txtMaKho.Text = "";
                 this.deNgayLap.EditValue = DateTime.Now;
@@ -292,7 +292,7 @@ namespace QLVT
 
             if (btnMenu.Links[0].Caption == "Chi tiết hoá đơn")
             {
-
+                bdsCTHD.AddNew();
                 DataRowView drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 String MaNV = drv["MANV"].ToString();
 
@@ -306,12 +306,12 @@ namespace QLVT
                 }
                 drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
                 drv["MAHD"] = this.txtMaHD.Text.ToString().Trim();
+                this.panelCTHD.Enabled = true;
                 this.txtMaVT.Enabled = false;
-                this.cmbVatTu.Enabled = true;
-                this.cmbVatTu.Enabled = true;
                 this.cmbVatTu.Enabled = true;
                 this.txtSoLuong.Enabled = true;
                 this.txtDonGia.Enabled = true;
+                this.cmbKho.Enabled = false;
             }
 
             /*Step 3*/
@@ -540,7 +540,8 @@ namespace QLVT
                                     "WHERE MAHD = '" + maHoaDon.Trim() + "'";
                                 undoList.Push(cauTruyVanHoanTac);
                                 Console.WriteLine(cauTruyVanHoanTac);
-                               
+                                btnMenu.Links[0].Caption = "Chi tiết hoá đơn";
+
                             }
 
 
@@ -689,6 +690,7 @@ namespace QLVT
                             this.btnXOA.Enabled = true;
                             this.btnGHI.Enabled = true;
                             this.cmbKhachHang.Enabled = false;
+                            this.cmbVatTu.Enabled = false;
 
                             this.btnHOANTAC.Enabled = true;
                             this.btnLAMMOI.Enabled = true;
