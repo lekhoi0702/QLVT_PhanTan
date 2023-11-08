@@ -427,10 +427,10 @@
     <Compile Include="SubForm\FormChuyenChiNhanh.Designer.cs">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\ReportDanhSachNhanVien.cs">
+    <Compile Include="ReportForm\ReportDanhSachNhanVien.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SubForm\ReportDanhSachNhanVien.Designer.cs">
+    <Compile Include="ReportForm\ReportDanhSachNhanVien.Designer.cs">
       <DependentUpon>ReportDanhSachNhanVien.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormChinh.resx">
@@ -483,7 +483,7 @@
     <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\ReportDanhSachNhanVien.resx">
+    <EmbeddedResource Include="ReportForm\ReportDanhSachNhanVien.resx">
       <DependentUpon>ReportDanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
