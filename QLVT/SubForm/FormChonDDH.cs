@@ -37,8 +37,11 @@ namespace QLVT
 
         private void btnTHOAT_Click(object sender, EventArgs e)
         {
+  
             this.Dispose();
+            
         }
+
 
         private int kiemTraDonHangCoPhieuNhap(String maDonHang)
         {
@@ -68,10 +71,46 @@ namespace QLVT
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine(result);
+            Program.myReader.Close();
+            return result;
+         
+        }
+
+
+        private int kiemTraCTDDHCuaDDH(String madonhang)
+        {
+            String cauTruyVan =
+                    "DECLARE	@result int " +
+                    "EXEC @result = sp_KiemTraDDHTrongCTDDH '" +
+                    madonhang + "' " +
+                    "SELECT 'Value' = @result";
+            SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
+            try
+            {
+                Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
+                /*khong co ket qua tra ve thi ket thuc luon*/
+                if (Program.myReader == null)
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thực thi Stored Procedure thất bại!\n\n" + ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+                return 0;
+  
+            }
+            Program.myReader.Read();
+            int result = int.Parse(Program.myReader.GetValue(0).ToString());
+            Console.WriteLine(result);
             Program.myReader.Close();
             return result;
         }
+
+
+
 
 
 
@@ -83,6 +122,7 @@ namespace QLVT
             string maNhanVien = drv["MANV"].ToString().Trim();
             string maDonHang = drv["MADDH"].ToString().Trim();
             string maKho = drv["MAKHO"].ToString().Trim();
+          
 
             if (Program.userName != maNhanVien)
             {
@@ -97,9 +137,16 @@ namespace QLVT
                 MessageBox.Show("Đơn hàng này đã có phiếu nhập không thể tạo thêm", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
+            int ketqua = kiemTraCTDDHCuaDDH(maDonHang);
+            if (ketqua == 0)
+            {
+                MessageBox.Show("Đơn hàng này chưa có chi tiết đơn", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
 
             Program.maDonDatHangDuocChon = maDonHang;
             Program.maKhoDuocChon = maKho;
+          
 
             //Console.WriteLine("Don dat hang duoc chon");
             //Console.WriteLine(maDonHang);

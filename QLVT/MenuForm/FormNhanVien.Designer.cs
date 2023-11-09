@@ -45,7 +45,7 @@
             this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHoanTac = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenChiNhanh = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExit = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -192,7 +192,7 @@
             this.btnHoanTac,
             this.btnChuyenChiNhanh,
             this.btnThoat,
-            this.barButtonItem1});
+            this.btnExit});
             this.barManager1.MaxItemId = 8;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -210,7 +210,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHoanTac, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnChuyenChiNhanh, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Offset = 1;
             this.bar1.Text = "Tools";
             // 
@@ -268,14 +268,14 @@
             this.btnChuyenChiNhanh.Name = "btnChuyenChiNhanh";
             this.btnChuyenChiNhanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCHUYENCHINHANH_ItemClick);
             // 
-            // barButtonItem1
+            // btnExit
             // 
-            this.barButtonItem1.Caption = "Thoát";
-            this.barButtonItem1.Id = 7;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.btnExit.Caption = "Thoát";
+            this.btnExit.Id = 7;
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnExit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnExit.Name = "btnExit";
+            this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTHOAT_ItemClick);
             // 
             // bar3
             // 
@@ -382,6 +382,7 @@
             this.tableAdapterManager.CTPNTableAdapter = null;
             this.tableAdapterManager.DDHTableAdapter = this.DDHTableAdapter;
             this.tableAdapterManager.HOADONTableAdapter = this.HOADONTableAdapter;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
             this.tableAdapterManager.KHOTableAdapter = null;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
             this.tableAdapterManager.NHACCTableAdapter = null;
@@ -697,7 +698,7 @@
         private DevExpress.XtraBars.BarButtonItem btnHoanTac;
         private DevExpress.XtraBars.BarButtonItem btnChuyenChiNhanh;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnExit;
         private System.Windows.Forms.BindingSource bdsNhanVien;
         private QLVT_NHAPXUATDataSet dataSet;
         private QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter NHANVIENTableAdapter;

@@ -12,8 +12,8 @@ namespace QLVT
     {
         public static SqlConnection conn = new SqlConnection();//conn
         public static String connstr = "";//connstr
-        public static String connstrPublisher = "Data Source=ZEPHYRUS-G15;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
-        //public static String connstrPublisher = "Data Source=ADMIN-PC;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
+       // public static String connstrPublisher = "Data Source=ZEPHYRUS-G15;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
+        public static String connstrPublisher = "Data Source=ADMIN-PC;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
         public static SqlDataReader myReader;//myReader
 
 
@@ -39,7 +39,6 @@ namespace QLVT
 
         public static string maKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
-
         public static int soLuongVatTu = 0;
         public static string maDonDatHangDuocChon = "";
         public static string maDonDatHangDuocChonChiTiet = "";
@@ -50,6 +49,7 @@ namespace QLVT
         public static string hoTen = "";
         public static string diaChi = "";
         public static string ngaySinh = "";
+
 
 
         /*bidSou: BindingSource -> liên kết dữ liệu từ bảng dữ liệu vào chương trình*/

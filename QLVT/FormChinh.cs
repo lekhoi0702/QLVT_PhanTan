@@ -164,6 +164,12 @@ namespace QLVT
             }
         }
 
+        private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Dispose();
+        }
+
+
 
 
         private void btnLoaiVatTu_ItemClick(object sender, ItemClickEventArgs e)

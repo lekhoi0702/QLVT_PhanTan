@@ -75,8 +75,6 @@
             this.colMADDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelNhapLieu = new DevExpress.XtraEditors.GroupControl();
             this.panelCTPN = new DevExpress.XtraEditors.GroupControl();
-            this.btnCTDDH = new Guna.UI2.WinForms.Guna2Button();
-            this.cmbMaVT = new System.Windows.Forms.ComboBox();
             this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
             this.txtDonGia = new DevExpress.XtraEditors.SpinEdit();
             this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
@@ -217,7 +215,7 @@
             // sOLUONGLabel
             // 
             sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Location = new System.Drawing.Point(10, 138);
+            sOLUONGLabel.Location = new System.Drawing.Point(7, 79);
             sOLUONGLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             sOLUONGLabel.Name = "sOLUONGLabel";
             sOLUONGLabel.Size = new System.Drawing.Size(74, 20);
@@ -227,7 +225,7 @@
             // dONGIALabel
             // 
             dONGIALabel.AutoSize = true;
-            dONGIALabel.Location = new System.Drawing.Point(10, 180);
+            dONGIALabel.Location = new System.Drawing.Point(10, 117);
             dONGIALabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             dONGIALabel.Name = "dONGIALabel";
             dONGIALabel.Size = new System.Drawing.Size(66, 20);
@@ -593,8 +591,6 @@
             // 
             // panelCTPN
             // 
-            this.panelCTPN.Controls.Add(this.btnCTDDH);
-            this.panelCTPN.Controls.Add(this.cmbMaVT);
             this.panelCTPN.Controls.Add(dONGIALabel);
             this.panelCTPN.Controls.Add(this.txtDonGia);
             this.panelCTPN.Controls.Add(sOLUONGLabel);
@@ -609,37 +605,6 @@
             this.panelCTPN.TabIndex = 1;
             this.panelCTPN.Text = "Chi tiết phiếu nhập";
             // 
-            // btnCTDDH
-            // 
-            this.btnCTDDH.BorderRadius = 20;
-            this.btnCTDDH.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            this.btnCTDDH.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCTDDH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCTDDH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCTDDH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCTDDH.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCTDDH.Font = new System.Drawing.Font("Times New Roman", 11.25F);
-            this.btnCTDDH.ForeColor = System.Drawing.Color.White;
-            this.btnCTDDH.Location = new System.Drawing.Point(15, 215);
-            this.btnCTDDH.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCTDDH.Name = "btnCTDDH";
-            this.btnCTDDH.Size = new System.Drawing.Size(279, 70);
-            this.btnCTDDH.TabIndex = 11;
-            this.btnCTDDH.Text = "Chi tiết đơn đặt hàng";
-            this.btnCTDDH.Click += new System.EventHandler(this.btnCTDDH_Click);
-            // 
-            // cmbMaVT
-            // 
-            this.cmbMaVT.DataSource = this.bdsVatTu;
-            this.cmbMaVT.DisplayMember = "TENVT";
-            this.cmbMaVT.FormattingEnabled = true;
-            this.cmbMaVT.Location = new System.Drawing.Point(129, 82);
-            this.cmbMaVT.Margin = new System.Windows.Forms.Padding(5);
-            this.cmbMaVT.Name = "cmbMaVT";
-            this.cmbMaVT.Size = new System.Drawing.Size(164, 28);
-            this.cmbMaVT.TabIndex = 6;
-            this.cmbMaVT.ValueMember = "MAVT";
-            // 
             // bdsVatTu
             // 
             this.bdsVatTu.DataMember = "VATTU";
@@ -653,7 +618,7 @@
             0,
             0,
             0});
-            this.txtDonGia.Location = new System.Drawing.Point(129, 172);
+            this.txtDonGia.Location = new System.Drawing.Point(129, 112);
             this.txtDonGia.Margin = new System.Windows.Forms.Padding(5);
             this.txtDonGia.MenuManager = this.barManager1;
             this.txtDonGia.Name = "txtDonGia";
@@ -679,12 +644,14 @@
             0,
             0,
             0});
-            this.txtSoLuong.Location = new System.Drawing.Point(129, 129);
+            this.txtSoLuong.Location = new System.Drawing.Point(129, 76);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(5);
             this.txtSoLuong.MenuManager = this.barManager1;
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSoLuong.Properties.IsFloatValue = false;
+            this.txtSoLuong.Properties.MaskSettings.Set("mask", "N00");
             this.txtSoLuong.Size = new System.Drawing.Size(166, 26);
             this.txtSoLuong.TabIndex = 3;
             // 
@@ -1167,8 +1134,6 @@
         private System.Windows.Forms.ComboBox cmbKho;
         private QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter VATTUTableAdapter;
         private System.Windows.Forms.BindingSource bdsVatTu;
-        private System.Windows.Forms.ComboBox cmbMaVT;
-        private Guna.UI2.WinForms.Guna2Button btnCTDDH;
         private DevExpress.XtraBars.BarDockControl barDockControl5;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
         private DevExpress.XtraBars.BarDockControl barDockControl6;

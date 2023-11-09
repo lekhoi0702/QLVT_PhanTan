@@ -269,6 +269,8 @@ namespace QLVT
                 btnHoanTac.Enabled = false;
             }
 
+
+
             /*Step 2.1*/
             if (cauTruyVanHoanTac.Contains("sp_ChuyenChiNhanh"))
             {
@@ -315,6 +317,13 @@ namespace QLVT
             this.NHANVIENTableAdapter.Fill(this.dataSet.NHANVIEN);
 
         }
+
+
+        private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Dispose();
+        }
+
 
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -587,14 +596,7 @@ namespace QLVT
   
             String maNhanVien = txtMaNV.Text.Trim();
             DataRowView drv = ((DataRowView)bdsNhanVien[bdsNhanVien.Position]);
-            /*       
-                     Console.WriteLine(maNhanVien);
-                     Console.WriteLine(ho);
-                     Console.WriteLine(ten);
-                     Console.WriteLine(diaChi);
-                     Console.WriteLine(sdt);
-                     Console.WriteLine(trangThai);
-                     Console.WriteLine(maChiNhanh);*/
+   
             String ho = drv["HO"].ToString();
             String ten = drv["TEN"].ToString();
 
@@ -675,6 +677,13 @@ namespace QLVT
                                 "SDT = '" + sdt + "'," +
                                 "TRANGTHAIXOA = " + trangThai + " " +
                                 "WHERE MANV = '" + maNhanVien + "'";
+                         /*   drv = ((DataRowView)bdsNhanVien[bdsNhanVien.Position]);
+                            drv["HO"] = txtHo.Text.ToString().Trim();
+                            drv["TEN"] = txtTen.Text.ToString().Trim();
+                            drv["SDT"] = txtSDT.Text.ToString().Trim();
+                            drv["DIACHI"] = txtDiaChi.Text.ToString().Trim();
+                            drv["NGAYSINH"] = */
+                          
                             danhDauXoa = false;
                         }
                         Console.WriteLine(cauTruyVanHoanTac);

@@ -306,7 +306,7 @@ namespace QLVT
                     return;
                 }
                 drv = ((DataRowView)bdsCTDDH[bdsCTDDH.Position]);
-                drv["MADDH"] = this.txtMaDDH.Text.ToString().Trim();
+                drv["MADDH"] = txtMaDDH.Text.ToString().Trim();
                 this.panelCTDDH.Enabled = true;
                 this.txtMaVT.Enabled = false;
                 this.cmbVatTu.Enabled = true;
@@ -392,6 +392,18 @@ namespace QLVT
                     ngay.ToString("yyyy-MM-dd").Trim() + "', '" +
                     drv["MANCC"].ToString().Trim() + "', '" +
                     drv["MaNV"].ToString().Trim() + "', '" +
+                    drv["MAKHO"].ToString().Trim() + "' )";
+
+            }
+            if (cheDo == "Phiếu nhập" && dangThemMoi == false && danhDauXoa == true)
+            {
+                drv = ((DataRowView)bdsDDH[bdsDDH.Position]);
+                DateTime ngay = ((DateTime)drv["NGAYLAP"]);
+                cauTruyVan = "INSERT INTO DBO.PHIEUNHAP(MAPN, NGAYLAP, MANCC, MANV, MAKHO) " +
+                    "VALUES('" + drv["MAPN"].ToString().Trim() + "', '" +
+                    ngay.ToString("yyyy-MM-dd").Trim() + "', '" +
+                    drv["MANCC"].ToString().Trim() + "', '" +
+                    drv["MANV"].ToString().Trim() + "', '" +
                     drv["MAKHO"].ToString().Trim() + "' )";
 
             }
