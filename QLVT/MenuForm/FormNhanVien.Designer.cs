@@ -272,8 +272,8 @@
             // 
             this.btnExit.Caption = "Thoát";
             this.btnExit.Id = 7;
-            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnExit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
+            this.btnExit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.LargeImage")));
             this.btnExit.Name = "btnExit";
             this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTHOAT_ItemClick);
             // 
@@ -481,6 +481,8 @@
             // colNGAYSINH
             // 
             this.colNGAYSINH.Caption = "Ngày sinh";
+            this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -605,6 +607,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deNgaySinh.Properties.MaskSettings.Set("mask", "dd/ MM/ yyyy");
+            this.deNgaySinh.Properties.UseMaskAsDisplayFormat = true;
             this.deNgaySinh.Size = new System.Drawing.Size(162, 26);
             this.deNgaySinh.TabIndex = 7;
             // 
