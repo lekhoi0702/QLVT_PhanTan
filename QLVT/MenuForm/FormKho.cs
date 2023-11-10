@@ -55,11 +55,52 @@ namespace QLVT
 
 
 
-            maChiNhanh = ((DataRowView)bdsKho[0])["MACN"].ToString();
+         
             cmbChiNhanh.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.brand;
+         
+
+
+            if (bdsKho.Count == 0)
+            {
+                maChiNhanh = cmbChiNhanh.Text.ToString().Trim();
+                String cauTruyVan =
+                   "DECLARE	@MaCN nvarchar(10) ;" +
+                   "EXEC sp_LayMaChiNhanh '" +
+                   cmbChiNhanh.Text.ToString().Trim() + "',@MaCN OUTPUT; " +
+                   "SELECT 'Value' = @MaCN";
+                Console.WriteLine(cauTruyVan);
+                SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
+                try
+                {
+                    Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
+                    /*khong co ket qua tra ve thi ket thuc luon*/
+                    if (Program.myReader == null)
+                    {
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Thực thi Stored Procedure thất bại!\n\n" + ex.Message, "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex.Message);
+                    return;
+                }
+                Program.myReader.Read();
+                String result = Program.myReader.GetValue(0).ToString().Trim();
+                //Console.WriteLine(result);
+                Program.myReader.Close();
+                maChiNhanh = result;
+                txtChiNhanh.Text = maChiNhanh;
+                
+            }
+            else
+            {
+                maChiNhanh = ((DataRowView)bdsKho[0])["MACN"].ToString();
+            }
 
 
             // phan quyen
@@ -172,9 +213,8 @@ namespace QLVT
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bdsKho.AddNew();
-            txtChiNhanh.Text = maChiNhanh;
+            txtChiNhanh.Text = maChiNhanh.Trim() ;
 
-            /*Step 3*/
             this.txtMaKho.Enabled = true;
             this.btnThem.Enabled = false;
             this.btnXoa.Enabled = false;
@@ -262,20 +302,20 @@ namespace QLVT
 
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
+            if (bdsKho.Count == 0) {
+                MessageBox.Show("Chưa có kho", "Thông báo", MessageBoxButtons.OK);
+                btnSua.Enabled = false;
+                return;
+            }
+            
             bool ketQua = kiemTraDuLieuDauVao();
             if (ketQua == false)
                 return;
 
-            /*Step 1*/
-            /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/
-            String maKhoHang = txtMaKho.Text.Trim();// Trim() de loai bo khoang trang thua
+
+            String maKhoHang = txtMaKho.Text.ToString().Trim();
             DataRowView drv = ((DataRowView)bdsKho[bdsKho.Position]);
-            String tenKhoHang = drv["TENKHO"].ToString();
-            String maChiNhanh = drv["MACN"].ToString();
-            /*declare @returnedResult int
-              exec @returnedResult = sp_KiemTraMaVatTu '20'
-              select @returnedResult*/
+            String tenKho = drv["TENKHO"].ToString().Trim();
             String cauTruyVan =
                     "DECLARE	@result nchar(10) " +
                     "EXEC @result = sp_KiemTraMaKho '" +
@@ -320,6 +360,9 @@ namespace QLVT
                 {
                     try
                     {
+
+                        maKhoHang = txtMaKho.Text.ToString().Trim();
+                 
                         /*bật các nút về ban đầu*/
                         btnThem.Enabled = true;
                         btnXoa.Enabled = true;
@@ -348,15 +391,14 @@ namespace QLVT
                             cauTruyVanHoanTac =
                                 "UPDATE DBO.KHO " +
                                 "SET " +
-                                "TENKHO = '" + tenKhoHang + "'," +
+                                "TENKHO = N'" + tenKho + "'" +
                                
                                 "WHERE MAKHO = '" + maKhoHang + "'";
                         }
-                        //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-                        //Console.WriteLine(cauTruyVanHoanTac);
+                       Console.WriteLine("CAU TRUY VAN HOAN TAC");
+                        Console.WriteLine(cauTruyVanHoanTac);
 
-                        /*Đưa câu truy vấn hoàn tác vào undoList 
-                         * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
+                        
                         undoList.Push(cauTruyVanHoanTac);
 
                         this.bdsKho.EndEdit();
@@ -401,10 +443,11 @@ namespace QLVT
                 bdsKho.CancelEdit();
                 /*xoa dong hien tai*/
                 bdsKho.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
-                bdsKho.Position = viTri;
                 return;
+
+
             }
+            
 
             /*Step 1*/
             if (undoList.Count == 0)
@@ -413,14 +456,17 @@ namespace QLVT
                 btnHoanTac.Enabled = false;
                 return;
             }
-
-            /*Step 2*/
             bdsKho.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
             Console.WriteLine(cauTruyVanHoanTac);
             int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
-            bdsKho.Position = viTri;
-            this.KHOTableAdapter.Fill(this.dataSet.KHO);
+             bdsKho.Position = viTri;
+             this.KHOTableAdapter.Fill(this.dataSet.KHO);
+             return;
+            
+
+
+
         }
 
 
@@ -431,6 +477,9 @@ namespace QLVT
             if (bdsKho.Count == 0)
             {
                 btnXoa.Enabled = false;
+                MessageBox.Show("Kho trống", "Thông báo", MessageBoxButtons.OK);
+                return;
+
             }
 
             if (bdsDDH.Count > 0)
@@ -458,8 +507,8 @@ namespace QLVT
 
             string cauTruyVanHoanTac =
             "INSERT INTO DBO.KHO( MAKHO,TENKHO,MACN) " +
-            " VALUES( '" + txtMaKho.Text + "','" +
-                        txtTenKho.Text + "','" +
+            " VALUES( '" + txtMaKho.Text.ToString().Trim() + "',N'" +
+                        txtTenKho.Text.Trim() + "','" +
                       
                         txtChiNhanh.Text.Trim() + "' ) ";
 
@@ -485,7 +534,7 @@ namespace QLVT
                 catch (Exception ex)
                 {
                     /*Step 4*/
-                    MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi xóa kho. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.KHOTableAdapter.Fill(this.dataSet.KHO);
                     bdsKho.Position = viTri;
                     return;

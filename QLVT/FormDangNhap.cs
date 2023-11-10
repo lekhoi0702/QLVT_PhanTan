@@ -173,7 +173,7 @@ namespace QLVT
                 txtMatKhau.PasswordChar = '*'; 
             }
         }
-        //
+       
 
     }
 

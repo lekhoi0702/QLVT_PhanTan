@@ -4,13 +4,14 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace QLVT.SubForm
+namespace QLVT.ReportForm
 {
-    public partial class ReportDanhSachNhanVien : DevExpress.XtraReports.UI.XtraReport
+    public partial class ReportDanhSachDDHKhongPhieuNhap : DevExpress.XtraReports.UI.XtraReport
     {
-        public ReportDanhSachNhanVien()
+        public ReportDanhSachDDHKhongPhieuNhap()
         {
             InitializeComponent();
+
             this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
             this.sqlDataSource1.Fill();
         }

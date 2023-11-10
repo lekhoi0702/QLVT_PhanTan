@@ -75,7 +75,6 @@
             this.colMADDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelNhapLieu = new DevExpress.XtraEditors.GroupControl();
             this.panelCTPN = new DevExpress.XtraEditors.GroupControl();
-            this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
             this.txtDonGia = new DevExpress.XtraEditors.SpinEdit();
             this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
@@ -88,6 +87,7 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.deNgayLap = new DevExpress.XtraEditors.DateEdit();
             this.txtMaPN = new System.Windows.Forms.TextBox();
+            this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
             this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
@@ -138,7 +138,6 @@
             this.panelNhapLieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCTPN)).BeginInit();
             this.panelCTPN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
@@ -147,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
@@ -440,6 +440,7 @@
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(403, 28);
             this.cmbChiNhanh.TabIndex = 1;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -605,11 +606,6 @@
             this.panelCTPN.TabIndex = 1;
             this.panelCTPN.Text = "Chi tiết phiếu nhập";
             // 
-            // bdsVatTu
-            // 
-            this.bdsVatTu.DataMember = "VATTU";
-            this.bdsVatTu.DataSource = this.dataSet;
-            // 
             // txtDonGia
             // 
             this.txtDonGia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPN, "DONGIA", true));
@@ -754,6 +750,11 @@
             this.txtMaPN.Name = "txtMaPN";
             this.txtMaPN.Size = new System.Drawing.Size(164, 28);
             this.txtMaPN.TabIndex = 1;
+            // 
+            // bdsVatTu
+            // 
+            this.bdsVatTu.DataMember = "VATTU";
+            this.bdsVatTu.DataSource = this.dataSet;
             // 
             // barDockControl5
             // 
@@ -1064,7 +1065,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelCTPN)).EndInit();
             this.panelCTPN.ResumeLayout(false);
             this.panelCTPN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
@@ -1074,6 +1074,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();

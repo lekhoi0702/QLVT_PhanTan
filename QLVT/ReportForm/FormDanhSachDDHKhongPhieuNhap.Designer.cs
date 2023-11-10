@@ -1,6 +1,6 @@
 ﻿namespace QLVT.ReportForm
 {
-    partial class FormDanhSachNhanVien
+    partial class FormDanhSachDDHKhongPhieuNhap
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhSachNhanVien));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhSachDDHKhongPhieuNhap));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -54,25 +54,24 @@
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataSet = new QLVT.QLVT_NHAPXUATDataSet();
-            this.bdsNhanVien = new System.Windows.Forms.BindingSource(this.components);
-            this.NHANVIENTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter();
+            this.bdsDDHKhongPN = new System.Windows.Forms.BindingSource(this.components);
+            this.DDHKhongPNTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.view_LayDonDatHangKhongPhieuNhapTableAdapter();
             this.tableAdapterManager = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager();
-            this.gcNhanVien = new DevExpress.XtraGrid.GridControl();
+            this.gcDDHKhongPN = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSDT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTRANGTHAIXOA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMADDH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYLAP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMANCC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDDHKhongPN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDDHKhongPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,15 +169,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(975, 34);
+            this.barDockControlTop.Size = new System.Drawing.Size(1450, 34);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 523);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 428);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(975, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1450, 22);
             // 
             // barDockControlLeft
             // 
@@ -186,15 +185,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 489);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 394);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(975, 34);
+            this.barDockControlRight.Location = new System.Drawing.Point(1450, 34);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 489);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 394);
             // 
             // btnTHEM
             // 
@@ -277,8 +276,8 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 34);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(8);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(975, 71);
-            this.panelControl1.TabIndex = 6;
+            this.panelControl1.Size = new System.Drawing.Size(1450, 80);
+            this.panelControl1.TabIndex = 7;
             // 
             // cmbChiNhanh
             // 
@@ -307,18 +306,19 @@
             this.dataSet.DataSetName = "QLVT_NHAPXUATDataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bdsNhanVien
+            // bdsDDHKhongPN
             // 
-            this.bdsNhanVien.DataMember = "NHANVIEN";
-            this.bdsNhanVien.DataSource = this.dataSet;
+            this.bdsDDHKhongPN.DataMember = "view_LayDonDatHangKhongPhieuNhap";
+            this.bdsDDHKhongPN.DataSource = this.dataSet;
             // 
-            // NHANVIENTableAdapter
+            // DDHKhongPNTableAdapter
             // 
-            this.NHANVIENTableAdapter.ClearBeforeFill = true;
+            this.DDHKhongPNTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.CTDDHTableAdapter = null;
             this.tableAdapterManager.CTHDTableAdapter = null;
             this.tableAdapterManager.CTPNTableAdapter = null;
@@ -328,146 +328,131 @@
             this.tableAdapterManager.KHOTableAdapter = null;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
             this.tableAdapterManager.NHACCTableAdapter = null;
-            this.tableAdapterManager.NHANVIENTableAdapter = this.NHANVIENTableAdapter;
+            this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHIEUNHAPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
             // 
-            // gcNhanVien
+            // gcDDHKhongPN
             // 
-            this.gcNhanVien.DataSource = this.bdsNhanVien;
-            this.gcNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNhanVien.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
-            this.gcNhanVien.Location = new System.Drawing.Point(0, 105);
-            this.gcNhanVien.MainView = this.gridView1;
-            this.gcNhanVien.Margin = new System.Windows.Forms.Padding(6);
-            this.gcNhanVien.MenuManager = this.barManager1;
-            this.gcNhanVien.Name = "gcNhanVien";
-            this.gcNhanVien.Size = new System.Drawing.Size(975, 418);
-            this.gcNhanVien.TabIndex = 7;
-            this.gcNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gcDDHKhongPN.DataSource = this.bdsDDHKhongPN;
+            this.gcDDHKhongPN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDDHKhongPN.Location = new System.Drawing.Point(0, 114);
+            this.gcDDHKhongPN.MainView = this.gridView1;
+            this.gcDDHKhongPN.MenuManager = this.barManager1;
+            this.gcDDHKhongPN.Name = "gcDDHKhongPN";
+            this.gcDDHKhongPN.Size = new System.Drawing.Size(1450, 314);
+            this.gcDDHKhongPN.TabIndex = 12;
+            this.gcDDHKhongPN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gcNhanVien.Click += new System.EventHandler(this.gcNhanVien_Click);
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMANV,
-            this.colHO,
-            this.colTEN,
-            this.colNGAYSINH,
-            this.colDIACHI,
-            this.colSDT,
-            this.colMACN,
-            this.colTRANGTHAIXOA});
-            this.gridView1.DetailHeight = 546;
-            this.gridView1.GridControl = this.gcNhanVien;
+            this.colMADDH,
+            this.colNGAYLAP,
+            this.colMANCC,
+            this.colHOTEN,
+            this.colTENVT,
+            this.colSOLUONG,
+            this.colDONGIA});
+            this.gridView1.GridControl = this.gcDDHKhongPN;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1250;
             // 
-            // colMANV
+            // colMADDH
             // 
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 39;
-            this.colMANV.Name = "colMANV";
-            this.colMANV.OptionsColumn.AllowEdit = false;
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 146;
+            this.colMADDH.FieldName = "MADDH";
+            this.colMADDH.MinWidth = 25;
+            this.colMADDH.Name = "colMADDH";
+            this.colMADDH.OptionsColumn.AllowEdit = false;
+            this.colMADDH.Visible = true;
+            this.colMADDH.VisibleIndex = 0;
+            this.colMADDH.Width = 94;
             // 
-            // colHO
+            // colNGAYLAP
             // 
-            this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 39;
-            this.colHO.Name = "colHO";
-            this.colHO.OptionsColumn.AllowEdit = false;
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 146;
+            this.colNGAYLAP.FieldName = "NGAYLAP";
+            this.colNGAYLAP.MinWidth = 25;
+            this.colNGAYLAP.Name = "colNGAYLAP";
+            this.colNGAYLAP.OptionsColumn.AllowEdit = false;
+            this.colNGAYLAP.Visible = true;
+            this.colNGAYLAP.VisibleIndex = 1;
+            this.colNGAYLAP.Width = 94;
             // 
-            // colTEN
+            // colMANCC
             // 
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 39;
-            this.colTEN.Name = "colTEN";
-            this.colTEN.OptionsColumn.AllowEdit = false;
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 146;
+            this.colMANCC.FieldName = "MANCC";
+            this.colMANCC.MinWidth = 25;
+            this.colMANCC.Name = "colMANCC";
+            this.colMANCC.OptionsColumn.AllowEdit = false;
+            this.colMANCC.Visible = true;
+            this.colMANCC.VisibleIndex = 2;
+            this.colMANCC.Width = 94;
             // 
-            // colNGAYSINH
+            // colHOTEN
             // 
-            this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 39;
-            this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
-            this.colNGAYSINH.Visible = true;
-            this.colNGAYSINH.VisibleIndex = 3;
-            this.colNGAYSINH.Width = 146;
+            this.colHOTEN.FieldName = "HOTEN";
+            this.colHOTEN.MinWidth = 25;
+            this.colHOTEN.Name = "colHOTEN";
+            this.colHOTEN.OptionsColumn.AllowEdit = false;
+            this.colHOTEN.Visible = true;
+            this.colHOTEN.VisibleIndex = 3;
+            this.colHOTEN.Width = 94;
             // 
-            // colDIACHI
+            // colTENVT
             // 
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 39;
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.OptionsColumn.AllowEdit = false;
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 4;
-            this.colDIACHI.Width = 146;
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.OptionsColumn.AllowEdit = false;
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 4;
+            this.colTENVT.Width = 94;
             // 
-            // colSDT
+            // colSOLUONG
             // 
-            this.colSDT.FieldName = "SDT";
-            this.colSDT.MinWidth = 39;
-            this.colSDT.Name = "colSDT";
-            this.colSDT.OptionsColumn.AllowEdit = false;
-            this.colSDT.Visible = true;
-            this.colSDT.VisibleIndex = 5;
-            this.colSDT.Width = 146;
+            this.colSOLUONG.FieldName = "SOLUONG";
+            this.colSOLUONG.MinWidth = 25;
+            this.colSOLUONG.Name = "colSOLUONG";
+            this.colSOLUONG.OptionsColumn.AllowEdit = false;
+            this.colSOLUONG.Visible = true;
+            this.colSOLUONG.VisibleIndex = 5;
+            this.colSOLUONG.Width = 94;
             // 
-            // colMACN
+            // colDONGIA
             // 
-            this.colMACN.FieldName = "MACN";
-            this.colMACN.MinWidth = 39;
-            this.colMACN.Name = "colMACN";
-            this.colMACN.OptionsColumn.AllowEdit = false;
-            this.colMACN.Visible = true;
-            this.colMACN.VisibleIndex = 6;
-            this.colMACN.Width = 146;
+            this.colDONGIA.FieldName = "DONGIA";
+            this.colDONGIA.MinWidth = 25;
+            this.colDONGIA.Name = "colDONGIA";
+            this.colDONGIA.OptionsColumn.AllowEdit = false;
+            this.colDONGIA.Visible = true;
+            this.colDONGIA.VisibleIndex = 6;
+            this.colDONGIA.Width = 94;
             // 
-            // colTRANGTHAIXOA
-            // 
-            this.colTRANGTHAIXOA.FieldName = "TRANGTHAIXOA";
-            this.colTRANGTHAIXOA.MinWidth = 39;
-            this.colTRANGTHAIXOA.Name = "colTRANGTHAIXOA";
-            this.colTRANGTHAIXOA.OptionsColumn.AllowEdit = false;
-            this.colTRANGTHAIXOA.Visible = true;
-            this.colTRANGTHAIXOA.VisibleIndex = 7;
-            this.colTRANGTHAIXOA.Width = 146;
-            // 
-            // FormDanhSachNhanVien
+            // FormDanhSachDDHKhongPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 545);
-            this.Controls.Add(this.gcNhanVien);
+            this.ClientSize = new System.Drawing.Size(1450, 450);
+            this.Controls.Add(this.gcDDHKhongPN);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormDanhSachNhanVien";
-            this.Text = "DANH SÁCH NHÂN VIÊN";
+            this.Name = "FormDanhSachDDHKhongPhieuNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FormDanhSachDDHKhongPhieuNhap";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormDanhSachNhanVien_Load);
+            this.Load += new System.EventHandler(this.FormDanhSachDDHKhongPhieuNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDDHKhongPN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDDHKhongPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -478,40 +463,39 @@
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem btnTHEM;
-        private DevExpress.XtraBars.BarButtonItem btnXOA;
-        private DevExpress.XtraBars.BarButtonItem btnGHI;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btnLAMMOI;
-        private DevExpress.XtraBars.BarButtonItem btnHOANTAC;
         private DevExpress.XtraBars.BarButtonItem btnEXIT;
-        private DevExpress.XtraBars.BarSubItem btnMenu;
-        private DevExpress.XtraBars.BarButtonItem btnCheDoDDH;
-        private DevExpress.XtraBars.BarButtonItem btnCheDoCTDDH;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem btnTHEM;
+        private DevExpress.XtraBars.BarButtonItem btnXOA;
+        private DevExpress.XtraBars.BarButtonItem btnGHI;
+        private DevExpress.XtraBars.BarButtonItem btnHOANTAC;
         private DevExpress.XtraBars.BarButtonItem btnChuyenChiNhanh;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
+        private DevExpress.XtraBars.BarSubItem btnMenu;
+        private DevExpress.XtraBars.BarButtonItem btnCheDoDDH;
+        private DevExpress.XtraBars.BarButtonItem btnCheDoCTDDH;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource bdsNhanVien;
+        private System.Windows.Forms.BindingSource bdsDDHKhongPN;
         private QLVT_NHAPXUATDataSet dataSet;
-        private QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter NHANVIENTableAdapter;
+        private QLVT_NHAPXUATDataSetTableAdapters.view_LayDonDatHangKhongPhieuNhapTableAdapter DDHKhongPNTableAdapter;
         private QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl gcNhanVien;
+        private DevExpress.XtraGrid.GridControl gcDDHKhongPN;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMANV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colSDT;
-        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
-        private DevExpress.XtraGrid.Columns.GridColumn colTRANGTHAIXOA;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMADDH;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYLAP;
+        private DevExpress.XtraGrid.Columns.GridColumn colMANCC;
+        private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
+        private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
     }
 }

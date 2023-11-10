@@ -14,9 +14,8 @@ using System.Windows.Forms;
 
 namespace QLVT.ReportForm
 {
-    public partial class FormDanhSachNhanVien : Form
+    public partial class FormDanhSachDDHKhongPhieuNhap : Form
     {
-
         private SqlConnection connPublisher = new SqlConnection();
         private string chiNhanh = "";
 
@@ -29,27 +28,43 @@ namespace QLVT.ReportForm
                     return f;
             return null;
         }
-    
-        public FormDanhSachNhanVien()
+
+
+
+        public FormDanhSachDDHKhongPhieuNhap()
         {
             InitializeComponent();
         }
 
-        private void nHANVIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void FormDanhSachDDHKhongPhieuNhap_Load(object sender, EventArgs e)
         {
-            this.Validate();
-            this.bdsNhanVien.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dataSet);
+
+            dataSet.EnforceConstraints = false;
+
+
+
+
+            if (Program.role == "CONGTY")
+            {
+                this.cmbChiNhanh.Enabled = true;
+            }
+            // TODO: This line of code loads data into the 'dataSet.NhanVien' table. You can move, or remove it, as needed.
+            dataSet.EnforceConstraints = false;
+
+            if (KetNoiDatabaseGoc() == 0)
+                return;
+
+            layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
+            cmbChiNhanh.SelectedIndex = 0;
+            cmbChiNhanh.SelectedIndex = 1;
+            cmbChiNhanh.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbChiNhanh.DisplayMember = "TENCN";
+            cmbChiNhanh.ValueMember = "TENSERVER";
+            cmbChiNhanh.SelectedIndex = Program.brand;
+        
 
         }
 
-        private void nHANVIENBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsNhanVien.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dataSet);
-
-        }
 
 
         private void layDanhSachPhanManh(String cmd)
@@ -124,39 +139,16 @@ namespace QLVT.ReportForm
 
             chiNhanh = cmbChiNhanh.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
 
-            this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.NHANVIENTableAdapter.Fill(this.dataSet.NHANVIEN);
+            this.DDHKhongPNTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.DDHKhongPNTableAdapter.Fill(this.dataSet.view_LayDonDatHangKhongPhieuNhap);
         }
 
 
-        private void FormDanhSachNhanVien_Load(object sender, EventArgs e)
-        {
-            dataSet.EnforceConstraints = false;
 
-            
-
-
-            if (Program.role == "CONGTY")
-            {
-                this.cmbChiNhanh.Enabled = true;
-            }
-            // TODO: This line of code loads data into the 'dataSet.NhanVien' table. You can move, or remove it, as needed.
-            dataSet.EnforceConstraints = false;
-
-            if (KetNoiDatabaseGoc() == 0)
-                return;
-
-            layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
-            cmbChiNhanh.SelectedIndex = 0;
-            cmbChiNhanh.SelectedIndex = 1;
-            cmbChiNhanh.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbChiNhanh.DisplayMember = "TENCN";
-            cmbChiNhanh.ValueMember = "TENSERVER";
-            cmbChiNhanh.SelectedIndex = Program.brand;
-        }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SubForm.ReportDanhSachNhanVien report = new SubForm.ReportDanhSachNhanVien();
+            Console.WriteLine(chiNhanh);
+            ReportForm.ReportDanhSachDDHKhongPhieuNhap report = new ReportForm.ReportDanhSachDDHKhongPhieuNhap();
             report.txtChiNhanh.Text = chiNhanh.ToUpper();
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
@@ -168,7 +160,7 @@ namespace QLVT.ReportForm
         {
             try
             {
-                ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
+                ReportDanhSachDDHKhongPhieuNhap report = new ReportDanhSachDDHKhongPhieuNhap();
 
                 // Gán tên chi nhánh cho báo cáo
                 report.txtChiNhanh.Text = chiNhanh.ToUpper();
@@ -212,11 +204,5 @@ namespace QLVT.ReportForm
             }
         }
 
-        private void gcNhanVien_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }
-

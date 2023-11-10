@@ -275,5 +275,21 @@ namespace QLVT
                 form.Show();
             }
         }
+
+
+        private void btnDSDDHKhongPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDanhSachDDHKhongPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachDDHKhongPhieuNhap form = new FormDanhSachDDHKhongPhieuNhap();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }

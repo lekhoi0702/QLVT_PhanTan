@@ -97,6 +97,54 @@ namespace QLVT
 
 
         }
+
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+            /*Neu combobox khong co so lieu thi ket thuc luon*/
+            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
+
+            Program.serverName = cmbChiNhanh.SelectedValue.ToString();
+
+            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
+            if (cmbChiNhanh.SelectedIndex != Program.brand)
+            {
+                Program.loginName = Program.remoteLogin;
+                Program.loginPassword = Program.remotePassword;
+            }
+            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
+            else
+            {
+                Program.loginName = Program.currentLogin;
+                Program.loginPassword = Program.currentPassword;
+            }
+
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Xảy ra lỗi kết nối với chi nhánh hiện tại", "Thông báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+
+                this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.CTPNTableAdapter.Fill(this.dataSet.CTPN);
+
+                this.PHIEUNHAPTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.PHIEUNHAPTableAdapter.Fill(this.dataSet.PHIEUNHAP);
+
+
+
+
+                this.KHOTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KHOTableAdapter.Fill(this.dataSet.KHO);
+                this.VATTUTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
+
+
+            }
+        }
         private void btnCheDoPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.panelNhapLieu.Enabled = true;
@@ -839,10 +887,10 @@ namespace QLVT
 
         private void capNhatSLT(string maVatTu, int soLuong)
         {
-            string cauTruyVan = "DECLARE @RETURN INT " +
+            string cauTruyVan = "DECLARE @RETURN INT; " +
                 "EXEC @RETURN = sp_CapNhatSLT @CHEDO = 'NHAP'" +
                 ",@MAVT = '" + maVatTu + "'," +
-                "@SOLUONG='" + soLuong + "'" +
+                "@SOLUONG='" + soLuong + "';" +
                 "SELECT'RETURN VALUE' = @RETURN";
 
 

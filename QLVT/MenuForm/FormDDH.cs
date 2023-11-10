@@ -19,7 +19,6 @@ namespace QLVT
         Stack undoList = new Stack();
         BindingSource bds = null;
         GridControl gc = null;
-        string type = "";
         String maDonDatHang = "";
         bool danhDauXoa = false;
 

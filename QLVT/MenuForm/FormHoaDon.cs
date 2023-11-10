@@ -569,18 +569,20 @@ namespace QLVT
 
                             {
                                 DataRowView drv3 = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
-
+                                int soLuong = (int)txtSoLuong.Value;
+                                String maVT = "";
                                 String maVatTu = cmbVatTu.SelectedValue.ToString().Trim();
                               /*  Console.WriteLine(maVatTu);
                                 Console.WriteLine(dangThemMoi);*/
 
                                 String cauTruyVan3 =
-                                                "DECLARE	@result int " +
+                                                "DECLARE	@result int ;" +
                                                 "EXEC @result = sp_KiemTraSoLuong " +
                                                 "@MAVT ='" + maVatTu + "'," +
                                                 "@SOLUONG = '" + txtSoLuong.Value +
 
                                                 "'SELECT 'return value' = @result";
+                                Console.WriteLine("kiem tra so luong vat tu=" + cauTruyVan3);
                                 SqlCommand sqlCommand3= new SqlCommand(cauTruyVan3, Program.conn);
                                 try
                                 {
@@ -641,6 +643,7 @@ namespace QLVT
                                         MessageBox.Show("Vật tư này đã có rồi!!!", "Thông báo", MessageBoxButtons.OK);
                                         return;
                                     }
+                                    maVT = cmbVatTu.SelectedValue.ToString().Trim();
 
 
                                     
@@ -663,9 +666,9 @@ namespace QLVT
                                 if (dangThemMoi == false)
                                 {
 
-                                   
-                                    
-                                    
+
+
+                                    maVT = txtMaVT.Text.ToString().Trim();                                    
                                         danhDauXoa = false;
                                         String query = taoCauTruyVanHoanTac(cheDo);
                                         undoList.Push(query);
@@ -677,9 +680,11 @@ namespace QLVT
                                         drv["DONGIA"] = txtDonGia.Value.ToString();
                                     
                                 }
-                                
+                                capNhatSLT(maVT, soLuong);
+
 
                             }
+                            
                             this.bdsHoaDon.EndEdit();
                             this.bdsCTHD.EndEdit();
                             this.CTHDTableAdapter.Update(this.dataSet.CTHD);
@@ -697,11 +702,6 @@ namespace QLVT
                             this.btnMenu.Enabled = true;
                             this.btnEXIT.Enabled = true;
                             this.txtMaHD.Enabled = false;
-
-
-                            //this.groupBoxDonDatHang.Enabled = false;
-
-                            /*cập nhật lại trạng thái thêm mới cho chắc*/
                             dangThemMoi = false;
                             MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
                         }
@@ -989,6 +989,17 @@ namespace QLVT
                 this.HOADONTableAdapter.Fill(this.dataSet.HOADON);
 
             }
+        }
+
+        private void capNhatSLT(string maVatTu, int soLuong)
+        {
+            string cauTruyVan = "DECLARE @RETURN INT; " +
+                "EXEC @RETURN = sp_CapNhatSLT @CHEDO = 'XUAT'" +
+                ",@MAVT = '" + maVatTu + "'," +
+                "@SOLUONG='" + soLuong + "';" +
+                "SELECT'RETURN VALUE' = @RETURN";
+            int n = Program.ExecSqlNonQuery(cauTruyVan);
+            Console.WriteLine("cap nhat so luong ton = " + cauTruyVan);
         }
 
 

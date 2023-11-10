@@ -49,6 +49,7 @@ namespace QLVT
         public static string hoTen = "";
         public static string diaChi = "";
         public static string ngaySinh = "";
+        public static string maCN = "";
 
 
 

@@ -1,6 +1,6 @@
-﻿namespace QLVT.SubForm
+﻿namespace QLVT.ReportForm
 {
-    partial class ReportDanhSachNhanVien
+    partial class ReportDanhSachDDHKhongPhieuNhap
     {
         /// <summary>
         /// Required designer variable.
@@ -45,16 +45,12 @@
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression6 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Column column7 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression7 = new DevExpress.DataAccess.Sql.ColumnExpression();
-            DevExpress.DataAccess.Sql.Column column8 = new DevExpress.DataAccess.Sql.Column();
-            DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDanhSachNhanVien));
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDanhSachDDHKhongPhieuNhap));
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.txtChiNhanh = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
@@ -66,75 +62,26 @@
             this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.checkBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailCaption1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData3_Odd = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.qlvT_NHAPXUATDataSet1 = new QLVT.QLVT_NHAPXUATDataSet();
-            this.nHANVIENTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter();
-            this.qlvT_NHAPXUATDataSet2 = new QLVT.QLVT_NHAPXUATDataSet();
+            this.txtChiNhanh = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "QLVT.Properties.Settings.QLVT_NHAPXUATConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            columnExpression1.ColumnName = "MANV";
-            table3.Name = "NHANVIEN";
-            columnExpression1.Table = table3;
-            column1.Expression = columnExpression1;
-            columnExpression2.ColumnName = "HO";
-            columnExpression2.Table = table3;
-            column2.Expression = columnExpression2;
-            columnExpression3.ColumnName = "TEN";
-            columnExpression3.Table = table3;
-            column3.Expression = columnExpression3;
-            columnExpression4.ColumnName = "NGAYSINH";
-            columnExpression4.Table = table3;
-            column4.Expression = columnExpression4;
-            columnExpression5.ColumnName = "DIACHI";
-            columnExpression5.Table = table3;
-            column5.Expression = columnExpression5;
-            columnExpression6.ColumnName = "SDT";
-            columnExpression6.Table = table3;
-            column6.Expression = columnExpression6;
-            columnExpression7.ColumnName = "MACN";
-            columnExpression7.Table = table3;
-            column7.Expression = columnExpression7;
-            columnExpression8.ColumnName = "TRANGTHAIXOA";
-            columnExpression8.Table = table3;
-            column8.Expression = columnExpression8;
-            selectQuery1.Columns.Add(column1);
-            selectQuery1.Columns.Add(column2);
-            selectQuery1.Columns.Add(column3);
-            selectQuery1.Columns.Add(column4);
-            selectQuery1.Columns.Add(column5);
-            selectQuery1.Columns.Add(column6);
-            selectQuery1.Columns.Add(column7);
-            selectQuery1.Columns.Add(column8);
-            selectQuery1.Name = "NHANVIEN";
-            selectQuery1.Tables.Add(table3);
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            selectQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // TopMargin
             // 
@@ -152,14 +99,14 @@
             this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pageInfo1.Name = "pageInfo1";
             this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.pageInfo1.SizeF = new System.Drawing.SizeF(326.5F, 23F);
+            this.pageInfo1.SizeF = new System.Drawing.SizeF(313.5F, 23F);
             this.pageInfo1.StyleName = "PageInfo";
             // 
             // pageInfo2
             // 
-            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(326.5F, 0F);
+            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(313.5F, 0F);
             this.pageInfo2.Name = "pageInfo2";
-            this.pageInfo2.SizeF = new System.Drawing.SizeF(326.5F, 23F);
+            this.pageInfo2.SizeF = new System.Drawing.SizeF(313.5F, 23F);
             this.pageInfo2.StyleName = "PageInfo";
             this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.pageInfo2.TextFormatString = "Page {0} of {1}";
@@ -172,25 +119,13 @@
             this.ReportHeader.HeightF = 60F;
             this.ReportHeader.Name = "ReportHeader";
             // 
-            // txtChiNhanh
-            // 
-            this.txtChiNhanh.LocationFloat = new DevExpress.Utils.PointFloat(209.8809F, 37F);
-            this.txtChiNhanh.Multiline = true;
-            this.txtChiNhanh.Name = "txtChiNhanh";
-            this.txtChiNhanh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.txtChiNhanh.SizeF = new System.Drawing.SizeF(236.6666F, 23F);
-            this.txtChiNhanh.StylePriority.UseTextAlignment = false;
-            this.txtChiNhanh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // label1
             // 
             this.label1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.label1.Name = "label1";
-            this.label1.SizeF = new System.Drawing.SizeF(653F, 24.19433F);
+            this.label1.SizeF = new System.Drawing.SizeF(627F, 24.19433F);
             this.label1.StyleName = "Title";
-            this.label1.StylePriority.UseTextAlignment = false;
-            this.label1.Text = "DANH SÁCH NHÂN VIÊN";
-            this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.label1.Text = "DANH SÁCH ĐƠN ĐẶT HÀNG CHƯA CÓ PHIẾU NHẬP";
             // 
             // GroupHeader1
             // 
@@ -206,7 +141,7 @@
             this.table1.Name = "table1";
             this.table1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow1});
-            this.table1.SizeF = new System.Drawing.SizeF(653F, 28F);
+            this.table1.SizeF = new System.Drawing.SizeF(627F, 28F);
             // 
             // tableRow1
             // 
@@ -217,8 +152,7 @@
             this.tableCell4,
             this.tableCell5,
             this.tableCell6,
-            this.tableCell7,
-            this.tableCell8});
+            this.tableCell7});
             this.tableRow1.Name = "tableRow1";
             this.tableRow1.Weight = 1D;
             // 
@@ -228,61 +162,54 @@
             this.tableCell1.Name = "tableCell1";
             this.tableCell1.StyleName = "DetailCaption1";
             this.tableCell1.StylePriority.UseBorders = false;
-            this.tableCell1.StylePriority.UseTextAlignment = false;
-            this.tableCell1.Text = "MANV";
-            this.tableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell1.Weight = 0.10967009282951881D;
+            this.tableCell1.Text = "MADDH";
+            this.tableCell1.Weight = 0.13464288544236569D;
             // 
             // tableCell2
             // 
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
-            this.tableCell2.Text = "HO";
-            this.tableCell2.Weight = 0.071715835407718587D;
+            this.tableCell2.Text = "NGAYLAP";
+            this.tableCell2.Weight = 0.16639391885419783D;
             // 
             // tableCell3
             // 
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
-            this.tableCell3.Text = "TEN";
-            this.tableCell3.Weight = 0.084854838676511057D;
+            this.tableCell3.Text = "MANCC";
+            this.tableCell3.Weight = 0.13464288544236569D;
             // 
             // tableCell4
             // 
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailCaption1";
-            this.tableCell4.Text = "NGAYSINH";
-            this.tableCell4.Weight = 0.171002573477729D;
+            this.tableCell4.Text = "HOTEN";
+            this.tableCell4.Weight = 0.12861404540626245D;
             // 
             // tableCell5
             // 
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailCaption1";
-            this.tableCell5.Text = "DIACHI";
-            this.tableCell5.Weight = 0.12280910194011414D;
+            this.tableCell5.Text = "TENVT";
+            this.tableCell5.Weight = 0.122571929980313D;
             // 
             // tableCell6
             // 
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailCaption1";
-            this.tableCell6.Text = "SDT";
-            this.tableCell6.Weight = 0.084854838676511057D;
+            this.tableCell6.StylePriority.UseTextAlignment = false;
+            this.tableCell6.Text = "SOLUONG";
+            this.tableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell6.Weight = 0.17092220178631504D;
             // 
             // tableCell7
             // 
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailCaption1";
-            this.tableCell7.Text = "MACN";
-            this.tableCell7.Weight = 0.1111200049314163D;
-            // 
-            // tableCell8
-            // 
-            this.tableCell8.Name = "tableCell8";
-            this.tableCell8.StyleName = "DetailCaption1";
-            this.tableCell8.StylePriority.UseTextAlignment = false;
-            this.tableCell8.Text = "TRANGTHAIXOA";
-            this.tableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell8.Weight = 0.24397268485146678D;
+            this.tableCell7.StylePriority.UseTextAlignment = false;
+            this.tableCell7.Text = "DONGIA";
+            this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell7.Weight = 0.14221215742436702D;
             // 
             // Detail
             // 
@@ -298,102 +225,121 @@
             this.table2.OddStyleName = "DetailData3_Odd";
             this.table2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow2});
-            this.table2.SizeF = new System.Drawing.SizeF(653F, 25F);
+            this.table2.SizeF = new System.Drawing.SizeF(627F, 25F);
             // 
             // tableRow2
             // 
             this.tableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.tableCell8,
             this.tableCell9,
             this.tableCell10,
             this.tableCell11,
             this.tableCell12,
             this.tableCell13,
-            this.tableCell14,
-            this.tableCell15,
-            this.tableCell16});
+            this.tableCell14});
             this.tableRow2.Name = "tableRow2";
             this.tableRow2.Weight = 11.5D;
             // 
+            // tableCell8
+            // 
+            this.tableCell8.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.tableCell8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MADDH]")});
+            this.tableCell8.Name = "tableCell8";
+            this.tableCell8.StyleName = "DetailData1";
+            this.tableCell8.StylePriority.UseBorders = false;
+            this.tableCell8.Weight = 0.13464288544236569D;
+            // 
             // tableCell9
             // 
-            this.tableCell9.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.tableCell9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MANV]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[NGAYLAP]")});
             this.tableCell9.Name = "tableCell9";
             this.tableCell9.StyleName = "DetailData1";
-            this.tableCell9.StylePriority.UseBorders = false;
-            this.tableCell9.StylePriority.UseTextAlignment = false;
-            this.tableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell9.Weight = 0.10967009282951881D;
+            this.tableCell9.Weight = 0.16639391885419783D;
             // 
             // tableCell10
             // 
             this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HO]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MANCC]")});
             this.tableCell10.Name = "tableCell10";
             this.tableCell10.StyleName = "DetailData1";
-            this.tableCell10.Weight = 0.071715835407718587D;
+            this.tableCell10.Weight = 0.13464288544236569D;
             // 
             // tableCell11
             // 
             this.tableCell11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TEN]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HOTEN]")});
             this.tableCell11.Name = "tableCell11";
             this.tableCell11.StyleName = "DetailData1";
-            this.tableCell11.Weight = 0.084854838676511057D;
+            this.tableCell11.Weight = 0.12861404540626245D;
             // 
             // tableCell12
             // 
             this.tableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[NGAYSINH]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TENVT]")});
             this.tableCell12.Name = "tableCell12";
             this.tableCell12.StyleName = "DetailData1";
-            this.tableCell12.Weight = 0.171002573477729D;
+            this.tableCell12.Weight = 0.122571929980313D;
             // 
             // tableCell13
             // 
             this.tableCell13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DIACHI]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SOLUONG]")});
             this.tableCell13.Name = "tableCell13";
             this.tableCell13.StyleName = "DetailData1";
-            this.tableCell13.Weight = 0.12280910194011414D;
+            this.tableCell13.StylePriority.UseTextAlignment = false;
+            this.tableCell13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell13.Weight = 0.17092220178631504D;
             // 
             // tableCell14
             // 
             this.tableCell14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SDT]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DONGIA]")});
             this.tableCell14.Name = "tableCell14";
             this.tableCell14.StyleName = "DetailData1";
-            this.tableCell14.Weight = 0.084854838676511057D;
+            this.tableCell14.StylePriority.UseTextAlignment = false;
+            this.tableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell14.Weight = 0.14221210875199361D;
             // 
-            // tableCell15
+            // sqlDataSource1
             // 
-            this.tableCell15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MACN]")});
-            this.tableCell15.Name = "tableCell15";
-            this.tableCell15.StyleName = "DetailData1";
-            this.tableCell15.Weight = 0.1111200049314163D;
-            // 
-            // tableCell16
-            // 
-            this.tableCell16.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.checkBox1});
-            this.tableCell16.Name = "tableCell16";
-            this.tableCell16.StyleName = "DetailData1";
-            this.tableCell16.StylePriority.UseTextAlignment = false;
-            this.tableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell16.Weight = 0.24397270821867822D;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AnchorHorizontal = ((DevExpress.XtraReports.UI.HorizontalAnchorStyles)((DevExpress.XtraReports.UI.HorizontalAnchorStyles.Left | DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right)));
-            this.checkBox1.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
-            this.checkBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "CheckBoxState", "[TRANGTHAIXOA]")});
-            this.checkBox1.GlyphOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
-            this.checkBox1.LocationFloat = new DevExpress.Utils.PointFloat(2.083333F, 0F);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.SizeF = new System.Drawing.SizeF(157.2309F, 25F);
+            this.sqlDataSource1.ConnectionName = "QLVT.Properties.Settings.QLVT_NHAPXUATConnectionString2";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            columnExpression1.ColumnName = "MADDH";
+            table3.Name = "view_LayDonDatHangKhongPhieuNhap";
+            columnExpression1.Table = table3;
+            column1.Expression = columnExpression1;
+            columnExpression2.ColumnName = "NGAYLAP";
+            columnExpression2.Table = table3;
+            column2.Expression = columnExpression2;
+            columnExpression3.ColumnName = "MANCC";
+            columnExpression3.Table = table3;
+            column3.Expression = columnExpression3;
+            columnExpression4.ColumnName = "HOTEN";
+            columnExpression4.Table = table3;
+            column4.Expression = columnExpression4;
+            columnExpression5.ColumnName = "TENVT";
+            columnExpression5.Table = table3;
+            column5.Expression = columnExpression5;
+            columnExpression6.ColumnName = "SOLUONG";
+            columnExpression6.Table = table3;
+            column6.Expression = columnExpression6;
+            columnExpression7.ColumnName = "DONGIA";
+            columnExpression7.Table = table3;
+            column7.Expression = columnExpression7;
+            selectQuery1.Columns.Add(column1);
+            selectQuery1.Columns.Add(column2);
+            selectQuery1.Columns.Add(column3);
+            selectQuery1.Columns.Add(column4);
+            selectQuery1.Columns.Add(column5);
+            selectQuery1.Columns.Add(column6);
+            selectQuery1.Columns.Add(column7);
+            selectQuery1.Name = "view_LayDonDatHangKhongPhieuNhap";
+            selectQuery1.Tables.Add(table3);
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // Title
             // 
@@ -448,21 +394,17 @@
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 
-            // qlvT_NHAPXUATDataSet1
+            // txtChiNhanh
             // 
-            this.qlvT_NHAPXUATDataSet1.DataSetName = "QLVT_NHAPXUATDataSet";
-            this.qlvT_NHAPXUATDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.txtChiNhanh.LocationFloat = new DevExpress.Utils.PointFloat(193.9982F, 37F);
+            this.txtChiNhanh.Multiline = true;
+            this.txtChiNhanh.Name = "txtChiNhanh";
+            this.txtChiNhanh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtChiNhanh.SizeF = new System.Drawing.SizeF(236.6666F, 23F);
+            this.txtChiNhanh.StylePriority.UseTextAlignment = false;
+            this.txtChiNhanh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // nHANVIENTableAdapter
-            // 
-            this.nHANVIENTableAdapter.ClearBeforeFill = true;
-            // 
-            // qlvT_NHAPXUATDataSet2
-            // 
-            this.qlvT_NHAPXUATDataSet2.DataSetName = "QLVT_NHAPXUATDataSet";
-            this.qlvT_NHAPXUATDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ReportDanhSachNhanVien
+            // ReportDanhSachDDHKhongPhieuNhap
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.TopMargin,
@@ -471,14 +413,13 @@
             this.GroupHeader1,
             this.Detail});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1,
-            this.qlvT_NHAPXUATDataSet1,
-            this.qlvT_NHAPXUATDataSet2});
-            this.DataAdapter = this.nHANVIENTableAdapter;
-            this.DataMember = "NHANVIEN";
+            this.sqlDataSource1});
+            this.DataMember = "view_LayDonDatHangKhongPhieuNhap";
             this.DataSource = this.sqlDataSource1;
-            this.Font = new DevExpress.Drawing.DXFont("Arial", 11F);
-            this.Margins = new DevExpress.Drawing.DXMargins(97F, 98F, 100F, 100F);
+            this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
+            this.PageHeight = 1169;
+            this.PageWidth = 827;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.DetailCaption1,
@@ -488,14 +429,12 @@
             this.Version = "23.1";
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
 
         #endregion
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.XRPageInfo pageInfo1;
@@ -512,27 +451,22 @@
         private DevExpress.XtraReports.UI.XRTableCell tableCell5;
         private DevExpress.XtraReports.UI.XRTableCell tableCell6;
         private DevExpress.XtraReports.UI.XRTableCell tableCell7;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell8;
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.XRTable table2;
         private DevExpress.XtraReports.UI.XRTableRow tableRow2;
+        private DevExpress.XtraReports.UI.XRTableCell tableCell8;
         private DevExpress.XtraReports.UI.XRTableCell tableCell9;
         private DevExpress.XtraReports.UI.XRTableCell tableCell10;
         private DevExpress.XtraReports.UI.XRTableCell tableCell11;
         private DevExpress.XtraReports.UI.XRTableCell tableCell12;
         private DevExpress.XtraReports.UI.XRTableCell tableCell13;
         private DevExpress.XtraReports.UI.XRTableCell tableCell14;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell15;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell16;
-        private DevExpress.XtraReports.UI.XRCheckBox checkBox1;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle DetailCaption1;
         private DevExpress.XtraReports.UI.XRControlStyle DetailData1;
         private DevExpress.XtraReports.UI.XRControlStyle DetailData3_Odd;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         public DevExpress.XtraReports.UI.XRLabel txtChiNhanh;
-        private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet1;
-        private QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
-        private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet2;
     }
 }
