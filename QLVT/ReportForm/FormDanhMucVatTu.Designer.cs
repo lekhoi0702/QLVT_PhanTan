@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters msSqlConnectionParameters3 = new DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters();
-            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery3 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters msSqlConnectionParameters2 = new DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters();
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhMucVatTu));
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -287,10 +287,10 @@
             this.gridControl1.DataMember = "sp_InDanhMucVatTu";
             this.gridControl1.DataSource = this.sqlDataSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.gridControl1.Location = new System.Drawing.Point(0, 34);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(1434, 340);
@@ -301,17 +301,17 @@
             // sqlDataSource1
             // 
             this.sqlDataSource1.ConnectionName = "zephyrus-g15\\mssqlserver1.QLVT_NHAPXUAT.dbo1";
-            msSqlConnectionParameters3.AuthorizationType = DevExpress.DataAccess.ConnectionParameters.MsSqlAuthorizationType.SqlServer;
-            msSqlConnectionParameters3.DatabaseName = "QLVT_NHAPXUAT";
-            msSqlConnectionParameters3.Password = "123456";
-            msSqlConnectionParameters3.ServerName = "ZEPHYRUS-G15\\MSSQLSERVER1";
-            msSqlConnectionParameters3.UserName = "TH";
-            this.sqlDataSource1.ConnectionParameters = msSqlConnectionParameters3;
+            msSqlConnectionParameters2.AuthorizationType = DevExpress.DataAccess.ConnectionParameters.MsSqlAuthorizationType.SqlServer;
+            msSqlConnectionParameters2.DatabaseName = "QLVT_NHAPXUAT";
+            msSqlConnectionParameters2.Password = "123456";
+            msSqlConnectionParameters2.ServerName = "ZEPHYRUS-G15\\MSSQLSERVER1";
+            msSqlConnectionParameters2.UserName = "TH";
+            this.sqlDataSource1.ConnectionParameters = msSqlConnectionParameters2;
             this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery3.Name = "sp_InDanhMucVatTu";
-            storedProcQuery3.StoredProcName = "sp_InDanhMucVatTu";
+            storedProcQuery2.Name = "sp_InDanhMucVatTu";
+            storedProcQuery2.StoredProcName = "sp_InDanhMucVatTu";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            storedProcQuery3});
+            storedProcQuery2});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView1
@@ -322,55 +322,60 @@
             this.colTENLVT,
             this.colSLT,
             this.colDVT});
-            this.gridView1.DetailHeight = 682;
+            this.gridView1.DetailHeight = 852;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1562;
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1952;
             // 
             // colMAVT
             // 
+            this.colMAVT.Caption = "Mã vật tư";
             this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.MinWidth = 39;
+            this.colMAVT.MinWidth = 49;
             this.colMAVT.Name = "colMAVT";
             this.colMAVT.Visible = true;
             this.colMAVT.VisibleIndex = 0;
-            this.colMAVT.Width = 146;
+            this.colMAVT.Width = 182;
             // 
             // colTENVT
             // 
+            this.colTENVT.Caption = "Tên vật tư";
             this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 39;
+            this.colTENVT.MinWidth = 49;
             this.colTENVT.Name = "colTENVT";
             this.colTENVT.Visible = true;
             this.colTENVT.VisibleIndex = 1;
-            this.colTENVT.Width = 146;
+            this.colTENVT.Width = 182;
             // 
             // colTENLVT
             // 
+            this.colTENLVT.Caption = "Tên loại vật tư";
             this.colTENLVT.FieldName = "TENLVT";
-            this.colTENLVT.MinWidth = 39;
+            this.colTENLVT.MinWidth = 49;
             this.colTENLVT.Name = "colTENLVT";
             this.colTENLVT.Visible = true;
             this.colTENLVT.VisibleIndex = 2;
-            this.colTENLVT.Width = 146;
+            this.colTENLVT.Width = 182;
             // 
             // colSLT
             // 
+            this.colSLT.Caption = "Số lượng tồn";
             this.colSLT.FieldName = "SLT";
-            this.colSLT.MinWidth = 39;
+            this.colSLT.MinWidth = 49;
             this.colSLT.Name = "colSLT";
             this.colSLT.Visible = true;
             this.colSLT.VisibleIndex = 3;
-            this.colSLT.Width = 146;
+            this.colSLT.Width = 182;
             // 
             // colDVT
             // 
+            this.colDVT.Caption = "Đơn vị tính";
             this.colDVT.FieldName = "DVT";
-            this.colDVT.MinWidth = 39;
+            this.colDVT.MinWidth = 49;
             this.colDVT.Name = "colDVT";
             this.colDVT.Visible = true;
             this.colDVT.VisibleIndex = 4;
-            this.colDVT.Width = 146;
+            this.colDVT.Width = 182;
             // 
             // bdsVatTu
             // 
