@@ -16,5 +16,20 @@ namespace QLVT.ReportForm
         {
             InitializeComponent();
         }
+
+        private void nHANVIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bdsNhanVien.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dataSet);
+
+        }
+
+        private void FormTinhHinhHoatDongNhanVien_Load(object sender, EventArgs e)
+        {
+            this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.NHANVIENTableAdapter.Fill(this.dataSet.NHANVIEN);
+
+        }
     }
 }

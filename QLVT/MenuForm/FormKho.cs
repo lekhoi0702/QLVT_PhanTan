@@ -53,9 +53,8 @@ namespace QLVT
             this.PHIEUNHAPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.PHIEUNHAPTableAdapter.Fill(this.dataSet.PHIEUNHAP);
 
+            
 
-
-         
             cmbChiNhanh.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
