@@ -360,6 +360,12 @@
     <Compile Include="MenuForm\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\FormDanhMucVatTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormDanhMucVatTu.Designer.cs">
+      <DependentUpon>FormDanhMucVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\FormDanhSachDDHKhongPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +383,12 @@
     </Compile>
     <Compile Include="ReportForm\FormTinhHinhHoatDongNhanVien.Designer.cs">
       <DependentUpon>FormTinhHinhHoatDongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportDanhMucVatTu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportDanhMucVatTu.Designer.cs">
+      <DependentUpon>ReportDanhMucVatTu.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\ReportDanhSachDDHKhongPhieuNhap.cs">
       <SubType>Component</SubType>
@@ -460,6 +472,9 @@
     <EmbeddedResource Include="MenuForm\FormHoaDon.resx">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\FormDanhMucVatTu.resx">
+      <DependentUpon>FormDanhMucVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormDanhSachDDHKhongPhieuNhap.resx">
       <DependentUpon>FormDanhSachDDHKhongPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormTinhHinhHoatDongNhanVien.resx">
       <DependentUpon>FormTinhHinhHoatDongNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportDanhMucVatTu.resx">
+      <DependentUpon>ReportDanhMucVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportDanhSachDDHKhongPhieuNhap.resx">
       <DependentUpon>ReportDanhSachDDHKhongPhieuNhap.cs</DependentUpon>

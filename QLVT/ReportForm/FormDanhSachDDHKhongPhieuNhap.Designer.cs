@@ -114,7 +114,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLAMMOI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEXIT, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.bar1.Offset = 1;
+            this.bar1.Offset = 2;
             this.bar1.Text = "Tools";
             // 
             // barButtonItem1
@@ -274,9 +274,9 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 34);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(8);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1450, 80);
+            this.panelControl1.Size = new System.Drawing.Size(1450, 125);
             this.panelControl1.TabIndex = 7;
             // 
             // cmbChiNhanh
@@ -284,18 +284,18 @@
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.Enabled = false;
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(532, 28);
-            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(8);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(831, 44);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(564, 28);
+            this.cmbChiNhanh.Size = new System.Drawing.Size(879, 28);
             this.cmbChiNhanh.TabIndex = 1;
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(388, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(606, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 0;
@@ -337,11 +337,13 @@
             // 
             this.gcDDHKhongPN.DataSource = this.bdsDDHKhongPN;
             this.gcDDHKhongPN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDDHKhongPN.Location = new System.Drawing.Point(0, 114);
+            this.gcDDHKhongPN.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcDDHKhongPN.Location = new System.Drawing.Point(0, 159);
             this.gcDDHKhongPN.MainView = this.gridView1;
+            this.gcDDHKhongPN.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.gcDDHKhongPN.MenuManager = this.barManager1;
             this.gcDDHKhongPN.Name = "gcDDHKhongPN";
-            this.gcDDHKhongPN.Size = new System.Drawing.Size(1450, 314);
+            this.gcDDHKhongPN.Size = new System.Drawing.Size(1450, 269);
             this.gcDDHKhongPN.TabIndex = 12;
             this.gcDDHKhongPN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -356,78 +358,87 @@
             this.colTENVT,
             this.colSOLUONG,
             this.colDONGIA});
+            this.gridView1.DetailHeight = 546;
             this.gridView1.GridControl = this.gcDDHKhongPN;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1250;
             // 
             // colMADDH
             // 
+            this.colMADDH.Caption = "Mã đơn đặt hàng";
             this.colMADDH.FieldName = "MADDH";
-            this.colMADDH.MinWidth = 25;
+            this.colMADDH.MinWidth = 39;
             this.colMADDH.Name = "colMADDH";
             this.colMADDH.OptionsColumn.AllowEdit = false;
             this.colMADDH.Visible = true;
             this.colMADDH.VisibleIndex = 0;
-            this.colMADDH.Width = 94;
+            this.colMADDH.Width = 146;
             // 
             // colNGAYLAP
             // 
+            this.colNGAYLAP.Caption = "Ngày lập";
             this.colNGAYLAP.FieldName = "NGAYLAP";
-            this.colNGAYLAP.MinWidth = 25;
+            this.colNGAYLAP.MinWidth = 39;
             this.colNGAYLAP.Name = "colNGAYLAP";
             this.colNGAYLAP.OptionsColumn.AllowEdit = false;
             this.colNGAYLAP.Visible = true;
             this.colNGAYLAP.VisibleIndex = 1;
-            this.colNGAYLAP.Width = 94;
+            this.colNGAYLAP.Width = 146;
             // 
             // colMANCC
             // 
+            this.colMANCC.Caption = "Mã nhà cung cấp";
             this.colMANCC.FieldName = "MANCC";
-            this.colMANCC.MinWidth = 25;
+            this.colMANCC.MinWidth = 39;
             this.colMANCC.Name = "colMANCC";
             this.colMANCC.OptionsColumn.AllowEdit = false;
             this.colMANCC.Visible = true;
             this.colMANCC.VisibleIndex = 2;
-            this.colMANCC.Width = 94;
+            this.colMANCC.Width = 146;
             // 
             // colHOTEN
             // 
+            this.colHOTEN.Caption = "Họ tên";
             this.colHOTEN.FieldName = "HOTEN";
-            this.colHOTEN.MinWidth = 25;
+            this.colHOTEN.MinWidth = 39;
             this.colHOTEN.Name = "colHOTEN";
             this.colHOTEN.OptionsColumn.AllowEdit = false;
             this.colHOTEN.Visible = true;
             this.colHOTEN.VisibleIndex = 3;
-            this.colHOTEN.Width = 94;
+            this.colHOTEN.Width = 146;
             // 
             // colTENVT
             // 
+            this.colTENVT.Caption = "Tên vật tư";
             this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 25;
+            this.colTENVT.MinWidth = 39;
             this.colTENVT.Name = "colTENVT";
             this.colTENVT.OptionsColumn.AllowEdit = false;
             this.colTENVT.Visible = true;
             this.colTENVT.VisibleIndex = 4;
-            this.colTENVT.Width = 94;
+            this.colTENVT.Width = 146;
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.Caption = "Số lượng";
             this.colSOLUONG.FieldName = "SOLUONG";
-            this.colSOLUONG.MinWidth = 25;
+            this.colSOLUONG.MinWidth = 39;
             this.colSOLUONG.Name = "colSOLUONG";
             this.colSOLUONG.OptionsColumn.AllowEdit = false;
             this.colSOLUONG.Visible = true;
             this.colSOLUONG.VisibleIndex = 5;
-            this.colSOLUONG.Width = 94;
+            this.colSOLUONG.Width = 146;
             // 
             // colDONGIA
             // 
+            this.colDONGIA.Caption = "Đơn giá";
             this.colDONGIA.FieldName = "DONGIA";
-            this.colDONGIA.MinWidth = 25;
+            this.colDONGIA.MinWidth = 39;
             this.colDONGIA.Name = "colDONGIA";
             this.colDONGIA.OptionsColumn.AllowEdit = false;
             this.colDONGIA.Visible = true;
             this.colDONGIA.VisibleIndex = 6;
-            this.colDONGIA.Width = 94;
+            this.colDONGIA.Width = 146;
             // 
             // FormDanhSachDDHKhongPhieuNhap
             // 

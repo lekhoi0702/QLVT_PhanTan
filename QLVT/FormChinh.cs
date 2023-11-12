@@ -291,18 +291,16 @@ namespace QLVT
                 form.Show();
             }
         }
-
-
-        private void btnTinhHinhHDNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnDMVT_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormTinhHinhHoatDongNhanVien));
+            Form f = this.CheckExists(typeof(FormDanhMucVatTu));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormTinhHinhHoatDongNhanVien form = new FormTinhHinhHoatDongNhanVien();
+                FormDanhMucVatTu form = new FormDanhMucVatTu();
                 form.MdiParent = this;
                 form.Show();
             }
