@@ -360,6 +360,12 @@
     <Compile Include="MenuForm\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\FormChonCheDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormChonCheDo.Designer.cs">
+      <DependentUpon>FormChonCheDo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\FormDanhMucVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +401,12 @@
     </Compile>
     <Compile Include="ReportForm\ReportDanhSachDDHKhongPhieuNhap.Designer.cs">
       <DependentUpon>ReportDanhSachDDHKhongPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportTinhHinhHoatDongNhanVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportTinhHinhHoatDongNhanVien.Designer.cs">
+      <DependentUpon>ReportTinhHinhHoatDongNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="SubForm\FormChonCTDDH.cs">
       <SubType>Form</SubType>
@@ -472,6 +484,9 @@
     <EmbeddedResource Include="MenuForm\FormHoaDon.resx">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\FormChonCheDo.resx">
+      <DependentUpon>FormChonCheDo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormDanhMucVatTu.resx">
       <DependentUpon>FormDanhMucVatTu.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,6 +504,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportDanhSachDDHKhongPhieuNhap.resx">
       <DependentUpon>ReportDanhSachDDHKhongPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportTinhHinhHoatDongNhanVien.resx">
+      <DependentUpon>ReportTinhHinhHoatDongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChonCTDDH.resx">
       <DependentUpon>FormChonCTDDH.cs</DependentUpon>

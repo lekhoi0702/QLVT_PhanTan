@@ -95,6 +95,8 @@ namespace QLVT.ReportForm
         }
 
 
+
+
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*
@@ -140,8 +142,7 @@ namespace QLVT.ReportForm
             {
                 this.cmbChiNhanh.Enabled = true;
             }
-            // TODO: This line of code loads data into the 'dataSet.NhanVien' table. You can move, or remove it, as needed.
-            dataSet.EnforceConstraints = false;
+          
 
             if (KetNoiDatabaseGoc() == 0)
                 return;
@@ -153,13 +154,40 @@ namespace QLVT.ReportForm
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.brand;
+            this.barButtonItem1.Enabled = false;
+            this.barButtonItem2.Enabled = false;
         }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SubForm.ReportDanhSachNhanVien report = new SubForm.ReportDanhSachNhanVien();
-            report.txtChiNhanh.Text = chiNhanh.ToUpper();
-            ReportPrintTool printTool = new ReportPrintTool(report);
-            printTool.ShowPreviewDialog();
+
+            String cheDo = (Menu.Links[0].Caption == "Danh sách nhân viên") ? "Danh sách nhân viên" : "Tình hình hoạt động nhân viên";
+
+            if (cheDo == "Danh sách nhân viên")
+            {
+                SubForm.ReportDanhSachNhanVien report = new SubForm.ReportDanhSachNhanVien();
+                report.txtChiNhanh.Text = chiNhanh.ToUpper();
+                ReportPrintTool printTool = new ReportPrintTool(report);
+                printTool.ShowPreviewDialog();
+            }
+            else {
+                if (bdsNhanVien.Count != 0)
+                {
+                    DataRowView drv = ((DataRowView)bdsNhanVien[bdsNhanVien.Position]);
+                    Program.maNV = (int)drv["MANV"];
+                    Program.Ho = drv["HO"].ToString().Trim();
+                    Program.Ten = drv["TEN"].ToString().Trim();
+                    Program.maCN = drv["MACN"].ToString().Trim();
+                    Program.SDT = drv["SDT"].ToString().Trim();
+                    Program.diaChi = drv["DIACHI"].ToString().Trim();
+                    Program.ngaySinh = drv["NGAYSINH"].ToString().Trim();
+              
+                    FormChonCheDo f = new FormChonCheDo();
+                    f.Show();
+                }
+                
+            }
+
+       
 
         }
 
@@ -216,6 +244,42 @@ namespace QLVT.ReportForm
         {
 
         }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Menu.Links[0].Caption = "Danh sách nhân viên";
+            this.barButtonItem1.Enabled = true;
+            this.barButtonItem2.Enabled = true;
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Menu.Links[0].Caption = "Tình hình hoạt động nhân viên";
+            this.barButtonItem1.Enabled = true;
+            this.barButtonItem2.Enabled = true;
+        }
+
+        private void btnEXIT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Dispose();
+        }
+
+
+        private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                
+                this.NHANVIENTableAdapter.Fill(this.dataSet.NHANVIEN);
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi Làm mới" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
     }
 
 }

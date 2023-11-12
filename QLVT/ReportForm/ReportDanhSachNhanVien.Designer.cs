@@ -48,6 +48,11 @@
             DevExpress.DataAccess.Sql.Column column8 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDanhSachNhanVien));
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter4 = new DevExpress.DataAccess.Sql.QueryParameter();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -68,6 +73,7 @@
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.checkBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -77,7 +83,6 @@
             this.tableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.checkBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailCaption1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -86,10 +91,14 @@
             this.qlvT_NHAPXUATDataSet1 = new QLVT.QLVT_NHAPXUATDataSet();
             this.nHANVIENTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter();
             this.qlvT_NHAPXUATDataSet2 = new QLVT.QLVT_NHAPXUATDataSet();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.cTDDHTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter();
+            this.qlvT_NHAPXUATDataSet3 = new QLVT.QLVT_NHAPXUATDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // sqlDataSource1
@@ -396,6 +405,28 @@
             this.Detail.HierarchyPrintOptions.Indent = 50.8F;
             this.Detail.Name = "Detail";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AnchorHorizontal = ((DevExpress.XtraReports.UI.HorizontalAnchorStyles)((DevExpress.XtraReports.UI.HorizontalAnchorStyles.Left | DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right)));
+            this.checkBox1.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
+            this.checkBox1.BorderColor = System.Drawing.Color.Black;
+            this.checkBox1.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.checkBox1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.checkBox1.Dpi = 254F;
+            this.checkBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "CheckBoxState", "[TRANGTHAIXOA]")});
+            this.checkBox1.GlyphOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
+            this.checkBox1.LocationFloat = new DevExpress.Utils.PointFloat(1428.482F, 0F);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.SizeF = new System.Drawing.SizeF(271.5181F, 63.5F);
+            this.checkBox1.StylePriority.UseBorderColor = false;
+            this.checkBox1.StylePriority.UseBorderDashStyle = false;
+            this.checkBox1.StylePriority.UseBorders = false;
+            this.checkBox1.StylePriority.UseTextAlignment = false;
+            this.checkBox1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // table2
             // 
             this.table2.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
@@ -561,28 +592,6 @@
             this.tableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell15.Weight = 0.13211339990504811D;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AnchorHorizontal = ((DevExpress.XtraReports.UI.HorizontalAnchorStyles)((DevExpress.XtraReports.UI.HorizontalAnchorStyles.Left | DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right)));
-            this.checkBox1.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
-            this.checkBox1.BorderColor = System.Drawing.Color.Black;
-            this.checkBox1.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
-            this.checkBox1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.checkBox1.Dpi = 254F;
-            this.checkBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "CheckBoxState", "[TRANGTHAIXOA]")});
-            this.checkBox1.GlyphOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
-            this.checkBox1.LocationFloat = new DevExpress.Utils.PointFloat(1428.482F, 0F);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.SizeF = new System.Drawing.SizeF(271.5181F, 63.5F);
-            this.checkBox1.StylePriority.UseBorderColor = false;
-            this.checkBox1.StylePriority.UseBorderDashStyle = false;
-            this.checkBox1.StylePriority.UseBorders = false;
-            this.checkBox1.StylePriority.UseTextAlignment = false;
-            this.checkBox1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // Title
             // 
             this.Title.BackColor = System.Drawing.Color.Transparent;
@@ -650,6 +659,42 @@
             this.qlvT_NHAPXUATDataSet2.DataSetName = "QLVT_NHAPXUATDataSet";
             this.qlvT_NHAPXUATDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "QLVT.Properties.Settings.QLVT_NHAPXUATConnection";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            storedProcQuery1.Name = "sp_TinhHinhHoatDongNhanVien";
+            queryParameter1.Name = "@MANV";
+            queryParameter1.Type = typeof(int);
+            queryParameter1.ValueInfo = "3";
+            queryParameter2.Name = "@LOAI";
+            queryParameter2.Type = typeof(string);
+            queryParameter2.ValueInfo = "NHAP";
+            queryParameter3.Name = "@NGAYBATDAU";
+            queryParameter3.Type = typeof(System.DateTime);
+            queryParameter3.ValueInfo = "2023-11-10";
+            queryParameter4.Name = "@NGAYKETTHUC";
+            queryParameter4.Type = typeof(System.DateTime);
+            queryParameter4.ValueInfo = "2023-11-11";
+            storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
+            queryParameter1,
+            queryParameter2,
+            queryParameter3,
+            queryParameter4});
+            storedProcQuery1.StoredProcName = "sp_TinhHinhHoatDongNhanVien";
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            storedProcQuery1});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
+            // cTDDHTableAdapter
+            // 
+            this.cTDDHTableAdapter.ClearBeforeFill = true;
+            // 
+            // qlvT_NHAPXUATDataSet3
+            // 
+            this.qlvT_NHAPXUATDataSet3.DataSetName = "QLVT_NHAPXUATDataSet";
+            this.qlvT_NHAPXUATDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // ReportDanhSachNhanVien
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -661,7 +706,9 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1,
             this.qlvT_NHAPXUATDataSet1,
-            this.qlvT_NHAPXUATDataSet2});
+            this.qlvT_NHAPXUATDataSet2,
+            this.sqlDataSource2,
+            this.qlvT_NHAPXUATDataSet3});
             this.DataAdapter = this.nHANVIENTableAdapter;
             this.DataMember = "NHANVIEN";
             this.DataSource = this.sqlDataSource1;
@@ -683,6 +730,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -726,5 +774,8 @@
         private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet1;
         private QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
         private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet2;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
+        private QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
+        private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet3;
     }
 }

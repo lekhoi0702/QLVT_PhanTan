@@ -36,6 +36,9 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnLAMMOI = new DevExpress.XtraBars.BarButtonItem();
             this.btnEXIT = new DevExpress.XtraBars.BarButtonItem();
+            this.Menu = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -99,8 +102,11 @@
             this.btnCheDoDDH,
             this.btnCheDoCTDDH,
             this.barButtonItem1,
-            this.barButtonItem2});
-            this.barManager1.MaxItemId = 13;
+            this.barButtonItem2,
+            this.Menu,
+            this.barButtonItem3,
+            this.barButtonItem4});
+            this.barManager1.MaxItemId = 16;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -114,7 +120,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLAMMOI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEXIT, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEXIT, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.Menu, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Offset = 1;
             this.bar1.Text = "Tools";
             // 
@@ -143,6 +150,7 @@
             this.btnLAMMOI.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLAMMOI.ImageOptions.Image")));
             this.btnLAMMOI.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLAMMOI.ImageOptions.LargeImage")));
             this.btnLAMMOI.Name = "btnLAMMOI";
+            this.btnLAMMOI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLAMMOI_ItemClick);
             // 
             // btnEXIT
             // 
@@ -151,6 +159,36 @@
             this.btnEXIT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEXIT.ImageOptions.Image")));
             this.btnEXIT.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEXIT.ImageOptions.LargeImage")));
             this.btnEXIT.Name = "btnEXIT";
+            this.btnEXIT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEXIT_ItemClick);
+            // 
+            // Menu
+            // 
+            this.Menu.Caption = "Đổi chế độ";
+            this.Menu.Id = 13;
+            this.Menu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Menu.ImageOptions.Image")));
+            this.Menu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("Menu.ImageOptions.LargeImage")));
+            this.Menu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.Menu.Name = "Menu";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Danh sách nhân viên";
+            this.barButtonItem3.Id = 14;
+            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Tình hình hoạt động nhân viên";
+            this.barButtonItem4.Id = 15;
+            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // bar3
             // 
@@ -275,9 +313,9 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 34);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(10);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(975, 89);
+            this.panelControl1.Size = new System.Drawing.Size(975, 55);
             this.panelControl1.TabIndex = 6;
             // 
             // cmbChiNhanh
@@ -285,17 +323,17 @@
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.Enabled = false;
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(665, 35);
-            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(100, 12);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(10);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(704, 28);
+            this.cmbChiNhanh.Size = new System.Drawing.Size(160, 28);
             this.cmbChiNhanh.TabIndex = 1;
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(485, 50);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
@@ -337,13 +375,13 @@
             // 
             this.gcNhanVien.DataSource = this.bdsNhanVien;
             this.gcNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNhanVien.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.gcNhanVien.Location = new System.Drawing.Point(0, 123);
+            this.gcNhanVien.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8);
+            this.gcNhanVien.Location = new System.Drawing.Point(0, 89);
             this.gcNhanVien.MainView = this.gridView1;
-            this.gcNhanVien.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.gcNhanVien.Margin = new System.Windows.Forms.Padding(8);
             this.gcNhanVien.MenuManager = this.barManager1;
             this.gcNhanVien.Name = "gcNhanVien";
-            this.gcNhanVien.Size = new System.Drawing.Size(975, 400);
+            this.gcNhanVien.Size = new System.Drawing.Size(975, 434);
             this.gcNhanVien.TabIndex = 7;
             this.gcNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -521,5 +559,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTRANGTHAIXOA;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarSubItem Menu;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
     }
 }

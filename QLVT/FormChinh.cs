@@ -305,5 +305,21 @@ namespace QLVT
                 form.Show();
             }
         }
+
+
+        private void btnTinhHinhHoatDongNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormTinhHinhHoatDongNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTinhHinhHoatDongNhanVien form = new FormTinhHinhHoatDongNhanVien();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }

@@ -100,6 +100,7 @@
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcCTHD = new DevExpress.XtraGrid.GridControl();
+            this.mAKHTextEdit = new DevExpress.XtraEditors.TextEdit();
             mAVTLabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
             dONGIALabel = new System.Windows.Forms.Label();
@@ -132,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCTHD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mAKHTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAVTLabel
@@ -348,15 +350,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1268, 34);
+            this.barDockControlTop.Size = new System.Drawing.Size(1916, 34);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 725);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 779);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1268, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1916, 22);
             // 
             // barDockControlLeft
             // 
@@ -364,15 +366,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 691);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 745);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1268, 34);
+            this.barDockControlRight.Location = new System.Drawing.Point(1916, 34);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 691);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 745);
             // 
             // btnChuyenChiNhanh
             // 
@@ -435,12 +437,13 @@
             this.panelNhapLieu.Controls.Add(this.panelControl3);
             this.panelNhapLieu.Location = new System.Drawing.Point(0, 441);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(916, 325);
+            this.panelNhapLieu.Size = new System.Drawing.Size(916, 338);
             this.panelNhapLieu.TabIndex = 8;
             this.panelNhapLieu.Text = "Thông tin nhập liệu";
             // 
             // panelHD
             // 
+            this.panelHD.Controls.Add(this.mAKHTextEdit);
             this.panelHD.Controls.Add(this.cmbKhachHang);
             this.panelHD.Controls.Add(this.panelCTHD);
             this.panelHD.Controls.Add(this.cmbKho);
@@ -456,7 +459,7 @@
             this.panelHD.Controls.Add(this.txtMaHD);
             this.panelHD.Location = new System.Drawing.Point(0, 24);
             this.panelHD.Name = "panelHD";
-            this.panelHD.Size = new System.Drawing.Size(912, 294);
+            this.panelHD.Size = new System.Drawing.Size(912, 314);
             this.panelHD.TabIndex = 2;
             this.panelHD.Text = "Thông tin đơn đặt hàng";
             // 
@@ -467,7 +470,7 @@
             this.cmbKhachHang.FormattingEnabled = true;
             this.cmbKhachHang.Location = new System.Drawing.Point(251, 95);
             this.cmbKhachHang.Name = "cmbKhachHang";
-            this.cmbKhachHang.Size = new System.Drawing.Size(166, 28);
+            this.cmbKhachHang.Size = new System.Drawing.Size(137, 28);
             this.cmbKhachHang.TabIndex = 11;
             this.cmbKhachHang.ValueMember = "MAKH";
             // 
@@ -620,7 +623,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(2, 26);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(912, 297);
+            this.panelControl3.Size = new System.Drawing.Size(912, 310);
             this.panelControl3.TabIndex = 1;
             // 
             // KHACHHANGTableAdapter
@@ -638,7 +641,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 34);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1268, 51);
+            this.panelControl1.Size = new System.Drawing.Size(1916, 51);
             this.panelControl1.TabIndex = 13;
             // 
             // cmbChiNhanh
@@ -668,7 +671,7 @@
             this.gcHoaDon.MainView = this.gridView1;
             this.gcHoaDon.MenuManager = this.barManager1;
             this.gcHoaDon.Name = "gcHoaDon";
-            this.gcHoaDon.Size = new System.Drawing.Size(1268, 357);
+            this.gcHoaDon.Size = new System.Drawing.Size(1916, 357);
             this.gcHoaDon.TabIndex = 14;
             this.gcHoaDon.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -808,11 +811,21 @@
             this.gcCTHD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
+            // mAKHTextEdit
+            // 
+            this.mAKHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsKhachHang, "MAKH", true));
+            this.mAKHTextEdit.Enabled = false;
+            this.mAKHTextEdit.Location = new System.Drawing.Point(394, 97);
+            this.mAKHTextEdit.MenuManager = this.barManager1;
+            this.mAKHTextEdit.Name = "mAKHTextEdit";
+            this.mAKHTextEdit.Size = new System.Drawing.Size(112, 26);
+            this.mAKHTextEdit.TabIndex = 14;
+            // 
             // FormHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 747);
+            this.ClientSize = new System.Drawing.Size(1916, 801);
             this.Controls.Add(this.gcCTHD);
             this.Controls.Add(this.gcHoaDon);
             this.Controls.Add(this.panelControl1);
@@ -853,6 +866,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCTHD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mAKHTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -921,5 +935,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
+        private DevExpress.XtraEditors.TextEdit mAKHTextEdit;
     }
 }
