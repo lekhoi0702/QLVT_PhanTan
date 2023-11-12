@@ -36,7 +36,8 @@ namespace QLVT.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN-PC\\MSSQLSERVER01;Initial Catalog=QLVT_NHAPXUAT;User ID=TB")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN-PC\\MSSQLSERVER02;Initial Catalog=QLVT_NHAPXUAT;User ID=TB;Passw" +
+            "ord=123456")]
         public string QLVT_NHAPXUATConnectionString1 {
             get {
                 return ((string)(this["QLVT_NHAPXUATConnectionString1"]));
@@ -46,10 +47,22 @@ namespace QLVT.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN-PC\\MSSQLSERVER01;Initial Catalog=QLVT_NHAPXUAT;User ID=TH")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN-PC\\MSSQLSERVER01;Initial Catalog=QLVT_NHAPXUAT;User ID=TH;Passw" +
+            "ord=123456")]
         public string QLVT_NHAPXUATConnectionString2 {
             get {
                 return ((string)(this["QLVT_NHAPXUATConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ZEPHYRUS-G15\\MSSQLSERVER1;Initial Catalog=QLVT_NHAPXUAT;Persist Secur" +
+            "ity Info=True;User ID=TH")]
+        public string QLVT_NHAPXUATConnectionString3 {
+            get {
+                return ((string)(this["QLVT_NHAPXUATConnectionString3"]));
             }
         }
     }

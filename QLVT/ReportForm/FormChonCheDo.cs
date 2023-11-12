@@ -43,6 +43,7 @@ namespace QLVT.ReportForm
             report.txtSDT.Text = Program.SDT;
             report.txtNgayBatDau.Text = deNgayBatDau.EditValue.ToString();
             report.txtNgayKetThuc.Text = deNgayKetThuc.EditValue.ToString();
+            report.txtMaCN.Text = Program.maCN;
 
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

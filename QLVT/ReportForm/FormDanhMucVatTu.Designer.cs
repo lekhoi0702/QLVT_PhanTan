@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters msSqlConnectionParameters2 = new DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters();
-            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhMucVatTu));
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -55,20 +53,21 @@
             this.btnCheDoCTDDH = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataSet = new QLVT.QLVT_NHAPXUATDataSet();
+            this.bdsVATTU = new System.Windows.Forms.BindingSource(this.components);
+            this.VATTUTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter();
+            this.tableAdapterManager = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENLVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSLT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new QLVT.QLVT_NHAPXUATDataSet();
+            this.colMALVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSLT = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsVATTU)).BeginInit();
             this.SuspendLayout();
             // 
             // bar1
@@ -284,107 +283,103 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataMember = "sp_InDanhMucVatTu";
-            this.gridControl1.DataSource = this.sqlDataSource1;
+            this.gridControl1.DataSource = this.bdsVATTU;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.gridControl1.Location = new System.Drawing.Point(0, 34);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(1434, 340);
-            this.gridControl1.TabIndex = 5;
+            this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "zephyrus-g15\\mssqlserver1.QLVT_NHAPXUAT.dbo1";
-            msSqlConnectionParameters2.AuthorizationType = DevExpress.DataAccess.ConnectionParameters.MsSqlAuthorizationType.SqlServer;
-            msSqlConnectionParameters2.DatabaseName = "QLVT_NHAPXUAT";
-            msSqlConnectionParameters2.Password = "123456";
-            msSqlConnectionParameters2.ServerName = "ZEPHYRUS-G15\\MSSQLSERVER1";
-            msSqlConnectionParameters2.UserName = "TH";
-            this.sqlDataSource1.ConnectionParameters = msSqlConnectionParameters2;
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery2.Name = "sp_InDanhMucVatTu";
-            storedProcQuery2.StoredProcName = "sp_InDanhMucVatTu";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            storedProcQuery2});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAVT,
             this.colTENVT,
-            this.colTENLVT,
-            this.colSLT,
-            this.colDVT});
-            this.gridView1.DetailHeight = 852;
+            this.colDVT,
+            this.colMALVT,
+            this.colSLT});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1952;
-            // 
-            // colMAVT
-            // 
-            this.colMAVT.Caption = "Mã vật tư";
-            this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.MinWidth = 49;
-            this.colMAVT.Name = "colMAVT";
-            this.colMAVT.Visible = true;
-            this.colMAVT.VisibleIndex = 0;
-            this.colMAVT.Width = 182;
-            // 
-            // colTENVT
-            // 
-            this.colTENVT.Caption = "Tên vật tư";
-            this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 49;
-            this.colTENVT.Name = "colTENVT";
-            this.colTENVT.Visible = true;
-            this.colTENVT.VisibleIndex = 1;
-            this.colTENVT.Width = 182;
-            // 
-            // colTENLVT
-            // 
-            this.colTENLVT.Caption = "Tên loại vật tư";
-            this.colTENLVT.FieldName = "TENLVT";
-            this.colTENLVT.MinWidth = 49;
-            this.colTENLVT.Name = "colTENLVT";
-            this.colTENLVT.Visible = true;
-            this.colTENLVT.VisibleIndex = 2;
-            this.colTENLVT.Width = 182;
-            // 
-            // colSLT
-            // 
-            this.colSLT.Caption = "Số lượng tồn";
-            this.colSLT.FieldName = "SLT";
-            this.colSLT.MinWidth = 49;
-            this.colSLT.Name = "colSLT";
-            this.colSLT.Visible = true;
-            this.colSLT.VisibleIndex = 3;
-            this.colSLT.Width = 182;
-            // 
-            // colDVT
-            // 
-            this.colDVT.Caption = "Đơn vị tính";
-            this.colDVT.FieldName = "DVT";
-            this.colDVT.MinWidth = 49;
-            this.colDVT.Name = "colDVT";
-            this.colDVT.Visible = true;
-            this.colDVT.VisibleIndex = 4;
-            this.colDVT.Width = 182;
-            // 
-            // bdsVatTu
-            // 
-            this.bdsVatTu.DataSource = this.sqlDataSource1.Relations;
             // 
             // dataSet
             // 
-            this.dataSet.DataSetName = "qLVT_NHAPXUATDataSet";
+            this.dataSet.DataSetName = "QLVT_NHAPXUATDataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bdsVATTU
+            // 
+            this.bdsVATTU.DataMember = "VATTU";
+            this.bdsVATTU.DataSource = this.dataSet;
+            // 
+            // VATTUTableAdapter
+            // 
+            this.VATTUTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CTDDHTableAdapter = null;
+            this.tableAdapterManager.CTHDTableAdapter = null;
+            this.tableAdapterManager.CTPNTableAdapter = null;
+            this.tableAdapterManager.DDHTableAdapter = null;
+            this.tableAdapterManager.HOADONTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
+            this.tableAdapterManager.KHOTableAdapter = null;
+            this.tableAdapterManager.LOAIVATTUTableAdapter = null;
+            this.tableAdapterManager.NHACCTableAdapter = null;
+            this.tableAdapterManager.NHANVIENTableAdapter = null;
+            this.tableAdapterManager.PHIEUNHAPTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VATTUTableAdapter = this.VATTUTableAdapter;
+            // 
+            // colMAVT
+            // 
+            this.colMAVT.FieldName = "MAVT";
+            this.colMAVT.MinWidth = 25;
+            this.colMAVT.Name = "colMAVT";
+            this.colMAVT.Visible = true;
+            this.colMAVT.VisibleIndex = 0;
+            this.colMAVT.Width = 94;
+            // 
+            // colTENVT
+            // 
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 1;
+            this.colTENVT.Width = 94;
+            // 
+            // colDVT
+            // 
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.MinWidth = 25;
+            this.colDVT.Name = "colDVT";
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 2;
+            this.colDVT.Width = 94;
+            // 
+            // colMALVT
+            // 
+            this.colMALVT.FieldName = "MALVT";
+            this.colMALVT.MinWidth = 25;
+            this.colMALVT.Name = "colMALVT";
+            this.colMALVT.Visible = true;
+            this.colMALVT.VisibleIndex = 3;
+            this.colMALVT.Width = 94;
+            // 
+            // colSLT
+            // 
+            this.colSLT.FieldName = "SLT";
+            this.colSLT.MinWidth = 25;
+            this.colSLT.Name = "colSLT";
+            this.colSLT.Visible = true;
+            this.colSLT.VisibleIndex = 4;
+            this.colSLT.Width = 94;
             // 
             // FormDanhMucVatTu
             // 
@@ -401,11 +396,12 @@
             this.Name = "FormDanhMucVatTu";
             this.Text = "Danh Mục Vật tư";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormDanhMucVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsVATTU)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,14 +432,15 @@
         private DevExpress.XtraBars.BarButtonItem btnCheDoCTDDH;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private System.Windows.Forms.BindingSource bdsVatTu;
-        private QLVT_NHAPXUATDataSet dataSet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private QLVT_NHAPXUATDataSet dataSet;
+        private System.Windows.Forms.BindingSource bdsVATTU;
+        private QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter VATTUTableAdapter;
+        private QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENLVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colSLT;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALVT;
+        private DevExpress.XtraGrid.Columns.GridColumn colSLT;
     }
 }

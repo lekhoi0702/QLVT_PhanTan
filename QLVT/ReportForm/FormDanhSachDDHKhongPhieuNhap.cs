@@ -149,7 +149,7 @@ namespace QLVT.ReportForm
         {
             Console.WriteLine(chiNhanh);
             ReportForm.ReportDanhSachDDHKhongPhieuNhap report = new ReportForm.ReportDanhSachDDHKhongPhieuNhap();
-            report.txtChiNhanh.Text = chiNhanh.ToUpper();
+            //report.txtChiNhanh.Text = chiNhanh.ToUpper();
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
 
@@ -163,7 +163,7 @@ namespace QLVT.ReportForm
                 ReportDanhSachDDHKhongPhieuNhap report = new ReportDanhSachDDHKhongPhieuNhap();
 
                 // Gán tên chi nhánh cho báo cáo
-                report.txtChiNhanh.Text = chiNhanh.ToUpper();
+                //report.txtChiNhanh.Text = chiNhanh.ToUpper();
 
                 // Đường dẫn đến thư mục ExportReport trong dự án
                 string exportFolderPath = System.IO.Path.Combine(Application.StartupPath, "ExportReport");

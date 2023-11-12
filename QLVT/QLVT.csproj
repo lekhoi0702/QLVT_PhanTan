@@ -360,6 +360,16 @@
     <Compile Include="MenuForm\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLVT_NHAPXUATDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLVT_NHAPXUATDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLVT_NHAPXUATDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLVT_NHAPXUATDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\FormChonCheDo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -575,6 +585,28 @@
     </None>
     <None Include="QLVT_NHAPXUATDataSet.xss">
       <DependentUpon>QLVT_NHAPXUATDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet1.xsc">
+      <DependentUpon>QLVT_NHAPXUATDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLVT_NHAPXUATDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet1.xss">
+      <DependentUpon>QLVT_NHAPXUATDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet2.xsc">
+      <DependentUpon>QLVT_NHAPXUATDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLVT_NHAPXUATDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet2.xss">
+      <DependentUpon>QLVT_NHAPXUATDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Resources\logo.png" />
   </ItemGroup>

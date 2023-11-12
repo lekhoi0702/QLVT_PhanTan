@@ -165,7 +165,7 @@ namespace QLVT.ReportForm
             if (cheDo == "Danh sách nhân viên")
             {
                 SubForm.ReportDanhSachNhanVien report = new SubForm.ReportDanhSachNhanVien();
-                report.txtChiNhanh.Text = chiNhanh.ToUpper();
+                //report.txtChiNhanh.Text = chiNhanh.ToUpper();
                 ReportPrintTool printTool = new ReportPrintTool(report);
                 printTool.ShowPreviewDialog();
             }
@@ -180,7 +180,9 @@ namespace QLVT.ReportForm
                     Program.SDT = drv["SDT"].ToString().Trim();
                     Program.diaChi = drv["DIACHI"].ToString().Trim();
                     Program.ngaySinh = drv["NGAYSINH"].ToString().Trim();
-              
+                 
+
+
                     FormChonCheDo f = new FormChonCheDo();
                     f.Show();
                 }
@@ -199,7 +201,7 @@ namespace QLVT.ReportForm
                 ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
 
                 // Gán tên chi nhánh cho báo cáo
-                report.txtChiNhanh.Text = chiNhanh.ToUpper();
+                //report.txtChiNhanh.Text = chiNhanh.ToUpper();
 
                 // Đường dẫn đến thư mục ExportReport trong dự án
                 string exportFolderPath = System.IO.Path.Combine(Application.StartupPath, "ExportReport");

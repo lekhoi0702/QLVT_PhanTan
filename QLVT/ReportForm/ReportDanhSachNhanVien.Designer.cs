@@ -90,15 +90,13 @@
             this.qlvT_NHAPXUATDataSet1 = new QLVT.QLVT_NHAPXUATDataSet();
             this.nHANVIENTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter();
             this.qlvT_NHAPXUATDataSet2 = new QLVT.QLVT_NHAPXUATDataSet();
-<<<<<<< HEAD
+
             this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.cTDDHTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter();
             this.qlvT_NHAPXUATDataSet3 = new QLVT.QLVT_NHAPXUATDataSet();
-=======
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
->>>>>>> 5ec6a20a12876d4de4fcd00252b95939a21bb247
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).BeginInit();
@@ -689,7 +687,6 @@
             this.qlvT_NHAPXUATDataSet2.DataSetName = "QLVT_NHAPXUATDataSet";
             this.qlvT_NHAPXUATDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-<<<<<<< HEAD
             // sqlDataSource2
             // 
             this.sqlDataSource2.ConnectionName = "QLVT.Properties.Settings.QLVT_NHAPXUATConnection";
@@ -725,7 +722,6 @@
             // 
             this.qlvT_NHAPXUATDataSet3.DataSetName = "QLVT_NHAPXUATDataSet";
             this.qlvT_NHAPXUATDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-=======
             // xrLabel1
             // 
             this.xrLabel1.BorderColor = System.Drawing.Color.Transparent;
@@ -768,7 +764,6 @@
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "Độc lập - Tự do - Hạnh phúc";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
->>>>>>> 5ec6a20a12876d4de4fcd00252b95939a21bb247
             // 
             // ReportDanhSachNhanVien
             // 
@@ -848,14 +843,11 @@
         private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet1;
         private QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
         private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet2;
-<<<<<<< HEAD
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
         private QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
         private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet3;
-=======
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
->>>>>>> 5ec6a20a12876d4de4fcd00252b95939a21bb247
     }
 }
