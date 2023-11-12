@@ -49,5 +49,35 @@ namespace QLVT.ReportForm
             printTool.ShowPreviewDialog();
             this.Dispose();
         }
+
+        private void btnXUAT_Click(object sender, EventArgs e)
+        {
+
+            string loaiPhieu = "XUAT";
+            DateTime ngayBatDau = deNgayBatDau.DateTime;
+            DateTime ngayKetThuc = deNgayKetThuc.DateTime;
+            /*
+            int fromYear = dteTuNgay.DateTime.Year;
+            int fromMonth = dteTuNgay.DateTime.Month;
+            int toYear = dteToiNgay.DateTime.Year;
+            int toMonth = dteToiNgay.DateTime.Month;
+            */
+            ReportTinhHinhHoatDongNhanVien report = new ReportTinhHinhHoatDongNhanVien(Program.maNV, loaiPhieu, ngayBatDau, ngayKetThuc);
+
+            report.txtLoaiPhieu.Text = "XUAT";
+            report.txtMaNV.Text = Program.maNV.ToString().Trim();
+            report.txtHo.Text = Program.Ho;
+            report.txtTen.Text = Program.Ten;
+            report.txtNgaySinh.Text = Program.ngaySinh;
+            report.txtDiaChi.Text = Program.diaChi;
+            report.txtSDT.Text = Program.SDT;
+            report.txtNgayBatDau.Text = deNgayBatDau.EditValue.ToString();
+            report.txtNgayKetThuc.Text = deNgayKetThuc.EditValue.ToString();
+            report.txtMaCN.Text = Program.maCN;
+
+            ReportPrintTool printTool = new ReportPrintTool(report);
+            printTool.ShowPreviewDialog();
+            this.Dispose();
+        }
     }
 }
