@@ -306,6 +306,7 @@ namespace QLVT
             }
         }
 
+<<<<<<< HEAD
 
         private void btnTinhHinhHoatDongNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -320,6 +321,11 @@ namespace QLVT
                 form.MdiParent = this;
                 form.Show();
             }
+=======
+        private void btnTinhHinhHDNhanVien_ItemClick(object sender, EventArgs e)
+        {
+
+>>>>>>> 5ec6a20a12876d4de4fcd00252b95939a21bb247
         }
     }
 }

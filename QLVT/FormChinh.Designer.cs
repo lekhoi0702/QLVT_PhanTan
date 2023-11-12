@@ -1,4 +1,7 @@
-﻿namespace QLVT
+﻿using DevExpress.XtraBars;
+using System;
+
+namespace QLVT
 {
     partial class FormChinh
     {
@@ -440,7 +443,7 @@
 
         }
 
-        #endregion
+             #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage pageQuanLyThongTin;
