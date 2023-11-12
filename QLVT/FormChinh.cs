@@ -305,5 +305,10 @@ namespace QLVT
                 form.Show();
             }
         }
+
+        private void btnTinhHinhHDNhanVien_ItemClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
