@@ -321,5 +321,12 @@ namespace QLVT
                 form.Show();
             }
         }
+
+
+        private void btnTongHopNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormTongHopNhapXuat f = new FormTongHopNhapXuat();
+            f.Show();
+        }
     }
 }
