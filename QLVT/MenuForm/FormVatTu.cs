@@ -552,7 +552,7 @@ namespace QLVT
             this.Close();
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
+      /*  private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -563,7 +563,7 @@ namespace QLVT
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-        }
+        }*/
     }
 
 }
