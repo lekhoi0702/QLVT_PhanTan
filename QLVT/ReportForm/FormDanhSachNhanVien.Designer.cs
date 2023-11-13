@@ -405,6 +405,10 @@
             // 
             // colMANV
             // 
+            this.colMANV.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colMANV.AppearanceCell.Options.UseFont = true;
+            this.colMANV.AppearanceCell.Options.UseTextOptions = true;
+            this.colMANV.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMANV.Caption = "Mã nhân viên";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 49;
@@ -416,6 +420,10 @@
             // 
             // colHO
             // 
+            this.colHO.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colHO.AppearanceCell.Options.UseFont = true;
+            this.colHO.AppearanceCell.Options.UseTextOptions = true;
+            this.colHO.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 49;
@@ -427,6 +435,10 @@
             // 
             // colTEN
             // 
+            this.colTEN.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colTEN.AppearanceCell.Options.UseFont = true;
+            this.colTEN.AppearanceCell.Options.UseTextOptions = true;
+            this.colTEN.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 49;
@@ -438,6 +450,10 @@
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colNGAYSINH.AppearanceCell.Options.UseFont = true;
+            this.colNGAYSINH.AppearanceCell.Options.UseTextOptions = true;
+            this.colNGAYSINH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 49;
