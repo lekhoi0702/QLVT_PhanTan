@@ -61,7 +61,9 @@ namespace QLVT.ReportForm
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.brand;
-        
+            this.DDHKhongPNTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.DDHKhongPNTableAdapter.Fill(this.dataSet.view_LayDonDatHangKhongPhieuNhap);
+
 
         }
 

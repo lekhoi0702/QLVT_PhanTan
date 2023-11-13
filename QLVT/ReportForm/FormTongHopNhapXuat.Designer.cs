@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTongHopNhapXuat));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges10 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,6 +38,8 @@
             this.deNgayBatDau = new DevExpress.XtraEditors.DateEdit();
             this.txtXuatBaoCao = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnXemTruoc = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayKetThuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayKetThuc.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayBatDau.Properties)).BeginInit();
@@ -48,7 +50,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(432, 65);
+            this.label3.Location = new System.Drawing.Point(427, 116);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 20);
@@ -59,7 +61,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(79, 65);
+            this.label2.Location = new System.Drawing.Point(71, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 20);
@@ -70,18 +72,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(343, 9);
+            this.label1.Location = new System.Drawing.Point(266, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 32);
+            this.label1.Size = new System.Drawing.Size(333, 32);
             this.label1.TabIndex = 7;
-            this.label1.Text = "CHỌN NGÀY";
+            this.label1.Text = "TỔNG HỢP NHẬP XUẤT";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // deNgayKetThuc
             // 
             this.deNgayKetThuc.EditValue = null;
-            this.deNgayKetThuc.Location = new System.Drawing.Point(530, 62);
-            this.deNgayKetThuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deNgayKetThuc.Location = new System.Drawing.Point(522, 113);
+            this.deNgayKetThuc.Margin = new System.Windows.Forms.Padding(4);
             this.deNgayKetThuc.Name = "deNgayKetThuc";
             this.deNgayKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -95,8 +98,8 @@
             // deNgayBatDau
             // 
             this.deNgayBatDau.EditValue = null;
-            this.deNgayBatDau.Location = new System.Drawing.Point(157, 62);
-            this.deNgayBatDau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deNgayBatDau.Location = new System.Drawing.Point(162, 113);
+            this.deNgayBatDau.Margin = new System.Windows.Forms.Padding(4);
             this.deNgayBatDau.Name = "deNgayBatDau";
             this.deNgayBatDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -126,11 +129,11 @@
             this.txtXuatBaoCao.ColorContrastOnClick = 45;
             this.txtXuatBaoCao.ColorContrastOnHover = 45;
             this.txtXuatBaoCao.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges7.BottomLeft = true;
-            borderEdges7.BottomRight = true;
-            borderEdges7.TopLeft = true;
-            borderEdges7.TopRight = true;
-            this.txtXuatBaoCao.CustomizableEdges = borderEdges7;
+            borderEdges9.BottomLeft = true;
+            borderEdges9.BottomRight = true;
+            borderEdges9.TopLeft = true;
+            borderEdges9.TopRight = true;
+            this.txtXuatBaoCao.CustomizableEdges = borderEdges9;
             this.txtXuatBaoCao.DialogResult = System.Windows.Forms.DialogResult.None;
             this.txtXuatBaoCao.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.txtXuatBaoCao.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -154,8 +157,8 @@
             this.txtXuatBaoCao.IdleIconLeftImage = null;
             this.txtXuatBaoCao.IdleIconRightImage = null;
             this.txtXuatBaoCao.IndicateFocus = false;
-            this.txtXuatBaoCao.Location = new System.Drawing.Point(530, 138);
-            this.txtXuatBaoCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtXuatBaoCao.Location = new System.Drawing.Point(522, 189);
+            this.txtXuatBaoCao.Margin = new System.Windows.Forms.Padding(4);
             this.txtXuatBaoCao.Name = "txtXuatBaoCao";
             this.txtXuatBaoCao.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.txtXuatBaoCao.OnDisabledState.BorderRadius = 10;
@@ -216,11 +219,11 @@
             this.btnXemTruoc.ColorContrastOnClick = 45;
             this.btnXemTruoc.ColorContrastOnHover = 45;
             this.btnXemTruoc.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges8.BottomLeft = true;
-            borderEdges8.BottomRight = true;
-            borderEdges8.TopLeft = true;
-            borderEdges8.TopRight = true;
-            this.btnXemTruoc.CustomizableEdges = borderEdges8;
+            borderEdges10.BottomLeft = true;
+            borderEdges10.BottomRight = true;
+            borderEdges10.TopLeft = true;
+            borderEdges10.TopRight = true;
+            this.btnXemTruoc.CustomizableEdges = borderEdges10;
             this.btnXemTruoc.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnXemTruoc.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnXemTruoc.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -244,8 +247,8 @@
             this.btnXemTruoc.IdleIconLeftImage = null;
             this.btnXemTruoc.IdleIconRightImage = null;
             this.btnXemTruoc.IndicateFocus = false;
-            this.btnXemTruoc.Location = new System.Drawing.Point(157, 138);
-            this.btnXemTruoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXemTruoc.Location = new System.Drawing.Point(162, 189);
+            this.btnXemTruoc.Margin = new System.Windows.Forms.Padding(4);
             this.btnXemTruoc.Name = "btnXemTruoc";
             this.btnXemTruoc.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnXemTruoc.OnDisabledState.BorderRadius = 10;
@@ -288,11 +291,35 @@
             this.btnXemTruoc.UseDefaultRadiusAndThickness = true;
             this.btnXemTruoc.Click += new System.EventHandler(this.btnXemTruoc_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(268, 58);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Chi nhánh";
+            // 
+            // cmbChiNhanh
+            // 
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChiNhanh.Enabled = false;
+            this.cmbChiNhanh.FormattingEnabled = true;
+            this.cmbChiNhanh.Location = new System.Drawing.Point(358, 53);
+            this.cmbChiNhanh.Name = "cmbChiNhanh";
+            this.cmbChiNhanh.Size = new System.Drawing.Size(241, 28);
+            this.cmbChiNhanh.TabIndex = 15;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
+            // 
             // FormTongHopNhapXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 262);
+            this.ClientSize = new System.Drawing.Size(867, 262);
+            this.Controls.Add(this.cmbChiNhanh);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.deNgayKetThuc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.deNgayBatDau);
@@ -301,10 +328,11 @@
             this.Controls.Add(this.btnXemTruoc);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTongHopNhapXuat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TỔNG HỢP NHẬP XUẤT";
+            this.Load += new System.EventHandler(this.FormTongHopNhapXuat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.deNgayKetThuc.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayKetThuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayBatDau.Properties.CalendarTimeProperties)).EndInit();
@@ -323,5 +351,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton txtXuatBaoCao;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnXemTruoc;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbChiNhanh;
     }
 }

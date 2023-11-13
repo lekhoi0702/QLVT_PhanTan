@@ -82,13 +82,13 @@
             this.TRIGIA = new DevExpress.XtraReports.UI.CalculatedField();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter = new QLVT.QLVT_NHAPXUATDataSet1TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter();
             this.cTDDHTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter();
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter1 = new QLVT.QLVT_NHAPXUATDataSet2TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter();
-            this.qlvT_NHAPXUATDataSet22 = new QLVT.QLVT_NHAPXUATDataSet2();
+            this.qlvT_NHAPXUATDataSet1 = new QLVT.QLVT_NHAPXUATDataSet();
+            this.sp_TinhHinhHoatDongNhanVienTableAdapter1 = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter();
+            this.SubBand1 = new DevExpress.XtraReports.UI.SubBand();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -146,6 +146,8 @@
             this.label1});
             this.ReportHeader.HeightF = 183.3333F;
             this.ReportHeader.Name = "ReportHeader";
+            this.ReportHeader.SubBands.AddRange(new DevExpress.XtraReports.UI.SubBand[] {
+            this.SubBand1});
             // 
             // txtLoaiPhieu
             // 
@@ -582,22 +584,22 @@
             this.xrLabel4.Text = "Tổng";
             this.xrLabel4.TextFormatString = "{0:#,#}";
             // 
-            // sp_TinhHinhHoatDongNhanVienTableAdapter
-            // 
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter.ClearBeforeFill = true;
-            // 
             // cTDDHTableAdapter
             // 
             this.cTDDHTableAdapter.ClearBeforeFill = true;
+            // 
+            // qlvT_NHAPXUATDataSet1
+            // 
+            this.qlvT_NHAPXUATDataSet1.DataSetName = "QLVT_NHAPXUATDataSet";
+            this.qlvT_NHAPXUATDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sp_TinhHinhHoatDongNhanVienTableAdapter1
             // 
             this.sp_TinhHinhHoatDongNhanVienTableAdapter1.ClearBeforeFill = true;
             // 
-            // qlvT_NHAPXUATDataSet22
+            // SubBand1
             // 
-            this.qlvT_NHAPXUATDataSet22.DataSetName = "QLVT_NHAPXUATDataSet2";
-            this.qlvT_NHAPXUATDataSet22.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.SubBand1.Name = "SubBand1";
             // 
             // ReportTinhHinhHoatDongNhanVien
             // 
@@ -611,10 +613,10 @@
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.TRIGIA});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.qlvT_NHAPXUATDataSet22});
-            this.DataAdapter = this.sp_TinhHinhHoatDongNhanVienTableAdapter;
+            this.qlvT_NHAPXUATDataSet1});
+            this.DataAdapter = this.sp_TinhHinhHoatDongNhanVienTableAdapter1;
             this.DataMember = "sp_TinhHinhHoatDongNhanVien";
-            this.DataSource = this.qlvT_NHAPXUATDataSet22;
+            this.DataSource = this.qlvT_NHAPXUATDataSet1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(99F, 100F, 98.33334F, 42.66673F);
             this.PageHeight = 1169;
@@ -629,7 +631,7 @@
             this.Version = "23.1";
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -680,9 +682,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private QLVT_NHAPXUATDataSet1TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter;
-        private QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
-        private QLVT_NHAPXUATDataSet2TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter1;
+
         private DevExpress.XtraReports.UI.XRTable xrTable1;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
@@ -692,6 +692,11 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private QLVT_NHAPXUATDataSet2 qlvT_NHAPXUATDataSet22;
+        private QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
+        private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet1;
+        private QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter1;
+        private DevExpress.XtraReports.UI.SubBand SubBand1;
+        //    private QLVT.QLVT_NHAPXUATDataSet2TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter2;
+        //    private QLVT.QLVT_NHAPXUATDataSet1TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter3;
     }
 }

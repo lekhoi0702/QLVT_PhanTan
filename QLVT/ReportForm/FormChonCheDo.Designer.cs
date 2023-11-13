@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChonCheDo));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNHAP = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnXUAT = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -73,11 +73,11 @@
             this.btnNHAP.ColorContrastOnClick = 45;
             this.btnNHAP.ColorContrastOnHover = 45;
             this.btnNHAP.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.btnNHAP.CustomizableEdges = borderEdges5;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.btnNHAP.CustomizableEdges = borderEdges1;
             this.btnNHAP.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnNHAP.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnNHAP.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -163,11 +163,11 @@
             this.btnXUAT.ColorContrastOnClick = 45;
             this.btnXUAT.ColorContrastOnHover = 45;
             this.btnXUAT.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.btnXUAT.CustomizableEdges = borderEdges6;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnXUAT.CustomizableEdges = borderEdges2;
             this.btnXUAT.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnXUAT.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnXUAT.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -232,6 +232,7 @@
             this.btnXUAT.TextMarginLeft = 0;
             this.btnXUAT.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnXUAT.UseDefaultRadiusAndThickness = true;
+            this.btnXUAT.Click += new System.EventHandler(this.btnXUAT_Click);
             // 
             // label2
             // 
