@@ -51,6 +51,7 @@ namespace QLVT.SubForm
             {
 
 
+                this.panelNhapLieu.Enabled = false;
                 this.btnThem.Enabled = false;
                 this.btnXoa.Enabled = false;
                 this.btnSua.Enabled = false;
@@ -61,12 +62,12 @@ namespace QLVT.SubForm
                 this.btnThoat.Enabled = true;
 
 
-                this.panelNhapLieu.Enabled = false;
             }
 
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
 
+                this.panelNhapLieu.Enabled = true;
 
                 this.btnThem.Enabled = true;
                 this.btnXoa.Enabled = true;
@@ -78,7 +79,6 @@ namespace QLVT.SubForm
                 this.btnThoat.Enabled = true;
 
 
-                this.panelNhapLieu.Enabled = true;
 
             }
 
@@ -91,19 +91,13 @@ namespace QLVT.SubForm
 
         private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
-            /*lấy vị trí hiện tại của con trỏ*/
+            
             viTri = bdsLoaiVatTu.Position;
             this.panelNhapLieu.Enabled = true;
-            dangThemMoi = true;
-
-
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
+            dangThemMoi = true;      
             bdsLoaiVatTu.AddNew();
+            this.panelNhapLieu.Enabled = true;
 
-
-            /*Step 3*/
             this.txtMaLVT.Enabled = true;
             this.btnThem.Enabled = false;
             this.btnXoa.Enabled = false;
@@ -115,12 +109,12 @@ namespace QLVT.SubForm
 
 
             this.gcLoaiVatTu.Enabled = false;
-            this.panelNhapLieu.Enabled = true;
+            
         }
 
         private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
+        
             if (dangThemMoi == true && this.btnThem.Enabled == false)
             {
                 dangThemMoi = false;
@@ -139,14 +133,14 @@ namespace QLVT.SubForm
                 this.panelNhapLieu.Enabled = true;
 
                 bdsLoaiVatTu.CancelEdit();
-                /*xoa dong hien tai*/
+            
                 bdsLoaiVatTu.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
+             
                 bdsLoaiVatTu.Position = viTri;
                 return;
             }
-
-            /*Step 1*/
+          
+        
             if (undoList.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
@@ -154,18 +148,18 @@ namespace QLVT.SubForm
                 return;
             }
 
-            /*Step 2*/
+  
             bdsLoaiVatTu.CancelEdit();
-            String cauTruyVanHoanTac = undoList.Pop().ToString();
-            Console.WriteLine(cauTruyVanHoanTac);
-            int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+            String undoQuery = undoList.Pop().ToString();
+            Console.WriteLine(undoQuery);
+            int n = Program.ExecSqlNonQuery(undoQuery);
             this.LOAIVATTUTableAdapter.Fill(this.dataSet.LOAIVATTU);
         }
 
 
         private bool kiemTraDuLieuDauVao()
         {
-            /*Kiem tra txtMAVT*/
+         
             if (txtMaLVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã loại vật tư", "Thông báo", MessageBoxButtons.OK);
@@ -186,7 +180,7 @@ namespace QLVT.SubForm
                 txtMaLVT.Focus();
                 return false;
             }
-            /*Kiem tra txtTENVT*/
+     
             if (txtTenLVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên loại vật tư", "Thông báo", MessageBoxButtons.OK);
@@ -200,10 +194,12 @@ namespace QLVT.SubForm
                 txtTenLVT.Focus();
                 return false;
             }
-
-
-
-
+            if (txtTenLVT.Text.Length > 30)
+            {
+                MessageBox.Show("Mã laoị vật tư không quá 5 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtTenLVT.Focus();
+                return false;
+            }
             return true;
         }
 
@@ -211,23 +207,14 @@ namespace QLVT.SubForm
 
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
             bool ketQua = kiemTraDuLieuDauVao();
             if (ketQua == false)
                 return;
 
-
-            /*Step 1*/
-            /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/
-            String maLoaiVatTu = txtMaLVT.Text.Trim();// Trim() de loai bo khoang trang thua
+            String maLoaiVatTu = txtMaLVT.Text.Trim();
             DataRowView drv = ((DataRowView)bdsLoaiVatTu[bdsLoaiVatTu.Position]);
             String tenLoaiVatTu = drv["TENLVT"].ToString();
 
-
-
-            /*declare @returnedResult int
-              exec @returnedResult = sp_KiemTraMaVatTu '20'
-              select @returnedResult*/
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = sp_KiemTraMaLoaiVatTu '" +
@@ -256,14 +243,6 @@ namespace QLVT.SubForm
             Program.myReader.Close();
             Console.WriteLine(result);
 
-
-
-
-
-
-
-
-            /*Step 2*/
             int viTriConTro = bdsLoaiVatTu.Position;
             int viTriMaLoaiVatTu = bdsLoaiVatTu.Find("MALVT", txtMaLVT.Text);
 
@@ -280,7 +259,7 @@ namespace QLVT.SubForm
                 {
                     try
                     {
-                        /*bật các nút về ban đầu*/
+                    
                         btnThem.Enabled = true;
                         btnXoa.Enabled = true;
                         btnSua.Enabled = true;
@@ -291,42 +270,40 @@ namespace QLVT.SubForm
                         this.txtMaLVT.Enabled = false;
                         this.gcLoaiVatTu.Enabled = true;
 
-                        /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
-                        String cauTruyVanHoanTac = "";
-                        /*trước khi ấn btnGHI là btnTHEM*/
+                        String undoQuery = "";
+                
                         if (dangThemMoi == true)
                         {
-                            cauTruyVanHoanTac = "" +
-                                "DELETE DBO.LOAIVATTU " +
+                            undoQuery = "" +
+                                "DELETE  from DBO.LOAIVATTU " +
                                 "WHERE MALVT = '" + txtMaLVT.Text.Trim() + "'";
                         }
-                        /*trước khi ấn btnGHI là sửa thông tin nhân viên*/
+              
                         else
                         {
-                            cauTruyVanHoanTac =
+                            undoQuery =
                                 "UPDATE DBO.LOAIVATTU " +
                                 "SET " +
-                                "TENLVT = '" + tenLoaiVatTu + "'," +
+                                "TENLVT = '" + tenLoaiVatTu + "'" +
 
                                 "WHERE MALVT = '" + maLoaiVatTu + "'";
                         }
-                        //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-                        //Console.WriteLine(cauTruyVanHoanTac);
-
-                        /*Đưa câu truy vấn hoàn tác vào undoList 
-                         * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
-                        undoList.Push(cauTruyVanHoanTac);
+           
+                        undoList.Push(undoQuery);
 
                         this.bdsLoaiVatTu.EndEdit();
                         this.LOAIVATTUTableAdapter.Update(this.dataSet.LOAIVATTU);
-                        /*cập nhật lại trạng thái thêm mới cho chắc*/
+                
                         dangThemMoi = false;
                         MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
-                        bdsLoaiVatTu.RemoveCurrent();
+                        if (dangThemMoi == true) {
+                            bdsLoaiVatTu.RemoveCurrent();
+                        }
+                       
                         MessageBox.Show("Tên loại vật tư có thể đã được dùng !\n\n" + ex.Message, "Lỗi",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -352,7 +329,6 @@ namespace QLVT.SubForm
 
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
             if (bdsLoaiVatTu.Count == 0)
             {
                 btnXoa.Enabled = false;
@@ -365,32 +341,21 @@ namespace QLVT.SubForm
                 return;
             }
 
-
-
-
-
-
-
-            /* Phần này phục vụ tính năng hoàn tác
-            * Đưa câu truy vấn hoàn tác vào undoList 
-            * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
-
-
-            string cauTruyVanHoanTac =
+            string undoQuery =
             "INSERT INTO DBO.LOAIVATTU(MALVT,TENLVT) " +
-            " VALUES( '" + txtMaLVT.Text + "','" +
-                        txtTenLVT.Text + ")";
+            " VALUES( '" + txtMaLVT.Text.Trim() + "','" +
+                        txtTenLVT.Text.Trim() + "')";
 
-            Console.WriteLine(cauTruyVanHoanTac);
-            undoList.Push(cauTruyVanHoanTac);
+            Console.WriteLine(undoQuery);
+            undoList.Push(undoQuery);
 
-            /*Step 2*/
+ 
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    /*Step 3*/
+                
                     viTri = bdsLoaiVatTu.Position;
                     bdsLoaiVatTu.RemoveCurrent();
 
@@ -402,18 +367,18 @@ namespace QLVT.SubForm
                 }
                 catch (Exception ex)
                 {
-                    /*Step 4*/
+                    
                     MessageBox.Show("Lỗi xóa vật tư. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.LOAIVATTUTableAdapter.Fill(this.dataSet.LOAIVATTU);
-                    // tro ve vi tri cua nhan vien dang bi loi
+                  
                     bdsLoaiVatTu.Position = viTri;
-                    //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
+                 
                     return;
                 }
             }
             else
             {
-                // xoa cau truy van hoan tac di
+              
                 undoList.Pop();
             }
 

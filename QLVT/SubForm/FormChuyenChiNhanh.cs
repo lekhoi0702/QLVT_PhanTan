@@ -20,10 +20,8 @@ namespace QLVT
         }
         private void FormChuyenChiNhanh_Load(object sender, EventArgs e)
         {
-            /*Lấy dữ liệu từ form đăng nhập đổ vào nhưng chỉ lấn đúng danh sách
-             phân mảnh mà thôi*/
+           
             cmbChiNhanh.DataSource = Program.bindingSource.DataSource;
-            /*sao chep bingding source tu form dang nhap*/
             cmbChiNhanh.DisplayMember = "tencn";
             cmbChiNhanh.ValueMember = "tenserver";
             cmbChiNhanh.SelectedIndex = Program.brand;
@@ -49,7 +47,6 @@ namespace QLVT
                 MessageBox.Show("Vui lòng chọn chi nhánh", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-            /*Step 2*/
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn chuyển nhân viên này đi ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.OK)

@@ -35,6 +35,7 @@
             System.Windows.Forms.Label tENVTLabel;
             System.Windows.Forms.Label mAVTLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVatTu));
+            System.Windows.Forms.Label label1;
             this.dataSet = new QLVT.QLVT_NHAPXUATDataSet();
             this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
             this.VATTUTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter();
@@ -76,14 +77,13 @@
             this.txtTenVT = new DevExpress.XtraEditors.TextEdit();
             this.txtMaVT = new System.Windows.Forms.TextBox();
             this.LOAIVATTUTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.LOAIVATTUTableAdapter();
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fKVATTULOAIVATTUBindingSource = new System.Windows.Forms.BindingSource(this.components);
             txtSLT = new System.Windows.Forms.Label();
             txtMaLVT = new System.Windows.Forms.Label();
             dVTLabel = new System.Windows.Forms.Label();
             tENVTLabel = new System.Windows.Forms.Label();
             mAVTLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
@@ -98,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spSTL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDVT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenVT.Properties)).BeginInit();
-            this.fillByToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKVATTULOAIVATTUBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,6 +168,7 @@
             this.tableAdapterManager.CTPNTableAdapter = this.CTPNTableAdapter;
             this.tableAdapterManager.DDHTableAdapter = null;
             this.tableAdapterManager.HOADONTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
             this.tableAdapterManager.KHOTableAdapter = null;
             this.tableAdapterManager.LOAIVATTUTableAdapter = null;
             this.tableAdapterManager.NHACCTableAdapter = null;
@@ -437,6 +437,7 @@
             // 
             // panelNhapLieu
             // 
+            this.panelNhapLieu.Controls.Add(label1);
             this.panelNhapLieu.Controls.Add(this.cmbLoaiVT);
             this.panelNhapLieu.Controls.Add(txtSLT);
             this.panelNhapLieu.Controls.Add(this.spSTL);
@@ -522,36 +523,26 @@
             // 
             this.LOAIVATTUTableAdapter.ClearBeforeFill = true;
             // 
-            // fillByToolStrip
-            // 
-            this.fillByToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(0, 254);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(1113, 27);
-            this.fillByToolStrip.TabIndex = 26;
-            this.fillByToolStrip.Text = "fillByToolStrip";
-            // 
-            // fillByToolStripButton
-            // 
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
-            this.fillByToolStripButton.Text = "FillBy";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
-            // 
             // fKVATTULOAIVATTUBindingSource
             // 
             this.fKVATTULOAIVATTUBindingSource.DataMember = "FK_VATTU_LOAIVATTU";
             this.fKVATTULOAIVATTUBindingSource.DataSource = this.bdsLoaiVT;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(255, 135);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(115, 20);
+            label1.TabIndex = 11;
+            label1.Text = "Tên loại vật tư";
+            label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FormVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 589);
-            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.panelNhapLieu);
             this.Controls.Add(this.gcVatTu);
             this.Controls.Add(this.barDockControlLeft);
@@ -578,8 +569,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spSTL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDVT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenVT.Properties)).EndInit();
-            this.fillByToolStrip.ResumeLayout(false);
-            this.fillByToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fKVATTULOAIVATTUBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -628,8 +617,6 @@
         private System.Windows.Forms.BindingSource bdsLoaiVT;
         private QLVT_NHAPXUATDataSetTableAdapters.LOAIVATTUTableAdapter LOAIVATTUTableAdapter;
         private System.Windows.Forms.ComboBox cmbLoaiVT;
-        private System.Windows.Forms.ToolStrip fillByToolStrip;
-        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
         private System.Windows.Forms.BindingSource fKVATTULOAIVATTUBindingSource;
     }
 }
