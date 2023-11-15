@@ -54,6 +54,7 @@
             this.txtMaNV = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.SubBand1 = new DevExpress.XtraReports.UI.SubBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -85,7 +86,6 @@
             this.cTDDHTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter();
             this.qlvT_NHAPXUATDataSet1 = new QLVT.QLVT_NHAPXUATDataSet();
             this.sp_TinhHinhHoatDongNhanVienTableAdapter1 = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter();
-            this.SubBand1 = new DevExpress.XtraReports.UI.SubBand();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet1)).BeginInit();
@@ -186,12 +186,13 @@
             // 
             // txtNgayBatDau
             // 
+            this.txtNgayBatDau.CanGrow = false;
             this.txtNgayBatDau.LocationFloat = new DevExpress.Utils.PointFloat(100F, 150.3333F);
-            this.txtNgayBatDau.Multiline = true;
             this.txtNgayBatDau.Name = "txtNgayBatDau";
             this.txtNgayBatDau.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.txtNgayBatDau.SizeF = new System.Drawing.SizeF(140.8333F, 23.00001F);
-            this.txtNgayBatDau.TextFormatString = "{0:dd/MM/yyyy}";
+            this.txtNgayBatDau.TextFormatString = "{0:M/d/yyyy}";
+            this.txtNgayBatDau.WordWrap = false;
             // 
             // xrLabel14
             // 
@@ -321,6 +322,10 @@
             this.label1.SizeF = new System.Drawing.SizeF(628F, 24.19433F);
             this.label1.StyleName = "Title";
             this.label1.Text = "TÌNH HÌNH HOẠT ĐỘNG NHÂN VIÊN\r\n";
+            // 
+            // SubBand1
+            // 
+            this.SubBand1.Name = "SubBand1";
             // 
             // GroupHeader1
             // 
@@ -596,10 +601,6 @@
             // sp_TinhHinhHoatDongNhanVienTableAdapter1
             // 
             this.sp_TinhHinhHoatDongNhanVienTableAdapter1.ClearBeforeFill = true;
-            // 
-            // SubBand1
-            // 
-            this.SubBand1.Name = "SubBand1";
             // 
             // ReportTinhHinhHoatDongNhanVien
             // 

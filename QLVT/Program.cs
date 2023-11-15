@@ -38,7 +38,7 @@ namespace QLVT
 
         public static String role = "";// mGroup
         public static String staff = "";//mHoten
-        public static int brand = 0;//mChiNhanh
+        public static int brand = 0; // ,maCN
 
 
         public static string maKhoDuocChon = "";
@@ -59,8 +59,8 @@ namespace QLVT
 
 
 
-        /*bidSou: BindingSource -> liên kết dữ liệu từ bảng dữ liệu vào chương trình*/
-        public static BindingSource bindingSource = new BindingSource();//bds_dspm
+      
+        public static BindingSource bindingSource = new BindingSource();
 
 
         public static FormDangNhap formDangNhap;
