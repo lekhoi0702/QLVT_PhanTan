@@ -359,11 +359,6 @@
             // 
             // colMANV
             // 
-            this.colMANV.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMANV.AppearanceCell.Options.UseFont = true;
-            this.colMANV.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMANV.AppearanceHeader.Options.UseFont = true;
-            this.colMANV.Caption = "Mã nhân viên";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
@@ -373,11 +368,6 @@
             // 
             // colHO
             // 
-            this.colHO.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colHO.AppearanceCell.Options.UseFont = true;
-            this.colHO.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colHO.AppearanceHeader.Options.UseFont = true;
-            this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 25;
             this.colHO.Name = "colHO";
@@ -387,11 +377,6 @@
             // 
             // colTEN
             // 
-            this.colTEN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTEN.AppearanceCell.Options.UseFont = true;
-            this.colTEN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTEN.AppearanceHeader.Options.UseFont = true;
-            this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 25;
             this.colTEN.Name = "colTEN";
@@ -401,11 +386,6 @@
             // 
             // colNGAYSINH
             // 
-            this.colNGAYSINH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colNGAYSINH.AppearanceCell.Options.UseFont = true;
-            this.colNGAYSINH.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
-            this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -415,11 +395,6 @@
             // 
             // colDIACHI
             // 
-            this.colDIACHI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDIACHI.AppearanceCell.Options.UseFont = true;
-            this.colDIACHI.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDIACHI.AppearanceHeader.Options.UseFont = true;
-            this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -429,11 +404,6 @@
             // 
             // colSDT
             // 
-            this.colSDT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colSDT.AppearanceCell.Options.UseFont = true;
-            this.colSDT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colSDT.AppearanceHeader.Options.UseFont = true;
-            this.colSDT.Caption = "SĐT";
             this.colSDT.FieldName = "SDT";
             this.colSDT.MinWidth = 25;
             this.colSDT.Name = "colSDT";
@@ -443,11 +413,6 @@
             // 
             // colMACN
             // 
-            this.colMACN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMACN.AppearanceCell.Options.UseFont = true;
-            this.colMACN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMACN.AppearanceHeader.Options.UseFont = true;
-            this.colMACN.Caption = "Mã chi nhánh";
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
@@ -457,9 +422,6 @@
             // 
             // colTRANGTHAIXOA
             // 
-            this.colTRANGTHAIXOA.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTRANGTHAIXOA.AppearanceHeader.Options.UseFont = true;
-            this.colTRANGTHAIXOA.Caption = "Trạng thái xóa";
             this.colTRANGTHAIXOA.FieldName = "TRANGTHAIXOA";
             this.colTRANGTHAIXOA.MinWidth = 25;
             this.colTRANGTHAIXOA.Name = "colTRANGTHAIXOA";

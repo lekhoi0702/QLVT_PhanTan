@@ -38,13 +38,11 @@ namespace QLVT.ReportForm
             report.txtMaNV.Text = Program.maNV.ToString().Trim();
             report.txtHo.Text = Program.Ho;
             report.txtTen.Text = Program.Ten;
-            report.txtNgaySinh.Text = Program.ngaySinh.Substring(0, 10);
+            report.txtNgaySinh.Text = Program.ngaySinh;
             report.txtDiaChi.Text = Program.diaChi;
             report.txtSDT.Text = Program.SDT;
-            string ngayBatDauFormatted = ngayBatDau.ToString("dd/MM/yyyy");
-            string ngayKetThucFormatted = ngayKetThuc.ToString("dd/MM/yyyy");
-            report.txtNgayBatDau.Text = ngayBatDauFormatted;
-            report.txtNgayKetThuc.Text = ngayKetThucFormatted;
+            report.txtNgayBatDau.Text = deNgayBatDau.EditValue.ToString();
+            report.txtNgayKetThuc.Text = deNgayKetThuc.EditValue.ToString();
             report.txtMaCN.Text = Program.maCN;
 
             ReportPrintTool printTool = new ReportPrintTool(report);
@@ -70,13 +68,11 @@ namespace QLVT.ReportForm
             report.txtMaNV.Text = Program.maNV.ToString().Trim();
             report.txtHo.Text = Program.Ho;
             report.txtTen.Text = Program.Ten;
-            report.txtNgaySinh.Text = Program.ngaySinh.Substring(0, 10);
+            report.txtNgaySinh.Text = Program.ngaySinh;
             report.txtDiaChi.Text = Program.diaChi;
             report.txtSDT.Text = Program.SDT;
-            string ngayBatDauFormatted = ngayBatDau.ToString("dd/MM/yyyy");
-            string ngayKetThucFormatted = ngayKetThuc.ToString("dd/MM/yyyy");
-            report.txtNgayBatDau.Text = ngayBatDauFormatted;
-            report.txtNgayKetThuc.Text = ngayKetThucFormatted;
+            report.txtNgayBatDau.Text = deNgayBatDau.EditValue.ToString();
+            report.txtNgayKetThuc.Text = deNgayKetThuc.EditValue.ToString();
             report.txtMaCN.Text = Program.maCN;
 
             ReportPrintTool printTool = new ReportPrintTool(report);

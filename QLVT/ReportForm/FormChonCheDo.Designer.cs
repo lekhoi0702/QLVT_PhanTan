@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChonCheDo));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNHAP = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnXUAT = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -48,12 +48,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 24);
+            this.label1.Location = new System.Drawing.Point(184, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "CHỌN NGÀY";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNHAP
             // 
@@ -74,11 +73,11 @@
             this.btnNHAP.ColorContrastOnClick = 45;
             this.btnNHAP.ColorContrastOnHover = 45;
             this.btnNHAP.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.btnNHAP.CustomizableEdges = borderEdges3;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.btnNHAP.CustomizableEdges = borderEdges1;
             this.btnNHAP.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnNHAP.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnNHAP.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -102,7 +101,7 @@
             this.btnNHAP.IdleIconLeftImage = null;
             this.btnNHAP.IdleIconRightImage = null;
             this.btnNHAP.IndicateFocus = false;
-            this.btnNHAP.Location = new System.Drawing.Point(162, 189);
+            this.btnNHAP.Location = new System.Drawing.Point(85, 123);
             this.btnNHAP.Name = "btnNHAP";
             this.btnNHAP.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnNHAP.OnDisabledState.BorderRadius = 10;
@@ -136,7 +135,7 @@
             this.btnNHAP.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnNHAP.OnPressedState.IconLeftImage = null;
             this.btnNHAP.OnPressedState.IconRightImage = null;
-            this.btnNHAP.Size = new System.Drawing.Size(189, 49);
+            this.btnNHAP.Size = new System.Drawing.Size(125, 39);
             this.btnNHAP.TabIndex = 1;
             this.btnNHAP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNHAP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -164,11 +163,11 @@
             this.btnXUAT.ColorContrastOnClick = 45;
             this.btnXUAT.ColorContrastOnHover = 45;
             this.btnXUAT.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.btnXUAT.CustomizableEdges = borderEdges4;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnXUAT.CustomizableEdges = borderEdges2;
             this.btnXUAT.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnXUAT.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnXUAT.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -192,7 +191,7 @@
             this.btnXUAT.IdleIconLeftImage = null;
             this.btnXUAT.IdleIconRightImage = null;
             this.btnXUAT.IndicateFocus = false;
-            this.btnXUAT.Location = new System.Drawing.Point(531, 189);
+            this.btnXUAT.Location = new System.Drawing.Point(352, 123);
             this.btnXUAT.Name = "btnXUAT";
             this.btnXUAT.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnXUAT.OnDisabledState.BorderRadius = 10;
@@ -226,7 +225,7 @@
             this.btnXUAT.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnXUAT.OnPressedState.IconLeftImage = null;
             this.btnXUAT.OnPressedState.IconRightImage = null;
-            this.btnXUAT.Size = new System.Drawing.Size(209, 49);
+            this.btnXUAT.Size = new System.Drawing.Size(125, 39);
             this.btnXUAT.TabIndex = 2;
             this.btnXUAT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnXUAT.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -238,58 +237,50 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(71, 116);
+            this.label2.Location = new System.Drawing.Point(12, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 22);
+            this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Từ ngày";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // deNgayBatDau
             // 
             this.deNgayBatDau.EditValue = null;
-            this.deNgayBatDau.Location = new System.Drawing.Point(162, 113);
+            this.deNgayBatDau.Location = new System.Drawing.Point(85, 62);
             this.deNgayBatDau.Name = "deNgayBatDau";
-            this.deNgayBatDau.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deNgayBatDau.Properties.Appearance.Options.UseFont = true;
             this.deNgayBatDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayBatDau.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayBatDau.Size = new System.Drawing.Size(189, 28);
+            this.deNgayBatDau.Size = new System.Drawing.Size(151, 26);
             this.deNgayBatDau.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(427, 116);
+            this.label3.Location = new System.Drawing.Point(267, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 22);
+            this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Đến ngày";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // deNgayKetThuc
             // 
             this.deNgayKetThuc.EditValue = null;
-            this.deNgayKetThuc.Location = new System.Drawing.Point(531, 113);
+            this.deNgayKetThuc.Location = new System.Drawing.Point(352, 59);
             this.deNgayKetThuc.Name = "deNgayKetThuc";
-            this.deNgayKetThuc.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deNgayKetThuc.Properties.Appearance.Options.UseFont = true;
             this.deNgayKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayKetThuc.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayKetThuc.Size = new System.Drawing.Size(209, 28);
+            this.deNgayKetThuc.Size = new System.Drawing.Size(167, 26);
             this.deNgayKetThuc.TabIndex = 6;
             // 
             // FormChonCheDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 262);
+            this.ClientSize = new System.Drawing.Size(557, 202);
             this.Controls.Add(this.deNgayKetThuc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.deNgayBatDau);

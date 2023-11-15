@@ -151,7 +151,7 @@ namespace QLVT.ReportForm
         {
             Console.WriteLine(chiNhanh);
             ReportForm.ReportDanhSachDDHKhongPhieuNhap report = new ReportForm.ReportDanhSachDDHKhongPhieuNhap();
-            report.txtChiNhanh.Text = chiNhanh;
+            //report.txtChiNhanh.Text = chiNhanh.ToUpper();
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
 

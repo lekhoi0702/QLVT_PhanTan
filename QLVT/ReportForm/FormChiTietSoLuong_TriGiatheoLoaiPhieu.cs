@@ -18,11 +18,6 @@ namespace QLVT.ReportForm
         {
             InitializeComponent();
         }
-        private void FormChiTietSoLuong_TriGiatheoLoaiPhieu_Load(object sender, EventArgs e)
-        {
-           
-        }
-
         private void btnNHAP_Click(object sender, EventArgs e)
         {
             string role = Program.role;
@@ -30,7 +25,7 @@ namespace QLVT.ReportForm
             DateTime ngayBatDau = deNgayBatDau.DateTime;
             DateTime ngayKetThuc = deNgayKetThuc.DateTime;
 
-
+        
             ReportChiTietSoLuong_TriGiatheoLoaiPhieu report = new ReportChiTietSoLuong_TriGiatheoLoaiPhieu(role, loaiPhieu, ngayBatDau, ngayKetThuc);
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
