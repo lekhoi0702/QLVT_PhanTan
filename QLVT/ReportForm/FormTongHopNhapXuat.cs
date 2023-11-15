@@ -76,9 +76,11 @@ namespace QLVT.ReportForm
             int toYear = dteToiNgay.DateTime.Year;
             int toMonth = dteToiNgay.DateTime.Month;
             */
-            ReportTongHopNhapXuat report = new ReportTongHopNhapXuat(ngayBatDau, ngayKetThuc);        
-            report.txtNgayBatDau.Text = deNgayBatDau.EditValue.ToString();
-            report.txtNgayKetThuc.Text = deNgayKetThuc.EditValue.ToString();
+            ReportTongHopNhapXuat report = new ReportTongHopNhapXuat(ngayBatDau, ngayKetThuc);
+            string ngayBatDauFormatted = ngayBatDau.ToString("dd/MM/yyyy");
+            string ngayKetThucFormatted = ngayKetThuc.ToString("dd/MM/yyyy");
+            report.txtNgayBatDau.Text = ngayBatDauFormatted;
+            report.txtNgayKetThuc.Text = ngayKetThucFormatted;
             report.txtChiNhanh.Text = chiNhanh;
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

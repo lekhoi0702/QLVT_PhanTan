@@ -133,6 +133,8 @@ namespace QLVT.ReportForm
 
         private void FormDanhSachNhanVien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLVT_NHAPXUATDataSet.NHANVIEN' table. You can move, or remove it, as needed.
+            this.NHANVIENTableAdapter.Fill(this.dataSet.NHANVIEN);
             dataSet.EnforceConstraints = false;
 
             
@@ -180,16 +182,16 @@ namespace QLVT.ReportForm
                     Program.SDT = drv["SDT"].ToString().Trim();
                     Program.diaChi = drv["DIACHI"].ToString().Trim();
                     Program.ngaySinh = drv["NGAYSINH"].ToString().Trim();
-                 
+
 
 
                     FormChonCheDo f = new FormChonCheDo();
                     f.Show();
                 }
-                
+
             }
 
-       
+
 
         }
 
@@ -282,6 +284,7 @@ namespace QLVT.ReportForm
             }
         }
 
+       
     }
 
 }
