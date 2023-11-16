@@ -30,8 +30,22 @@ namespace QLVT.ReportForm
             DateTime ngayBatDau = deNgayBatDau.DateTime;
             DateTime ngayKetThuc = deNgayKetThuc.DateTime;
 
-
             ReportChiTietSoLuong_TriGiatheoLoaiPhieu report = new ReportChiTietSoLuong_TriGiatheoLoaiPhieu(role, loaiPhieu, ngayBatDau, ngayKetThuc);
+            if (Program.role == "CONGTY")
+            {
+                report.txtChiNhanh.Text = "";
+            }
+            else
+            {
+                if (Program.brand == 1)
+                {
+                    report.txtChiNhanh.Text = "Chi nhánh 2";
+                }
+                else {
+                    report.txtChiNhanh.Text = "Chi nhánh 1";
+                }
+            }
+           
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
             this.Dispose();
@@ -45,6 +59,21 @@ namespace QLVT.ReportForm
             DateTime ngayKetThuc = deNgayKetThuc.DateTime;
 
             ReportChiTietSoLuong_TriGiatheoLoaiPhieu report = new ReportChiTietSoLuong_TriGiatheoLoaiPhieu(role, loaiPhieu, ngayBatDau, ngayKetThuc);
+            if (Program.role == "CONGTY")
+            {
+                report.txtChiNhanh.Text = "";
+            }
+            else
+            {
+                if (Program.brand == 1)
+                {
+                    report.txtChiNhanh.Text = "Chi nhánh 2";
+                }
+                else
+                {
+                    report.txtChiNhanh.Text = "Chi nhánh 1";
+                }
+            }
 
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

@@ -14,8 +14,8 @@ namespace QLVT.ReportForm
         {
             InitializeComponent();
             qlvT_NHAPXUATDataSet2.EnforceConstraints = false;
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter.Fill(qlvT_NHAPXUATDataSet2.sp_TinhHinhHoatDongNhanVien, maNhanVien, loaiPhieu, ngayBatDau, ngayKetThuc);
+            this.sp_TinhHinhHoatDongNhanVienTableAdapter1.Connection.ConnectionString = Program.connstr;
+           this.sp_TinhHinhHoatDongNhanVienTableAdapter1.Fill(qlvT_NHAPXUATDataSet2.sp_TinhHinhHoatDongNhanVien, maNhanVien, loaiPhieu, ngayBatDau, ngayKetThuc);
       
             
         }

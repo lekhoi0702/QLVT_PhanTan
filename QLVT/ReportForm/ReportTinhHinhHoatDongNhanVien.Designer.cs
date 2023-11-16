@@ -87,8 +87,9 @@
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.cTDDHTableAdapter1 = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter();
             this.qlvT_NHAPXUATDataSet2 = new QLVT.QLVT_NHAPXUATDataSet();
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter();
+            this.sp_TinhHinhHoatDongNhanVienTableAdapter1 = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlvT_NHAPXUATDataSet2)).BeginInit();
@@ -965,14 +966,18 @@
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel4.TextFormatString = "{0:#,#}";
             // 
+            // cTDDHTableAdapter1
+            // 
+            this.cTDDHTableAdapter1.ClearBeforeFill = true;
+            // 
             // qlvT_NHAPXUATDataSet2
             // 
             this.qlvT_NHAPXUATDataSet2.DataSetName = "QLVT_NHAPXUATDataSet";
             this.qlvT_NHAPXUATDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // sp_TinhHinhHoatDongNhanVienTableAdapter
+            // sp_TinhHinhHoatDongNhanVienTableAdapter1
             // 
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter.ClearBeforeFill = true;
+            this.sp_TinhHinhHoatDongNhanVienTableAdapter1.ClearBeforeFill = true;
             // 
             // ReportTinhHinhHoatDongNhanVien
             // 
@@ -987,7 +992,7 @@
             this.TRIGIA});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.qlvT_NHAPXUATDataSet2});
-            this.DataAdapter = this.sp_TinhHinhHoatDongNhanVienTableAdapter;
+            this.DataAdapter = this.sp_TinhHinhHoatDongNhanVienTableAdapter1;
             this.DataMember = "sp_TinhHinhHoatDongNhanVien";
             this.DataSource = this.qlvT_NHAPXUATDataSet2;
             this.Dpi = 254F;
@@ -1059,7 +1064,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
         private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet1;
-        private QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter1;
+    //    private QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter1;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
@@ -1069,13 +1074,15 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet2;
-        private QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter;
+   //     private QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
+        private QLVT_NHAPXUATDataSetTableAdapters.CTDDHTableAdapter cTDDHTableAdapter1;
+        private QLVT_NHAPXUATDataSet qlvT_NHAPXUATDataSet2;
+        private QLVT_NHAPXUATDataSetTableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter1;
         //    private QLVT.QLVT_NHAPXUATDataSet2TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter2;
         //    private QLVT.QLVT_NHAPXUATDataSet1TableAdapters.sp_TinhHinhHoatDongNhanVienTableAdapter sp_TinhHinhHoatDongNhanVienTableAdapter3;
     }
