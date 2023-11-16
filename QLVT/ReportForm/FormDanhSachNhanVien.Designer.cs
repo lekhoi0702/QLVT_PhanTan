@@ -375,17 +375,14 @@
             // 
             this.gcNhanVien.DataSource = this.bdsNhanVien;
             this.gcNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNhanVien.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8);
             this.gcNhanVien.Location = new System.Drawing.Point(0, 89);
             this.gcNhanVien.MainView = this.gridView1;
-            this.gcNhanVien.Margin = new System.Windows.Forms.Padding(8);
             this.gcNhanVien.MenuManager = this.barManager1;
             this.gcNhanVien.Name = "gcNhanVien";
             this.gcNhanVien.Size = new System.Drawing.Size(975, 434);
-            this.gcNhanVien.TabIndex = 7;
+            this.gcNhanVien.TabIndex = 11;
             this.gcNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gcNhanVien.Click += new System.EventHandler(this.gcNhanVien_Click);
             // 
             // gridView1
             // 
@@ -398,98 +395,118 @@
             this.colSDT,
             this.colMACN,
             this.colTRANGTHAIXOA});
-            this.gridView1.DetailHeight = 682;
             this.gridView1.GridControl = this.gcNhanVien;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1562;
             // 
             // colMANV
             // 
+            this.colMANV.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANV.AppearanceCell.Options.UseFont = true;
+            this.colMANV.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANV.AppearanceHeader.Options.UseFont = true;
             this.colMANV.Caption = "Mã nhân viên";
             this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 49;
+            this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
-            this.colMANV.OptionsColumn.AllowEdit = false;
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 182;
+            this.colMANV.Width = 94;
             // 
             // colHO
             // 
+            this.colHO.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHO.AppearanceCell.Options.UseFont = true;
+            this.colHO.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHO.AppearanceHeader.Options.UseFont = true;
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 49;
+            this.colHO.MinWidth = 25;
             this.colHO.Name = "colHO";
-            this.colHO.OptionsColumn.AllowEdit = false;
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 182;
+            this.colHO.Width = 94;
             // 
             // colTEN
             // 
+            this.colTEN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEN.AppearanceCell.Options.UseFont = true;
+            this.colTEN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEN.AppearanceHeader.Options.UseFont = true;
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 49;
+            this.colTEN.MinWidth = 25;
             this.colTEN.Name = "colTEN";
-            this.colTEN.OptionsColumn.AllowEdit = false;
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 182;
+            this.colTEN.Width = 94;
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYSINH.AppearanceCell.Options.UseFont = true;
+            this.colNGAYSINH.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 49;
+            this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 3;
-            this.colNGAYSINH.Width = 182;
+            this.colNGAYSINH.Width = 94;
             // 
             // colDIACHI
             // 
+            this.colDIACHI.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDIACHI.AppearanceCell.Options.UseFont = true;
+            this.colDIACHI.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDIACHI.AppearanceHeader.Options.UseFont = true;
             this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 49;
+            this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 4;
-            this.colDIACHI.Width = 182;
+            this.colDIACHI.Width = 94;
             // 
             // colSDT
             // 
-            this.colSDT.Caption = "Số điện thoại";
+            this.colSDT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSDT.AppearanceCell.Options.UseFont = true;
+            this.colSDT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSDT.AppearanceHeader.Options.UseFont = true;
+            this.colSDT.Caption = "SĐT";
             this.colSDT.FieldName = "SDT";
-            this.colSDT.MinWidth = 49;
+            this.colSDT.MinWidth = 25;
             this.colSDT.Name = "colSDT";
-            this.colSDT.OptionsColumn.AllowEdit = false;
             this.colSDT.Visible = true;
             this.colSDT.VisibleIndex = 5;
-            this.colSDT.Width = 182;
+            this.colSDT.Width = 94;
             // 
             // colMACN
             // 
+            this.colMACN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMACN.AppearanceCell.Options.UseFont = true;
+            this.colMACN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMACN.AppearanceHeader.Options.UseFont = true;
             this.colMACN.Caption = "Mã chi nhánh";
             this.colMACN.FieldName = "MACN";
-            this.colMACN.MinWidth = 49;
+            this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
-            this.colMACN.OptionsColumn.AllowEdit = false;
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 6;
-            this.colMACN.Width = 182;
+            this.colMACN.Width = 94;
             // 
             // colTRANGTHAIXOA
             // 
+            this.colTRANGTHAIXOA.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTRANGTHAIXOA.AppearanceHeader.Options.UseFont = true;
             this.colTRANGTHAIXOA.Caption = "Trạng thái xóa";
             this.colTRANGTHAIXOA.FieldName = "TRANGTHAIXOA";
-            this.colTRANGTHAIXOA.MinWidth = 49;
+            this.colTRANGTHAIXOA.MinWidth = 25;
             this.colTRANGTHAIXOA.Name = "colTRANGTHAIXOA";
-            this.colTRANGTHAIXOA.OptionsColumn.AllowEdit = false;
             this.colTRANGTHAIXOA.Visible = true;
             this.colTRANGTHAIXOA.VisibleIndex = 7;
-            this.colTRANGTHAIXOA.Width = 182;
+            this.colTRANGTHAIXOA.Width = 94;
             // 
             // FormDanhSachNhanVien
             // 
@@ -543,6 +560,12 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Label label1;
+        
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarSubItem Menu;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private System.Windows.Forms.BindingSource bdsNhanVien;
         private QLVT_NHAPXUATDataSet dataSet;
         private QLVT_NHAPXUATDataSetTableAdapters.NHANVIENTableAdapter NHANVIENTableAdapter;
@@ -557,10 +580,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSDT;
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private DevExpress.XtraGrid.Columns.GridColumn colTRANGTHAIXOA;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarSubItem Menu;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
     }
 }

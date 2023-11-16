@@ -328,5 +328,11 @@ namespace QLVT
             FormTongHopNhapXuat f = new FormTongHopNhapXuat();
             f.Show();
         }
+
+        private void barChiTietHangNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormChiTietSoLuong_TriGiatheoLoaiPhieu f = new FormChiTietSoLuong_TriGiatheoLoaiPhieu();
+            f.Show();
+        }
     }
 }

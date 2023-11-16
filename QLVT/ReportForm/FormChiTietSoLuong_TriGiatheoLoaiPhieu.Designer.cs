@@ -46,9 +46,10 @@
             // 
             // label1
             // 
+            this.label1.AllowDrop = true;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(158, 9);
+            this.label1.Location = new System.Drawing.Point(341, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 32);
             this.label1.TabIndex = 1;
@@ -57,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 60);
+            this.label2.Location = new System.Drawing.Point(71, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 4;
@@ -66,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(281, 60);
+            this.label3.Location = new System.Drawing.Point(427, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 10;
@@ -75,25 +76,25 @@
             // deNgayKetThuc
             // 
             this.deNgayKetThuc.EditValue = null;
-            this.deNgayKetThuc.Location = new System.Drawing.Point(366, 54);
+            this.deNgayKetThuc.Location = new System.Drawing.Point(522, 113);
             this.deNgayKetThuc.Name = "deNgayKetThuc";
             this.deNgayKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayKetThuc.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayKetThuc.Size = new System.Drawing.Size(167, 26);
+            this.deNgayKetThuc.Size = new System.Drawing.Size(209, 26);
             this.deNgayKetThuc.TabIndex = 11;
             // 
             // deNgayBatDau
             // 
             this.deNgayBatDau.EditValue = null;
-            this.deNgayBatDau.Location = new System.Drawing.Point(99, 57);
+            this.deNgayBatDau.Location = new System.Drawing.Point(162, 113);
             this.deNgayBatDau.Name = "deNgayBatDau";
             this.deNgayBatDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayBatDau.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayBatDau.Size = new System.Drawing.Size(151, 26);
+            this.deNgayBatDau.Size = new System.Drawing.Size(189, 26);
             this.deNgayBatDau.TabIndex = 9;
             // 
             // btnXUAT
@@ -143,7 +144,7 @@
             this.btnXUAT.IdleIconLeftImage = null;
             this.btnXUAT.IdleIconRightImage = null;
             this.btnXUAT.IndicateFocus = false;
-            this.btnXUAT.Location = new System.Drawing.Point(366, 118);
+            this.btnXUAT.Location = new System.Drawing.Point(522, 189);
             this.btnXUAT.Name = "btnXUAT";
             this.btnXUAT.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnXUAT.OnDisabledState.BorderRadius = 10;
@@ -177,7 +178,7 @@
             this.btnXUAT.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnXUAT.OnPressedState.IconLeftImage = null;
             this.btnXUAT.OnPressedState.IconRightImage = null;
-            this.btnXUAT.Size = new System.Drawing.Size(125, 39);
+            this.btnXUAT.Size = new System.Drawing.Size(209, 49);
             this.btnXUAT.TabIndex = 8;
             this.btnXUAT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnXUAT.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -233,7 +234,7 @@
             this.btnNHAP.IdleIconLeftImage = null;
             this.btnNHAP.IdleIconRightImage = null;
             this.btnNHAP.IndicateFocus = false;
-            this.btnNHAP.Location = new System.Drawing.Point(99, 118);
+            this.btnNHAP.Location = new System.Drawing.Point(162, 189);
             this.btnNHAP.Name = "btnNHAP";
             this.btnNHAP.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnNHAP.OnDisabledState.BorderRadius = 10;
@@ -267,7 +268,7 @@
             this.btnNHAP.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnNHAP.OnPressedState.IconLeftImage = null;
             this.btnNHAP.OnPressedState.IconRightImage = null;
-            this.btnNHAP.Size = new System.Drawing.Size(125, 39);
+            this.btnNHAP.Size = new System.Drawing.Size(189, 49);
             this.btnNHAP.TabIndex = 7;
             this.btnNHAP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNHAP.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -280,7 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 195);
+            this.ClientSize = new System.Drawing.Size(869, 255);
             this.Controls.Add(this.deNgayKetThuc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.deNgayBatDau);
@@ -289,7 +290,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormChiTietSoLuong_TriGiatheoLoaiPhieu";
-            this.Text = "FormChiTietSoLuong_TriGiatheoLoaiPhieu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CHI TIẾT SỐ LƯỢNG TRỊ GIÁ";
             ((System.ComponentModel.ISupportInitialize)(this.deNgayKetThuc.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayKetThuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayBatDau.Properties.CalendarTimeProperties)).EndInit();

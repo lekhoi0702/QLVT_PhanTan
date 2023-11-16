@@ -53,21 +53,21 @@
             this.btnCheDoCTDDH = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dataSet = new QLVT.QLVT_NHAPXUATDataSet();
             this.bdsVATTU = new System.Windows.Forms.BindingSource(this.components);
-            this.VATTUTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter();
-            this.tableAdapterManager = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager();
+            this.dataSet = new QLVT.QLVT_NHAPXUATDataSet();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMALVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSLT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.VATTUTableAdapter = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.VATTUTableAdapter();
+            this.tableAdapterManager = new QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVATTU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // bar1
@@ -294,6 +294,16 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // bdsVATTU
+            // 
+            this.bdsVATTU.DataMember = "VATTU";
+            this.bdsVATTU.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "QLVT_NHAPXUATDataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -305,15 +315,75 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
-            // dataSet
+            // colMAVT
             // 
-            this.dataSet.DataSetName = "QLVT_NHAPXUATDataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.colMAVT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAVT.AppearanceCell.Options.UseFont = true;
+            this.colMAVT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAVT.AppearanceHeader.Options.UseFont = true;
+            this.colMAVT.Caption = "Mã vật tư";
+            this.colMAVT.FieldName = "MAVT";
+            this.colMAVT.MinWidth = 25;
+            this.colMAVT.Name = "colMAVT";
+            this.colMAVT.Visible = true;
+            this.colMAVT.VisibleIndex = 0;
+            this.colMAVT.Width = 94;
             // 
-            // bdsVATTU
+            // colTENVT
             // 
-            this.bdsVATTU.DataMember = "VATTU";
-            this.bdsVATTU.DataSource = this.dataSet;
+            this.colTENVT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENVT.AppearanceCell.Options.UseFont = true;
+            this.colTENVT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENVT.AppearanceHeader.Options.UseFont = true;
+            this.colTENVT.Caption = "Tên vật tư";
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 1;
+            this.colTENVT.Width = 94;
+            // 
+            // colDVT
+            // 
+            this.colDVT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDVT.AppearanceCell.Options.UseFont = true;
+            this.colDVT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDVT.AppearanceHeader.Options.UseFont = true;
+            this.colDVT.Caption = "Đơn vị tính";
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.MinWidth = 25;
+            this.colDVT.Name = "colDVT";
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 2;
+            this.colDVT.Width = 94;
+            // 
+            // colMALVT
+            // 
+            this.colMALVT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALVT.AppearanceCell.Options.UseFont = true;
+            this.colMALVT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALVT.AppearanceHeader.Options.UseFont = true;
+            this.colMALVT.Caption = "Mã loại vật tư";
+            this.colMALVT.FieldName = "MALVT";
+            this.colMALVT.MinWidth = 25;
+            this.colMALVT.Name = "colMALVT";
+            this.colMALVT.Visible = true;
+            this.colMALVT.VisibleIndex = 3;
+            this.colMALVT.Width = 94;
+            // 
+            // colSLT
+            // 
+            this.colSLT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSLT.AppearanceCell.Options.UseFont = true;
+            this.colSLT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSLT.AppearanceHeader.Options.UseFont = true;
+            this.colSLT.Caption = "Số lượng tồn";
+            this.colSLT.FieldName = "SLT";
+            this.colSLT.MinWidth = 25;
+            this.colSLT.Name = "colSLT";
+            this.colSLT.Visible = true;
+            this.colSLT.VisibleIndex = 4;
+            this.colSLT.Width = 94;
             // 
             // VATTUTableAdapter
             // 
@@ -336,51 +406,6 @@
             this.tableAdapterManager.UpdateOrder = QLVT.QLVT_NHAPXUATDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = this.VATTUTableAdapter;
             // 
-            // colMAVT
-            // 
-            this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.MinWidth = 25;
-            this.colMAVT.Name = "colMAVT";
-            this.colMAVT.Visible = true;
-            this.colMAVT.VisibleIndex = 0;
-            this.colMAVT.Width = 94;
-            // 
-            // colTENVT
-            // 
-            this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 25;
-            this.colTENVT.Name = "colTENVT";
-            this.colTENVT.Visible = true;
-            this.colTENVT.VisibleIndex = 1;
-            this.colTENVT.Width = 94;
-            // 
-            // colDVT
-            // 
-            this.colDVT.FieldName = "DVT";
-            this.colDVT.MinWidth = 25;
-            this.colDVT.Name = "colDVT";
-            this.colDVT.Visible = true;
-            this.colDVT.VisibleIndex = 2;
-            this.colDVT.Width = 94;
-            // 
-            // colMALVT
-            // 
-            this.colMALVT.FieldName = "MALVT";
-            this.colMALVT.MinWidth = 25;
-            this.colMALVT.Name = "colMALVT";
-            this.colMALVT.Visible = true;
-            this.colMALVT.VisibleIndex = 3;
-            this.colMALVT.Width = 94;
-            // 
-            // colSLT
-            // 
-            this.colSLT.FieldName = "SLT";
-            this.colSLT.MinWidth = 25;
-            this.colSLT.Name = "colSLT";
-            this.colSLT.Visible = true;
-            this.colSLT.VisibleIndex = 4;
-            this.colSLT.Width = 94;
-            // 
             // FormDanhMucVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -399,9 +424,9 @@
             this.Load += new System.EventHandler(this.FormDanhMucVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVATTU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

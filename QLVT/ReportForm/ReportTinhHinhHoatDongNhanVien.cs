@@ -13,11 +13,16 @@ namespace QLVT.ReportForm
         public ReportTinhHinhHoatDongNhanVien(int maNhanVien, String loaiPhieu, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             InitializeComponent();
-            qlvT_NHAPXUATDataSet1.EnforceConstraints = false;
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter1.Connection.ConnectionString = Program.connstr;
-            this.sp_TinhHinhHoatDongNhanVienTableAdapter1.Fill(qlvT_NHAPXUATDataSet1.sp_TinhHinhHoatDongNhanVien, maNhanVien, loaiPhieu, ngayBatDau, ngayKetThuc);
+            qlvT_NHAPXUATDataSet2.EnforceConstraints = false;
+            this.sp_TinhHinhHoatDongNhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sp_TinhHinhHoatDongNhanVienTableAdapter.Fill(qlvT_NHAPXUATDataSet2.sp_TinhHinhHoatDongNhanVien, maNhanVien, loaiPhieu, ngayBatDau, ngayKetThuc);
       
             
+        }
+
+        private void tableCell5_BeforePrint(object sender, CancelEventArgs e)
+        {
+            //test
         }
     }
 }

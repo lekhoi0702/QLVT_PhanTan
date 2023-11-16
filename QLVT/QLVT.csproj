@@ -360,6 +360,17 @@
     <Compile Include="MenuForm\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLVT_NHAPXUATDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLVT_NHAPXUATDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.Designer.cs">
+      <DependentUpon>FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\FormChonCheDo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +406,12 @@
     </Compile>
     <Compile Include="ReportForm\FormTongHopNhapXuat.Designer.cs">
       <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuong_TriGiatheoLoaiPhieu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuong_TriGiatheoLoaiPhieu.Designer.cs">
+      <DependentUpon>ReportChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\ReportDanhMucVatTu.cs">
       <SubType>Component</SubType>
@@ -496,6 +513,9 @@
     <EmbeddedResource Include="MenuForm\FormHoaDon.resx">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.resx">
+      <DependentUpon>FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormChonCheDo.resx">
       <DependentUpon>FormChonCheDo.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormTongHopNhapXuat.resx">
       <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportChiTietSoLuong_TriGiatheoLoaiPhieu.resx">
+      <DependentUpon>ReportChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportDanhMucVatTu.resx">
       <DependentUpon>ReportDanhMucVatTu.cs</DependentUpon>
@@ -593,6 +616,17 @@
     </None>
     <None Include="QLVT_NHAPXUATDataSet.xss">
       <DependentUpon>QLVT_NHAPXUATDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet1.xsc">
+      <DependentUpon>QLVT_NHAPXUATDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLVT_NHAPXUATDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLVT_NHAPXUATDataSet1.xss">
+      <DependentUpon>QLVT_NHAPXUATDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Resources\logo.png" />
   </ItemGroup>

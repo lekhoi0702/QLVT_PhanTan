@@ -539,7 +539,7 @@
             this.fillByToolStripButton.Name = "fillByToolStripButton";
             this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
             this.fillByToolStripButton.Text = "FillBy";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            //this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
             // 
             // fKVATTULOAIVATTUBindingSource
             // 

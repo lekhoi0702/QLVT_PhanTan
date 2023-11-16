@@ -16,8 +16,8 @@ namespace QLVT
 
         public static SqlConnection conn = new SqlConnection();//conn
         public static String connstr = "";//connstr
-       // public static String connstrPublisher = "Data Source=ZEPHYRUS-G15;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
-        public static String connstrPublisher = "Data Source=ADMIN-PC;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
+        public static String connstrPublisher = "Data Source=ZEPHYRUS-G15;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
+        //public static String connstrPublisher = "Data Source=ADMIN-PC;Initial Catalog=QLVT_NHAPXUAT;Integrated Security=true";
         public static SqlDataReader myReader;//myReader
 
 

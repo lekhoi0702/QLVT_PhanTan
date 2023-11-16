@@ -52,7 +52,7 @@ namespace QLVT
             this.btnHoaDon = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barChiTietHangNhapXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btnVatTu = new DevExpress.XtraBars.BarSubItem();
@@ -93,7 +93,7 @@ namespace QLVT
             this.btnMenu,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.barButtonItem3,
+            this.barChiTietHangNhapXuat,
             this.btnTaoTaiKhoan,
             this.btnDangXuat,
             this.btnVatTu,
@@ -199,13 +199,14 @@ namespace QLVT
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDMVT_ItemClick);
             // 
-            // barButtonItem3
+            // barChiTietHangNhapXuat
             // 
-            this.barButtonItem3.Caption = "CHI TIẾT HÀNG NHẬP XUẤT";
-            this.barButtonItem3.Id = 11;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.barChiTietHangNhapXuat.Caption = "CHI TIẾT HÀNG NHẬP XUẤT";
+            this.barChiTietHangNhapXuat.Id = 11;
+            this.barChiTietHangNhapXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.barChiTietHangNhapXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barChiTietHangNhapXuat.Name = "barChiTietHangNhapXuat";
+            this.barChiTietHangNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChiTietHangNhapXuat_ItemClick);
             // 
             // btnTaoTaiKhoan
             // 
@@ -330,7 +331,7 @@ namespace QLVT
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barChiTietHangNhapXuat);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem9);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
@@ -449,7 +450,7 @@ namespace QLVT
         private DevExpress.XtraBars.Ribbon.RibbonPage pageTaiKhoan;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barChiTietHangNhapXuat;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnDangXuat;
         private System.Windows.Forms.StatusStrip statusStrip1;

@@ -274,7 +274,7 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 34);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(12);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1450, 125);
             this.panelControl1.TabIndex = 7;
@@ -284,8 +284,8 @@
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.Enabled = false;
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(831, 44);
-            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(778, 54);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(12);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(879, 28);
             this.cmbChiNhanh.TabIndex = 1;
@@ -337,10 +337,10 @@
             // 
             this.gcDDHKhongPN.DataSource = this.bdsDDHKhongPN;
             this.gcDDHKhongPN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDDHKhongPN.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcDDHKhongPN.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
             this.gcDDHKhongPN.Location = new System.Drawing.Point(0, 159);
             this.gcDDHKhongPN.MainView = this.gridView1;
-            this.gcDDHKhongPN.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcDDHKhongPN.Margin = new System.Windows.Forms.Padding(5);
             this.gcDDHKhongPN.MenuManager = this.barManager1;
             this.gcDDHKhongPN.Name = "gcDDHKhongPN";
             this.gcDDHKhongPN.Size = new System.Drawing.Size(1450, 269);
@@ -362,9 +362,14 @@
             this.gridView1.GridControl = this.gcDDHKhongPN;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 1250;
+            this.gridView1.RowHeight = 1;
             // 
             // colMADDH
             // 
+            this.colMADDH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMADDH.AppearanceCell.Options.UseFont = true;
+            this.colMADDH.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMADDH.AppearanceHeader.Options.UseFont = true;
             this.colMADDH.Caption = "Mã đơn đặt hàng";
             this.colMADDH.FieldName = "MADDH";
             this.colMADDH.MinWidth = 39;
@@ -376,6 +381,10 @@
             // 
             // colNGAYLAP
             // 
+            this.colNGAYLAP.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYLAP.AppearanceCell.Options.UseFont = true;
+            this.colNGAYLAP.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYLAP.AppearanceHeader.Options.UseFont = true;
             this.colNGAYLAP.Caption = "Ngày lập";
             this.colNGAYLAP.FieldName = "NGAYLAP";
             this.colNGAYLAP.MinWidth = 39;
@@ -387,6 +396,10 @@
             // 
             // colMANCC
             // 
+            this.colMANCC.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANCC.AppearanceCell.Options.UseFont = true;
+            this.colMANCC.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMANCC.AppearanceHeader.Options.UseFont = true;
             this.colMANCC.Caption = "Mã nhà cung cấp";
             this.colMANCC.FieldName = "MANCC";
             this.colMANCC.MinWidth = 39;
@@ -398,6 +411,10 @@
             // 
             // colHOTEN
             // 
+            this.colHOTEN.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHOTEN.AppearanceCell.Options.UseFont = true;
+            this.colHOTEN.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHOTEN.AppearanceHeader.Options.UseFont = true;
             this.colHOTEN.Caption = "Họ tên";
             this.colHOTEN.FieldName = "HOTEN";
             this.colHOTEN.MinWidth = 39;
@@ -409,6 +426,10 @@
             // 
             // colTENVT
             // 
+            this.colTENVT.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENVT.AppearanceCell.Options.UseFont = true;
+            this.colTENVT.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENVT.AppearanceHeader.Options.UseFont = true;
             this.colTENVT.Caption = "Tên vật tư";
             this.colTENVT.FieldName = "TENVT";
             this.colTENVT.MinWidth = 39;
@@ -420,6 +441,10 @@
             // 
             // colSOLUONG
             // 
+            this.colSOLUONG.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSOLUONG.AppearanceCell.Options.UseFont = true;
+            this.colSOLUONG.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSOLUONG.AppearanceHeader.Options.UseFont = true;
             this.colSOLUONG.Caption = "Số lượng";
             this.colSOLUONG.FieldName = "SOLUONG";
             this.colSOLUONG.MinWidth = 39;
@@ -431,6 +456,10 @@
             // 
             // colDONGIA
             // 
+            this.colDONGIA.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDONGIA.AppearanceCell.Options.UseFont = true;
+            this.colDONGIA.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDONGIA.AppearanceHeader.Options.UseFont = true;
             this.colDONGIA.Caption = "Đơn giá";
             this.colDONGIA.FieldName = "DONGIA";
             this.colDONGIA.MinWidth = 39;
