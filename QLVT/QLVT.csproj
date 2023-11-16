@@ -366,6 +366,12 @@
     <Compile Include="MenuForm\FormKhachHang.Designer.cs">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.Designer.cs">
+      <DependentUpon>FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\FormChonCheDo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,12 @@
     </Compile>
     <Compile Include="ReportForm\FormTongHopNhapXuat.Designer.cs">
       <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuong_TriGiatheoLoaiPhieu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuong_TriGiatheoLoaiPhieu.Designer.cs">
+      <DependentUpon>ReportChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\ReportDanhMucVatTu.cs">
       <SubType>Component</SubType>
@@ -505,6 +517,9 @@
     <EmbeddedResource Include="MenuForm\FormKhachHang.resx">
       <DependentUpon>FormKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.resx">
+      <DependentUpon>FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormChonCheDo.resx">
       <DependentUpon>FormChonCheDo.cs</DependentUpon>
     </EmbeddedResource>
@@ -522,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormTongHopNhapXuat.resx">
       <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportChiTietSoLuong_TriGiatheoLoaiPhieu.resx">
+      <DependentUpon>ReportChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportDanhMucVatTu.resx">
       <DependentUpon>ReportDanhMucVatTu.cs</DependentUpon>
