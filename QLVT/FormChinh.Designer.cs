@@ -203,8 +203,8 @@ namespace QLVT
             // 
             this.barChiTietHangNhapXuat.Caption = "CHI TIẾT HÀNG NHẬP XUẤT";
             this.barChiTietHangNhapXuat.Id = 11;
-            this.barChiTietHangNhapXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barChiTietHangNhapXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barChiTietHangNhapXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barChiTietHangNhapXuat.ImageOptions.Image")));
+            this.barChiTietHangNhapXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barChiTietHangNhapXuat.ImageOptions.LargeImage")));
             this.barChiTietHangNhapXuat.Name = "barChiTietHangNhapXuat";
             this.barChiTietHangNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barChiTietHangNhapXuat_ItemClick);
             // 
@@ -215,6 +215,7 @@ namespace QLVT
             this.btnTaoTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.SvgImage")));
             this.btnTaoTaiKhoan.LargeWidth = 100;
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
             // 
             // btnDangXuat
             // 

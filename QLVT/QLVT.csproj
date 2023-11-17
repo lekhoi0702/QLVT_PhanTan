@@ -360,6 +360,17 @@
     <Compile Include="MenuForm\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuForm\FormTaoTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FormTaoTaiKhoan.Designer.cs">
+      <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLVT_NHAPXUATDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLVT_NHAPXUATDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QLVT_NHAPXUATDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -473,11 +484,6 @@
     <Compile Include="MenuForm\FormPhieuNhap.Designer.cs">
       <DependentUpon>FormPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLVT_NHAPXUATDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLVT_NHAPXUATDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="MenuForm\FormLoaiVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -492,6 +498,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubForm\FormChonNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormChonNhanVien.Designer.cs">
+      <DependentUpon>FormChonNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubForm\FormChuyenChiNhanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -512,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm\FormHoaDon.resx">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FormTaoTaiKhoan.resx">
+      <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormChiTietSoLuong_TriGiatheoLoaiPhieu.resx">
       <DependentUpon>FormChiTietSoLuong_TriGiatheoLoaiPhieu.cs</DependentUpon>
@@ -584,6 +599,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SubForm\FormChonNhanVien.dje-NE.resx">
+      <DependentUpon>FormChonNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormChonNhanVien.resx">
+      <DependentUpon>FormChonNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormChonNhanVien.vi.resx">
+      <DependentUpon>FormChonNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </EmbeddedResource>

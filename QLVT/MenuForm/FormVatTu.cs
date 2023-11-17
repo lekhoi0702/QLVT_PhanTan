@@ -21,13 +21,7 @@ namespace QLVT
     {
         int viTri = 0;
         bool dangThemMoi = false;
-
-        String maChiNhanh = "";
-
         Stack undoList = new Stack();
-
-
-
         public FormVatTu()
         {
             InitializeComponent();
@@ -38,26 +32,25 @@ namespace QLVT
             this.Validate();
             this.bdsVatTu.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dataSet);
-            
+
 
         }
 
         private void FormVatTu_Load(object sender, EventArgs e)
         {
-            
+
 
             dataSet.EnforceConstraints = false;
-           
+
             this.VATTUTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'qLVT_NHAPXUATDataSet.VATTU' table. You can move, or remove it, as needed.
             this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
+
             this.CTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dataSet.CTDDH' table. You can move, or remove it, as needed.
             this.CTDDHTableAdapter.Fill(this.dataSet.CTDDH);
-            // TODO: This line of code loads data into the 'dataSet.CTHD' table. You can move, or remove it, as needed.
+
             this.CTHDTableAdapter.Connection.ConnectionString = Program.connstr;
             this.CTHDTableAdapter.Fill(this.dataSet.CTHD);
-            // TODO: This line of code loads data into the 'dataSet.CTPN' table. You can move, or remove it, as needed.
+
             this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
             this.CTPNTableAdapter.Fill(this.dataSet.CTPN);
 
@@ -114,19 +107,11 @@ namespace QLVT
 
         private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
-            /*lấy vị trí hiện tại của con trỏ*/
             viTri = bdsVatTu.Position;
-            this.panelNhapLieu.Enabled = true;
             dangThemMoi = true;
 
-
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bdsVatTu.AddNew();
-
-
-            /*Step 3*/
+            this.panelNhapLieu.Enabled = true;
             this.cmbLoaiVT.Enabled = true;
             this.txtMaVT.Enabled = true;
             this.btnThem.Enabled = false;
@@ -137,15 +122,13 @@ namespace QLVT
             this.btnLamMoi.Enabled = false;
             this.btnThoat.Enabled = false;
             this.txtMaLoaiVatTu.Enabled = false;
-
-
             this.gcVatTu.Enabled = false;
-            this.panelNhapLieu.Enabled = true;
+
         }
 
         private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
+            viTri = bdsVatTu.Position;
             if (dangThemMoi == true && this.btnThem.Enabled == false)
             {
                 dangThemMoi = false;
@@ -164,33 +147,32 @@ namespace QLVT
                 this.panelNhapLieu.Enabled = true;
 
                 bdsVatTu.CancelEdit();
-                /*xoa dong hien tai*/
+
                 bdsVatTu.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
-                bdsVatTu.Position = viTri;
+                bdsVatTu.Position = viTri - 1;
                 return;
             }
 
-            /*Step 1*/
             if (undoList.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
                 btnHoanTac.Enabled = false;
                 return;
             }
+            String undoQuery = undoList.Pop().ToString();
+            Console.WriteLine(undoQuery);
+            int n = Program.ExecSqlNonQuery(undoQuery);
+            bdsVatTu.Position = viTri;
 
-            /*Step 2*/
-            bdsVatTu.CancelEdit();
-            String cauTruyVanHoanTac = undoList.Pop().ToString();
-            Console.WriteLine(cauTruyVanHoanTac);
-            int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+
+
             this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
         }
 
 
         private bool kiemTraDuLieuDauVao()
         {
-            /*Kiem tra txtMAVT*/
+
             if (txtMaVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã vật tư", "Thông báo", MessageBoxButtons.OK);
@@ -198,7 +180,7 @@ namespace QLVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtMaVT.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            if (Regex.IsMatch(txtMaVT.Text.Trim(), @"^[a-zA-Z0-9,]+$") == false)
             {
                 MessageBox.Show("Mã vật tư chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
                 txtMaVT.Focus();
@@ -213,7 +195,7 @@ namespace QLVT
                 txtMaVT.Focus();
                 return false;
             }
-            /*Kiem tra txtTENVT*/
+
             if (txtTenVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên vật tư", "Thông báo", MessageBoxButtons.OK);
@@ -234,7 +216,7 @@ namespace QLVT
                 txtTenVT.Focus();
                 return false;
             }
-            /*Kiem tra txtDONVIVATTU*/
+
             if (txtDVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống đơn vị tính", "Thông báo", MessageBoxButtons.OK);
@@ -255,35 +237,26 @@ namespace QLVT
                 txtDVT.Focus();
                 return false;
             }
+            if (spSTL.Value < 0)
+            {
+                MessageBox.Show("Số lượng tồn không được nhỏ hơn 0", "Thông báo", MessageBoxButtons.OK);
+                spSTL.Focus();
+                return false;
+            }
 
             return true;
         }
 
-
-
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
             bool ketQua = kiemTraDuLieuDauVao();
             if (ketQua == false)
                 return;
 
-
-            /*Step 1*/
-            /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/
-            String maVatTu = txtMaVT.Text.Trim();// Trim() de loai bo khoang trang thua
+            String maVatTu = txtMaVT.Text.Trim();
             DataRowView drv = ((DataRowView)bdsVatTu[bdsVatTu.Position]);
-            String tenVatTu = drv["TENVT"].ToString();
-            String donViTinh = drv["DVT"].ToString();
-            drv["MALVT"] = cmbLoaiVT.SelectedValue.ToString();
-            String maLoaiVT = drv["MALVT"].ToString();
-            String slt = spSTL.Value.ToString();
-            Console.WriteLine(maLoaiVT);
-         
+            drv["MALVT"] = cmbLoaiVT.SelectedValue.ToString().Trim();
 
-            /*declare @returnedResult int
-              exec @returnedResult = sp_KiemTraMaVatTu '20'
-              select @returnedResult*/
             String cauTruyVan =
                     "DECLARE	@result nchar(5) " +
                     "EXEC @result = sp_KiemTraMaVatTu '" +
@@ -308,13 +281,9 @@ namespace QLVT
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine(result);
+
             Program.myReader.Close();
-       
 
-           
-
-            /*Step 2*/
             int viTriConTro = bdsVatTu.Position;
             int viTriMaVatTu = bdsVatTu.Find("MAVT", txtMaVT.Text);
 
@@ -324,15 +293,44 @@ namespace QLVT
                 return;
             }
             else
-            
+
             {
-                DialogResult dr = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
+                DialogResult dr = MessageBox.Show("Ghi dữ liệu?", "Thông báo",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr == DialogResult.OK)
                 {
                     try
                     {
-                        /*bật các nút về ban đầu*/
+
+                        String undoQuery = "";
+                        if (dangThemMoi == true)
+                        {
+                            undoQuery = "" +
+                                "DELETE FROM DBO.VATTU " +
+                                "WHERE MAVT = '" + maVatTu + "'";
+                        }
+
+                        else
+                        {
+                            String tenVatTu = drv["TENVT"].ToString();
+                            String donViTinh = drv["DVT"].ToString();
+                            drv["MALVT"] = cmbLoaiVT.SelectedValue.ToString();
+
+                            String slt = spSTL.Value.ToString();
+                            String maLoaiVT = drv["MALVT"].ToString();
+                            undoQuery =
+                                "UPDATE DBO.VATTU " +
+                                "SET " +
+                                "TENVT = '" + tenVatTu + "'," +
+                                "DVT = '" + donViTinh + "'," +
+                                "MALVT = '" + maLoaiVT + "'," +
+                                "SLT = '" + slt + "'," +
+                                "WHERE MAVT = '" + maVatTu + "'";
+                        }
+                        Console.WriteLine(undoQuery);
+                        undoList.Push(undoQuery);
+                        MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
+                        dangThemMoi = false;
                         btnThem.Enabled = true;
                         btnXoa.Enabled = true;
                         btnSua.Enabled = true;
@@ -340,51 +338,24 @@ namespace QLVT
                         btnLamMoi.Enabled = true;
                         btnThoat.Enabled = true;
 
-                        this.txtMaVT.Enabled = false;
-                        this.gcVatTu.Enabled = true;
-
-                        /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
-                        String cauTruyVanHoanTac = "";
-                        /*trước khi ấn btnGHI là btnTHEM*/
-                        if (dangThemMoi == true)
-                        {
-                            cauTruyVanHoanTac = "" +
-                                "DELETE DBO.VATTU " +
-                                "WHERE MAVT = '" + txtMaVT.Text.Trim() + "'";
-                        }
-                        /*trước khi ấn btnGHI là sửa thông tin nhân viên*/
-                        else
-                        {
-                            cauTruyVanHoanTac =
-                                "UPDATE DBO.VATTU " +
-                                "SET " +
-                                "TENVT = '" + tenVatTu + "'," +
-                                "DVT = '" + donViTinh + "'," +
-                                "MALVT = '" + txtMaLoaiVatTu.Text.Trim() + "'," +
-                                "SLT = '" + slt + "'," +
-                                "WHERE MAVT = '" + maVatTu + "'";
-                        }
-                        //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-                        Console.WriteLine(cauTruyVanHoanTac);
-
-                        /*Đưa câu truy vấn hoàn tác vào undoList 
-                         * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
-                        undoList.Push(cauTruyVanHoanTac);
-
                         this.bdsVatTu.EndEdit();
                         this.VATTUTableAdapter.Update(this.dataSet.VATTU);
-                        /*cập nhật lại trạng thái thêm mới cho chắc*/
-                        dangThemMoi = false;
-                        MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
+                        this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
+                        this.gcVatTu.Enabled = true;
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
-                        bdsVatTu.RemoveCurrent();
-                        MessageBox.Show("Tên vật tư có thể đã được dùng !\n\n" + ex.Message, "Lỗi",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (dangThemMoi == true)
+                        {
+                            bdsVatTu.RemoveCurrent();
+                        }
+
+                        MessageBox.Show("Thất bại. Vui lòng kiểm tra lại!\n" + ex.Message, "Lỗi",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    this.bdsVatTu.Position = viTri;
                 }
 
             }
@@ -393,7 +364,6 @@ namespace QLVT
         {
             try
             {
-                // do du lieu moi tu dataSet vao gridControl NHANVIEN
                 this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
                 this.gcVatTu.Enabled = true;
             }
@@ -406,10 +376,12 @@ namespace QLVT
 
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
+
             if (bdsVatTu.Count == 0)
             {
                 btnXoa.Enabled = false;
+                MessageBox.Show("Vật tư trống", "Thông báo", MessageBoxButtons.OK);
+                return;
             }
 
             if (bdsCTDDH.Count > 0)
@@ -430,8 +402,8 @@ namespace QLVT
                 return;
             }
 
-            //kiem tra xem no co dang duoc su dung tai chi nhanh khac hay khong ?*/
-            String maVatTu = txtMaVT.Text.Trim();// Trim() de loai bo khoang trang thua
+
+            String maVatTu = txtMaVT.Text.Trim();
             int ketQua = kiemTraVatTuChiNhanhKhac(maVatTu);
 
             if (ketQua == 1)
@@ -440,76 +412,59 @@ namespace QLVT
                 return;
             }
 
-
-
-            /* Phần này phục vụ tính năng hoàn tác
-            * Đưa câu truy vấn hoàn tác vào undoList 
-            * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
-
-
-            string cauTruyVanHoanTac =
+            string undoQuery =
             "INSERT INTO DBO.VATTU( MAVT,TENVT,DVT,MALVT,SLT) " +
-            " VALUES( '" + txtMaVT.Text + "','" +
-                        txtTenVT.Text + "','" +
-                        txtDVT.Text + "', " +
-                        txtMaLoaiVatTu.Text + "', " +
+            " VALUES( '" + txtMaVT.Text.Trim() + "','" +
+                        txtTenVT.Text.Trim() + "','" +
+                        txtDVT.Text.Trim() + "', '" +
+                        txtMaLoaiVatTu.Text.Trim() + "', " +
                         spSTL.Value + " ) ";
 
-          
-            undoList.Push(cauTruyVanHoanTac);
+            Console.WriteLine(undoQuery);
+            undoList.Push(undoQuery);
 
-            /*Step 2*/
+
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    /*Step 3*/
-                    viTri = bdsVatTu.Position;
+
+
                     bdsVatTu.RemoveCurrent();
-
-                    this.VATTUTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.VATTUTableAdapter.Update(this.dataSet.VATTU);
-
+                    this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
                     MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
                     this.btnHoanTac.Enabled = true;
+
                 }
                 catch (Exception ex)
                 {
-                    /*Step 4*/
+
                     MessageBox.Show("Lỗi xóa vật tư. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.VATTUTableAdapter.Fill(this.dataSet.VATTU);
-                    // tro ve vi tri cua nhan vien dang bi loi
-                    bdsVatTu.Position = viTri;
-                    //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
+
                     return;
                 }
             }
             else
             {
-                // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
-
-
-
-
-
         }
 
 
         private int kiemTraVatTuChiNhanhKhac(String maVatTu)
         {
             String cauTruyVan =
-                    "DECLARE	@result NCHAR(5) " +
+                    "DECLARE	@result NCHAR(5) ;" +
                     "EXEC @result = sp_KiemTraMaVatTuChiNhanhKhac '" +
-                    maVatTu + "' " +
+                    maVatTu + "' ;" +
                     "SELECT 'Value' = @result";
             SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
             try
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
-                /*khong co ket qua tra ve thi ket thuc luon*/
                 if (Program.myReader == null)
                 {
                     return 1;
@@ -524,13 +479,8 @@ namespace QLVT
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine("line 535");
-            //Console.WriteLine(result);
             Program.myReader.Close();
-
-            /*result = 1 nghia la vat tu nay dang duoc su dung o chi nhanh con lai*/
             int ketQua = (result == 1) ? 1 : 0;
-
             return ketQua;
         }
 
@@ -552,18 +502,23 @@ namespace QLVT
             this.Close();
         }
 
-      /*  private void fillByToolStripButton_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.LOAIVATTUTableAdapter.FillBy(this.dataSet.LOAIVATTU);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
 
-        }*/
+        }
+
+        /*  private void fillByToolStripButton_Click(object sender, EventArgs e)
+          {
+              try
+              {
+                  this.LOAIVATTUTableAdapter.FillBy(this.dataSet.LOAIVATTU);
+              }
+              catch (System.Exception ex)
+              {
+                  System.Windows.Forms.MessageBox.Show(ex.Message);
+              }
+
+          }*/
     }
 
 }

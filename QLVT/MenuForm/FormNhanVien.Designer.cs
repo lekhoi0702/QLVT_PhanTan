@@ -562,7 +562,7 @@
             // cbTrangThaiXoa
             // 
             this.cbTrangThaiXoa.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsNhanVien, "TRANGTHAIXOA", true));
-            this.cbTrangThaiXoa.Location = new System.Drawing.Point(673, 145);
+            this.cbTrangThaiXoa.Location = new System.Drawing.Point(682, 141);
             this.cbTrangThaiXoa.Name = "cbTrangThaiXoa";
             this.cbTrangThaiXoa.Size = new System.Drawing.Size(104, 24);
             this.cbTrangThaiXoa.TabIndex = 15;

@@ -56,6 +56,7 @@ namespace QLVT
         public static string ngaySinh = "";
         public static string maCN = "";
         public static string SDT = "";
+        public static int manvDuocChon = 0;
 
 
 

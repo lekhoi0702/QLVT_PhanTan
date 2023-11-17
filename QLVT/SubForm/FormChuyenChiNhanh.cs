@@ -20,10 +20,9 @@ namespace QLVT
         }
         private void FormChuyenChiNhanh_Load(object sender, EventArgs e)
         {
-            /*Lấy dữ liệu từ form đăng nhập đổ vào nhưng chỉ lấn đúng danh sách
-             phân mảnh mà thôi*/
+          
             cmbChiNhanh.DataSource = Program.bindingSource.DataSource;
-            /*sao chep bingding source tu form dang nhap*/
+       
             cmbChiNhanh.DisplayMember = "tencn";
             cmbChiNhanh.ValueMember = "tenserver";
             cmbChiNhanh.SelectedIndex = Program.brand;

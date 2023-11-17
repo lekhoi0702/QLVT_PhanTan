@@ -264,7 +264,7 @@ namespace QLVT
 
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-            
+
             if (btnMenu.Links[0].Caption == "Đơn đặt hàng")
             {
                 bdsDDH.AddNew();

@@ -187,12 +187,12 @@ namespace QLVT
                 this.btnEXIT.Enabled = true;
 
                 this.panelPhieuNhap.Enabled = false;
-              
+
 
 
             }
 
- 
+
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
                 cmbChiNhanh.Enabled = false;
@@ -224,7 +224,7 @@ namespace QLVT
 
             panelPhieuNhap.Enabled = false;
             panelCTPN.Enabled = true;
-            txtMaVT.Enabled = false;           
+            txtMaVT.Enabled = false;
             txtSoLuong.Enabled = true;
             txtDonGia.Enabled = false;
             gcPhieuNhap.Enabled = true;
@@ -235,7 +235,7 @@ namespace QLVT
                 cmbChiNhanh.Enabled = true;
 
                 this.btnTHEM.Enabled = false;
-           
+
                 this.btnGHI.Enabled = false;
 
                 this.btnHOANTAC.Enabled = false;
@@ -346,7 +346,7 @@ namespace QLVT
                 if (btnMenu.Links[0].Caption == "Chi tiết phiếu nhập")
                 {
                     txtSoLuong.Enabled = true;
-            
+
                 }
             }
             catch (Exception ex)
@@ -393,7 +393,7 @@ namespace QLVT
                      this.btnXOA.Enabled = false;
                  }*/
 
-                this.btnHOANTAC.Enabled = false;        
+                this.btnHOANTAC.Enabled = false;
                 bds.CancelEdit();
                 /*xoa dong hien tai*/
                 bds.RemoveCurrent();
@@ -413,7 +413,7 @@ namespace QLVT
             {
                 danhDauXoa = false;
 
-            }          
+            }
             String queryHoanTac = undoList.Pop().ToString();
             Console.WriteLine(queryHoanTac);
             int n = Program.ExecSqlNonQuery(queryHoanTac);
@@ -468,14 +468,14 @@ namespace QLVT
             if (cheDo == "Chi tiết phiếu nhập")
             {
 
-             if ((int)txtSoLuong.Value < 0 
-                    )
+                if ((int)txtSoLuong.Value < 0
+                       )
                 {
-                 
+
                     MessageBox.Show("Số lượng vật tư không được nhỏ hơn 0 !", "Thông báo", MessageBoxButtons.OK);
                     txtSoLuong.Focus();
                     return false;
-                  
+
                 }
 
                 /* if ((int)txtDonGia.Value < 1000)
@@ -492,12 +492,12 @@ namespace QLVT
 
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-          
+
             if (bdsPhieuNhap.Count == 0 && btnMenu.Links[0].Caption == "Phiếu nhập")
             {
                 MessageBox.Show("Phiếu nhập trống", "Thông báo", MessageBoxButtons.OK);
             }
-      
+
 
             else
             {
@@ -585,7 +585,7 @@ namespace QLVT
                                         "DELETE FROM DBO.PHIEUNHAP " +
                                         "WHERE MAPN = '" + maPhieuNhap + "'";
                                     undoList.Push(cauTruyVanHoanTac);
-                                      String test = undoList.Peek() as string;
+                                    String test = undoList.Peek() as string;
                                     Console.WriteLine("query hoan tac:" + test);
 
                                     this.bdsPhieuNhap.EndEdit();
@@ -597,13 +597,13 @@ namespace QLVT
                                         MessageBox.Show("Lỗi đưa chi tiết đơn hàng vào chi tiết phiếu nhập", "Thông báo", MessageBoxButtons.OK);
                                         return;
                                     }
-                                 
-                                    
-                                        this.btnMenu.Links[0].Caption = "Chi tiết Phiếu Nhập";
-                                        panelCTPN.Enabled = true;
-                                        panelPhieuNhap.Enabled = false;
-                                       
-                                        dangThemMoi = false;
+
+
+                                    this.btnMenu.Links[0].Caption = "Chi tiết Phiếu Nhập";
+                                    panelCTPN.Enabled = true;
+                                    panelPhieuNhap.Enabled = false;
+
+                                    dangThemMoi = false;
                                     txtSoLuong.Enabled = true;
                                     txtMaVT.Enabled = false;
                                     txtDonGia.Enabled = false;
@@ -615,7 +615,7 @@ namespace QLVT
                                     this.btnMenu.Enabled = true;
                                     this.CTPNTableAdapter.Fill(this.dataSet.CTPN);
 
-                                    
+
                                 }
                                 if (dangThemMoi == false)
                                 {
@@ -628,7 +628,7 @@ namespace QLVT
                                     drv["MAKHO"] = cmbKho.SelectedValue.ToString();
 
                                 }
-                                
+
 
 
                             }
@@ -644,8 +644,8 @@ namespace QLVT
                                 drv["SOLUONG"] = txtSoLuong.Value;
                                 string maVatTu = txtMaVT.Text.Trim();
                                 int soLuong = (int)txtSoLuong.Value;
-                                
-                                int n = kiemTraSoLuongVatTu(maPhieuNhap,maVatTu,soLuong);
+
+                                int n = kiemTraSoLuongVatTu(maPhieuNhap, maVatTu, soLuong);
                                 if (n == 0)
                                 {
                                     MessageBox.Show("Số lượng nhập không được lớn hơn số lượng trong đơn đặt!!!", "Thông báo", MessageBoxButtons.OK);
@@ -660,7 +660,7 @@ namespace QLVT
                             this.bdsCTPN.EndEdit();
                             this.CTPNTableAdapter.Update(this.dataSet.CTPN);
 
-                       
+
 
                         }
                         catch (Exception ex)
@@ -677,11 +677,11 @@ namespace QLVT
                     }
                 }
             }
-            
+
 
         }
 
-        private int taoPhieuNhapvaChiTietPhieuNhap(String mapn,String maddh)
+        private int taoPhieuNhapvaChiTietPhieuNhap(String mapn, String maddh)
         {
 
             String query = "DECLARE	@result int; " +
@@ -689,11 +689,11 @@ namespace QLVT
                         maddh + "'," + " @MAPN = '" +
                          mapn + "';" +
                         "SELECT 'return_value' = @result";
-            Console.WriteLine("Query tạo phiếu nhập: "+query);
+            Console.WriteLine("Query tạo phiếu nhập: " + query);
             Program.myReader = Program.ExecSqlDataReader(query);
             try
             {
-               
+
                 if (Program.myReader == null)
                 {
                     return 0;
@@ -711,7 +711,7 @@ namespace QLVT
             Program.myReader.Close();
             Console.WriteLine("ket qua them ctpn = " + result2);
             return result2;
-           
+
 
         }
 
@@ -799,30 +799,30 @@ namespace QLVT
 
 
 
-         
+
 
             }
 
-         /*   if (cheDo == "Chi tiết phiếu nhập")
-            {
-                drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
-                String maNhanVien = drv["MANV"].ToString();
-                if (Program.userName != maNhanVien)
-                {
-                    MessageBox.Show("Bạn không xóa Chi tiết phiếu nhập không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
-                    return;
-                }
+            /*   if (cheDo == "Chi tiết phiếu nhập")
+               {
+                   drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
+                   String maNhanVien = drv["MANV"].ToString();
+                   if (Program.userName != maNhanVien)
+                   {
+                       MessageBox.Show("Bạn không xóa Chi tiết phiếu nhập không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
+                       return;
+                   }
 
 
-                drv = ((DataRowView)bdsCTPN[bdsCTPN.Position]);
-                queryHoanTac = "INSERT INTO DBO.CTPN(MAPN, MAVT, SOLUONG, DONGIA) " +
-                    "VALUES('" + drv["MAPN"].ToString().Trim() + "', '" +
-                    drv["MAVT"].ToString().Trim() + "', " +
-                    drv["SOLUONG"].ToString().Trim() + ", " +
-                    drv["DONGIA"].ToString().Trim() + ")";
-            }
-*/
-        
+                   drv = ((DataRowView)bdsCTPN[bdsCTPN.Position]);
+                   queryHoanTac = "INSERT INTO DBO.CTPN(MAPN, MAVT, SOLUONG, DONGIA) " +
+                       "VALUES('" + drv["MAPN"].ToString().Trim() + "', '" +
+                       drv["MAVT"].ToString().Trim() + "', " +
+                       drv["SOLUONG"].ToString().Trim() + ", " +
+                       drv["DONGIA"].ToString().Trim() + ")";
+               }
+   */
+
 
 
             /*Step 2*/
@@ -853,9 +853,9 @@ namespace QLVT
                     this.PHIEUNHAPTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.PHIEUNHAPTableAdapter.Update(this.dataSet.PHIEUNHAP);
 
-                  /*  this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.CTPNTableAdapter.Update(this.dataSet.CTPN);
-*/
+                    /*  this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+                      this.CTPNTableAdapter.Update(this.dataSet.CTPN);
+  */
                     //bdsPhieuNhap.Position = viTri;
                     /*Cap nhat lai do ben tren can tao cau truy van nen da dat dangThemMoi = true*/
                     dangThemMoi = false;
@@ -895,10 +895,10 @@ namespace QLVT
 
 
             int n = Program.ExecSqlNonQuery(cauTruyVan);
-            Console.WriteLine("cap nhat so luong ton = "+cauTruyVan);
+            Console.WriteLine("cap nhat so luong ton = " + cauTruyVan);
         }
 
-        private int kiemTraSoLuongVatTu(string mapn,string mavt, int soluong)
+        private int kiemTraSoLuongVatTu(string mapn, string mavt, int soluong)
         {
             string cauTruyVan = "DECLARE @RETURN INT " +
                "EXEC @RETURN = sp_KiemTraSoLuongVatTuTrongDDH " +
@@ -928,7 +928,7 @@ namespace QLVT
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            Console.WriteLine("kiem tra so luong vat tu = " +result);
+            Console.WriteLine("kiem tra so luong vat tu = " + result);
             Program.myReader.Close();
             return result;
 

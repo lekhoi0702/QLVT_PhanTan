@@ -48,7 +48,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 82);
+            this.label2.Location = new System.Drawing.Point(146, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 20);
             this.label2.TabIndex = 2;
@@ -65,7 +65,7 @@
             this.cmbChiNhanh.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbChiNhanh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbChiNhanh.ItemHeight = 30;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(330, 75);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(359, 75);
             this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(4);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(187, 36);
@@ -82,7 +82,7 @@
             this.btnChonChiNanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnChonChiNanh.Font = new System.Drawing.Font("Times New Roman", 11.25F);
             this.btnChonChiNanh.ForeColor = System.Drawing.Color.White;
-            this.btnChonChiNanh.Location = new System.Drawing.Point(230, 119);
+            this.btnChonChiNanh.Location = new System.Drawing.Point(229, 137);
             this.btnChonChiNanh.Margin = new System.Windows.Forms.Padding(4);
             this.btnChonChiNanh.Name = "btnChonChiNanh";
             this.btnChonChiNanh.Size = new System.Drawing.Size(187, 56);

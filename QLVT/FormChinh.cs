@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using QLVT.MenuForm;
 using QLVT.ReportForm;
 using System;
 using System.Collections.Generic;
@@ -332,6 +333,12 @@ namespace QLVT
         private void barChiTietHangNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormChiTietSoLuong_TriGiatheoLoaiPhieu f = new FormChiTietSoLuong_TriGiatheoLoaiPhieu();
+            f.Show();
+        }
+
+        private void btnTaoTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MenuForm.FormTaoTaiKhoan f = new FormTaoTaiKhoan();
             f.Show();
         }
     }

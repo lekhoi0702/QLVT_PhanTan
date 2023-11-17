@@ -36,7 +36,7 @@ namespace QLVT
                     return f;
             return null;
         }
-     
+
 
         public FormHoaDon()
         {
@@ -198,7 +198,7 @@ namespace QLVT
             /*Step 2*/
             /*Tat chuc nang don dat hang*/
             this.panelHD.Enabled = false;
-      
+
 
             /*Bat chuc nang cua chi tiet don hang*/
             txtMaVT.Enabled = false;
@@ -211,8 +211,8 @@ namespace QLVT
             /*Bat cac grid control len*/
             gcHoaDon.Enabled = true;
             gcCTHD.Enabled = true;
-         
-          
+
+
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
@@ -243,7 +243,7 @@ namespace QLVT
                 this.btnTHEM.Enabled = true;
 
                 this.btnXOA.Enabled = true;
-             
+
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
@@ -273,7 +273,7 @@ namespace QLVT
 
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-       
+
             if (btnMenu.Links[0].Caption == "Hoá đơn")
             {
                 bdsHoaDon.AddNew();
@@ -296,7 +296,7 @@ namespace QLVT
                 DataRowView drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 String MaNV = drv["MANV"].ToString();
 
-                
+
 
                 if (Program.userName != MaNV)
                 {
@@ -450,7 +450,7 @@ namespace QLVT
                 DataRowView drv = ((DataRowView)bdsHoaDon[bdsHoaDon.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 String maHoaDon = drv["MAHD"].ToString().Trim();
-                
+
 
 
                 if (Program.userName != maNhanVien && dangThemMoi == false)
@@ -524,7 +524,7 @@ namespace QLVT
                     {
                         try
                         {
-                        
+
                             /*TH1: them moi don dat hang*/
                             if (cheDo == "Hoá đơn" && dangThemMoi == true)
 
@@ -533,7 +533,7 @@ namespace QLVT
                                 drv["MAHD"] = txtMaHD.Text.Trim().ToString();
                                 drv["MAKHO"] = cmbKho.SelectedValue.ToString();
                                 drv["MAKH"] = cmbKhachHang.SelectedValue.ToString();
-                              
+
                                 maHoaDon = drv["MAHD"].ToString().Trim();
                                 cauTruyVanHoanTac =
                                     "DELETE FROM DBO.HoaDon " +
@@ -565,15 +565,15 @@ namespace QLVT
                             }
 
                             /*TH2: them moi chi tiet don hang*/
-                            if (cheDo == "Chi tiết hoá đơn" )
+                            if (cheDo == "Chi tiết hoá đơn")
 
                             {
                                 DataRowView drv3 = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
                                 int soLuong = (int)txtSoLuong.Value;
                                 String maVT = "";
                                 String maVatTu = cmbVatTu.SelectedValue.ToString().Trim();
-                              /*  Console.WriteLine(maVatTu);
-                                Console.WriteLine(dangThemMoi);*/
+                                /*  Console.WriteLine(maVatTu);
+                                  Console.WriteLine(dangThemMoi);*/
 
                                 String cauTruyVan3 =
                                                 "DECLARE	@result int ;" +
@@ -583,7 +583,7 @@ namespace QLVT
 
                                                 "'SELECT 'return value' = @result";
                                 Console.WriteLine("kiem tra so luong vat tu=" + cauTruyVan3);
-                                SqlCommand sqlCommand3= new SqlCommand(cauTruyVan3, Program.conn);
+                                SqlCommand sqlCommand3 = new SqlCommand(cauTruyVan3, Program.conn);
                                 try
                                 {
                                     Program.myReader = Program.ExecSqlDataReader(cauTruyVan3);
@@ -605,39 +605,39 @@ namespace QLVT
                                 Program.myReader.Close();
                                 if (result3 != 1)
                                 {
-                                    MessageBox.Show("Số lượng vật tư hiện có là "+result3, "Thông báo", MessageBoxButtons.OK);
+                                    MessageBox.Show("Số lượng vật tư hiện có là " + result3, "Thông báo", MessageBoxButtons.OK);
                                     return;
                                 }
 
                                 if (dangThemMoi == true)
-                                { 
-                                        String cauTruyVan2 =
-                                                "DECLARE	@result int " +
-                                                "EXEC @result = sp_KiemTraMaVTTrongCTHD " +
-                                                "@MAHD ='" + maHoaDon + "'," +
-                                                "@MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() +
+                                {
+                                    String cauTruyVan2 =
+                                            "DECLARE	@result int " +
+                                            "EXEC @result = sp_KiemTraMaVTTrongCTHD " +
+                                            "@MAHD ='" + maHoaDon + "'," +
+                                            "@MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() +
 
-                                                "'SELECT 'return value' = @result";
-                                        SqlCommand sqlCommand2 = new SqlCommand(cauTruyVan2, Program.conn);
-                                        try
+                                            "'SELECT 'return value' = @result";
+                                    SqlCommand sqlCommand2 = new SqlCommand(cauTruyVan2, Program.conn);
+                                    try
+                                    {
+                                        Program.myReader = Program.ExecSqlDataReader(cauTruyVan2);
+                                        /*khong co ket qua tra ve thi ket thuc luon*/
+                                        if (Program.myReader == null)
                                         {
-                                            Program.myReader = Program.ExecSqlDataReader(cauTruyVan2);
-                                            /*khong co ket qua tra ve thi ket thuc luon*/
-                                            if (Program.myReader == null)
-                                            {
-                                                return;
-                                            }
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
-                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            Console.WriteLine(ex.Message);
                                             return;
                                         }
-                                        Program.myReader.Read();
-                                        int result2 = int.Parse(Program.myReader.GetValue(0).ToString());
-                                        Program.myReader.Close();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        Console.WriteLine(ex.Message);
+                                        return;
+                                    }
+                                    Program.myReader.Read();
+                                    int result2 = int.Parse(Program.myReader.GetValue(0).ToString());
+                                    Program.myReader.Close();
                                     if (result2 == 1)
                                     {
                                         MessageBox.Show("Vật tư này đã có rồi!!!", "Thông báo", MessageBoxButtons.OK);
@@ -646,21 +646,21 @@ namespace QLVT
                                     maVT = cmbVatTu.SelectedValue.ToString().Trim();
 
 
-                                    
-                                    
-                                        cauTruyVanHoanTac =
-                                     "DELETE FROM DBO.CTHD " +
-                                     "WHERE MAHD = '" + txtMaHD.Text.Trim() + "' " +
-                                     "AND MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() + "'";
-                                        undoList.Push(cauTruyVanHoanTac);
-                                        String test = undoList.Peek() as string;
-                                        Console.WriteLine("Cau hoan tac: " + test);
-                                        DataRowView drv2 = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
-                                        drv2["MAVT"] = maVatTu;
-                                        drv2["SOLUONG"] = (int)txtSoLuong.Value;
-                                        drv2["DONGIA"] = (int)txtDonGia.Value;
-                                   
-                                    
+
+
+                                    cauTruyVanHoanTac =
+                                 "DELETE FROM DBO.CTHD " +
+                                 "WHERE MAHD = '" + txtMaHD.Text.Trim() + "' " +
+                                 "AND MAVT = '" + cmbVatTu.SelectedValue.ToString().Trim() + "'";
+                                    undoList.Push(cauTruyVanHoanTac);
+                                    String test = undoList.Peek() as string;
+                                    Console.WriteLine("Cau hoan tac: " + test);
+                                    DataRowView drv2 = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+                                    drv2["MAVT"] = maVatTu;
+                                    drv2["SOLUONG"] = (int)txtSoLuong.Value;
+                                    drv2["DONGIA"] = (int)txtDonGia.Value;
+
+
                                 }
 
                                 if (dangThemMoi == false)
@@ -668,23 +668,23 @@ namespace QLVT
 
 
 
-                                    maVT = txtMaVT.Text.ToString().Trim();                                    
-                                        danhDauXoa = false;
-                                        String query = taoCauTruyVanHoanTac(cheDo);
-                                        undoList.Push(query);
-                                        String test = undoList.Peek() as string;
-                                        Console.WriteLine("Cau hoan tac: " + test);
-                                        drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
-                                   
-                                        drv["SOLUONG"] = txtSoLuong.Value.ToString();
-                                        drv["DONGIA"] = txtDonGia.Value.ToString();
-                                    
+                                    maVT = txtMaVT.Text.ToString().Trim();
+                                    danhDauXoa = false;
+                                    String query = taoCauTruyVanHoanTac(cheDo);
+                                    undoList.Push(query);
+                                    String test = undoList.Peek() as string;
+                                    Console.WriteLine("Cau hoan tac: " + test);
+                                    drv = ((DataRowView)bdsCTHD[bdsCTHD.Position]);
+
+                                    drv["SOLUONG"] = txtSoLuong.Value.ToString();
+                                    drv["DONGIA"] = txtDonGia.Value.ToString();
+
                                 }
                                 capNhatSLT(maVT, soLuong);
 
 
                             }
-                            
+
                             this.bdsHoaDon.EndEdit();
                             this.bdsCTHD.EndEdit();
                             this.CTHDTableAdapter.Update(this.dataSet.CTHD);
@@ -884,7 +884,7 @@ namespace QLVT
                     MessageBox.Show("Chi tiết đơn hàng trống", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
-               
+
             }
 
             /*Step 2*/
@@ -1009,4 +1009,3 @@ namespace QLVT
 
     }
 }
-
